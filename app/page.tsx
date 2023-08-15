@@ -8,7 +8,7 @@ export default function Home() {
       <header> 
           <Header/>
       </header>   
-      <main className='mt-10' style={{marginTop: '120px'}}>
+      <main className='mt-10' style={{marginTop: '100px'}}>
         <section className='main_event_banner'>
           <MainEvent url='/ingevents/detail?' imgUrl='/main_event01.jpg' imgAlt='신세계 메인 이미지 첫번째'/>
           <div className='progress_nav_wrap'>

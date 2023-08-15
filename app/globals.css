@@ -57,8 +57,14 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   width: 100%;
   z-index: 10;
   background-color: var(--ssg-point-secondary);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   padding-bottom: 0;
 }
 
+.main_event_banner {
+  background-color: var(--ssg-point-secondary);
+}
+
+/* .main_event_banner .event_banner_wrap {
+
+} */
