@@ -7,7 +7,7 @@ function MainEvent(props : {url: string, imgUrl: string, imgAlt: string}) {
     const {url, imgUrl, imgAlt} = props;
 
     return (
-        <div className='main_event'>
+        <div className='main_event object-cover w-90'>
             <Link href={url}>
                 <Image 
                     src={imgUrl}
