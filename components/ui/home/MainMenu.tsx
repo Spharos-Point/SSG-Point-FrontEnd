@@ -5,9 +5,9 @@ import React from 'react'
 import Image from 'next/image';
 
 
-function MainMenu(props : {url: string, imgUrl: string, imgAlt: string, name: string}) {
+function MainMenu(props : {id:number, url: string, imgUrl: string, imgAlt: string, name: string}) {
 
-    const {url, imgUrl, imgAlt, name} = props;
+    const {id, url, imgUrl, imgAlt, name} = props;
 
   return (
     <div>

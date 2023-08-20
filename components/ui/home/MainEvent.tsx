@@ -2,9 +2,9 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-function MainEvent(props : {url: string, imgUrl: string, imgAlt: string}) {
+function MainEvent(props : {id: number, url: string, imgUrl: string, imgAlt: string}) {
 
-    const {url, imgUrl, imgAlt} = props;
+    const {id, url, imgUrl, imgAlt} = props;
 
     return (
         <div className='main_event object-cover w-90'>
@@ -14,7 +14,6 @@ function MainEvent(props : {url: string, imgUrl: string, imgAlt: string}) {
                     alt={imgAlt}
                     width={1960}
                     height={326}
-                                        
                 />
             </Link>
         </div>
