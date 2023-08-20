@@ -1,26 +1,36 @@
-import Image from 'next/image'
-import Header from './components/layout/Header'
-import MainEvent from './components/ui/home/MainEvent'
+import React from 'react'
+import MainEventSwiper from '../components/ui/home/MainBannerSwiper'
+import MainMenuList from '@/components/ui/home/MainMenuList';
+import { mainBannerData, mainBannerData2, mainBannerData3, mainBannerData4, mainBannerData5 } from '@/data';
 
 export default function Home() {
-  return (
-    <>
-      <header> 
-          <Header/>
-      </header>   
-      <main className='mt-10' style={{marginTop: '100px'}}>
-        <section className='main_event_banner'>
-          <MainEvent url='/ingevents/detail?' imgUrl='/main_event01.jpg' imgAlt='신세계 메인 이미지 첫번째'/>
-          <div className='progress_nav_wrap'>
-            <div className='progress_bar'></div>
-            <div className='progress_step'></div>
-            <p>
-              <span>1</span>
-              /6
-            </p>
-          </div>
-        </section>        
-      </main>
-    </>
+   
+  return (      
+    <main className='mt-10' style={{marginTop: '100px'}}>
+      <div className='main_event_banner'>
+        <div className='event_banner_wrap'>
+          <MainEventSwiper data={mainBannerData}/>        
+        </div>       
+      </div>  
+      <div className='main_menu_nav '>
+        <div className='main_menu'>
+          <MainMenuList/>
+        </div>      
+      </div>
+      <div className='main_banner_box'>
+        <div className='main_banner_cnt'>
+        <MainEventSwiper data={mainBannerData2}/>
+        </div>
+        <div className='main_banner_cnt'>
+        <MainEventSwiper data={mainBannerData3}/>
+        </div>
+        <div className='main_banner_cnt'>
+        <MainEventSwiper data={mainBannerData4}/>
+        </div>
+        <div className='main_banner_cnt'>
+        <MainEventSwiper data={mainBannerData5}/>
+        </div>
+      </div>
+    </main>
   )
 }
