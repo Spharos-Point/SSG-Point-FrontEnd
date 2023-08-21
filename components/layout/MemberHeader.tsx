@@ -1,6 +1,6 @@
 import HeaderTop from "./HeaderTop"
 
-const EventHeader = () => {
+const MemberHeader = () => {
 
     return (
         <header className="main_header">
@@ -9,4 +9,4 @@ const EventHeader = () => {
     )
 }
 
-export default  EventHeader;
+export default MemberHeader;
