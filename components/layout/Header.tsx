@@ -1,6 +1,5 @@
 import HeaderBottom from "./HeaderBottom";
-import HeaderTop from "./HeaderTop"
-import Link from "next/link"
+import HeaderTop from "./HeaderTop";
 
 const Header = () => {
 

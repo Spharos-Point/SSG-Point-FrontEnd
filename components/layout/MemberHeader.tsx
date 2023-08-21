@@ -1,4 +1,4 @@
-import HeaderTop from "./HeaderTop";
+import HeaderTop from "./HeaderTop"
 
 const EventHeader = () => {
 

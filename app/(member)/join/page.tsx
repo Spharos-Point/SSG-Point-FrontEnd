@@ -3,7 +3,7 @@ import React from 'react'
 function page() {
   return (
     <div>
-        종료이벤트
+        회원 가입 인증
     </div>
   )
 }
