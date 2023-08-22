@@ -3,7 +3,7 @@ import React from 'react'
 function page() {
   return (
     <div>
-        login page
+        당첨 이벤트
     </div>
   )
 }

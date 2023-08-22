@@ -1,4 +1,6 @@
-import { mainMenuData } from '@/data'
+'use client'
+
+import { mainMenuData } from '@/data/homeData'
 import React from 'react'
 import MainMenu from './MainMenu'
 

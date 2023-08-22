@@ -1,4 +1,4 @@
-import { MainBannerCardProps, MainMenuCardProps } from "../types";
+import { MainBannerCardProps, MainMenuCardProps } from "../types/homeDataType";
 
 export const mainBannerData :MainBannerCardProps[] = [
     {

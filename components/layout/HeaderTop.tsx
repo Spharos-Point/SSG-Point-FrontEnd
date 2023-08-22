@@ -3,11 +3,10 @@
 import Link from 'next/link'
 import React, {useState} from 'react'
 
-
-
-import Logo from '../ui/header/Logo'
 import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
+import Logo from '../ui/header/Logo'
+import HeaderPathName from '../ui/header/HeaderPathName'
 import HeaderUserStatus from './HeaderUserStatus'
 
 
@@ -29,7 +28,7 @@ function HeaderTop() {
                 ? 
                 <Logo url={'/'} imgUrl={'https://m.shinsegaepoint.com/img/logo_header.840b502c.gif'} imgAlt={'신세계포인트 로고'} />
                 :
-                "other component"
+                <HeaderPathName pathname={pathname}/>
             }
             <nav className='header_menu'>
                 <ul className='flex gap-4 justify-center items-center'>

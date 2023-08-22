@@ -7,7 +7,7 @@ import { Pagination, Scrollbar } from 'swiper/modules';
 import MainEvent from './MainEvent'
 
 import React from 'react'
-import { MainBannerCardProps } from '@/types';
+import { MainBannerCardProps } from '@/types/homeDataType';
 
 function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
 
