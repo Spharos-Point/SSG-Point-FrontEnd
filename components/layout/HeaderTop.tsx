@@ -31,8 +31,8 @@ function HeaderTop() {
                 <HeaderPathName pathname={pathname}/>
             }
             <nav className='header_menu'>
-                <ul className='flex gap-4 justify-center items-center'>
-                    <li className='text-sm font-medium'>
+                <ul className='flex gap-4 justify-center items-center pb-4'>
+                    <li className="text-sm font-bold">
                         {
                             isLogin 
                             ?
@@ -42,7 +42,7 @@ function HeaderTop() {
                         }
                     </li>
                     <li onClick={handleSideMenu}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
                             <path d="M4 5H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
                             <path d="M4 12L20 12" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
                             <path d="M4 19H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
