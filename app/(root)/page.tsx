@@ -1,7 +1,7 @@
 import React from 'react'
 
-import MainBannerSwiper from '@/components/ui/home/MainBannerSwiper'
-import MainMenuList from '@/components/ui/home/MainMenuList';
+import MainBannerSwiper from '@/components/page/home/MainBannerSwiper'
+import MainMenuList from '@/components/page/home/MainMenuList';
 
 import { mainBannerData, mainBannerData2, mainBannerData3, mainBannerData4, mainBannerData5 } from '@/data/homeData';
 

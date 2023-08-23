@@ -21,9 +21,42 @@
   box-sizing: border-box;
 }
 
+body, html {
+    min-width: 320px;
+}
+
 body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, figcaption, blockquote, dl, dd {
   margin: 0;
   padding: 0;
+}
+
+.main_event_banner {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* 헤더 */
+.main_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--ssg-point-secondary);
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+
+.main_header .header_top {
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .header_bottom li {
@@ -50,16 +83,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   }
 }
 
-.main_header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  background-color: var(--ssg-point-secondary);
-  padding: 1rem;
-  padding-bottom: 0;
-}
+
 
 .main_event_banner {
   background-color: var(--ssg-point-secondary);
@@ -71,6 +95,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   overflow: hidden;
   position: relative;
 }
+
 
 .main_event_banner .event_banner_wrap .swiper-scrollbar {
   width: 75%;
@@ -219,11 +244,23 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   width: 80%;
   height: 1.8px;
   position: absolute;
-  /* z-index: 10; */
   bottom: 1rem;
   left: 45%;
   transform: translateX(-50%);
   display: flex;
-  /* align-items: center; */
   gap: 2rem;
 }
+
+.header_top .back_btn {
+    width: 48px;
+    height: 56px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-indent: -999em;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAqCAYAAABYzsDTAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB1SURBVHgB7dfNDYAgGIPh4gSO4Aa6uSM5AiMo380Q/EloOfVNuD5NjAdI0DSXs0JQoLmcE+TuMBWvYRregin4E5zR2Rvc9bcYNmzY8J8WFRztbHjCoGTf2wMe8IAHPADCFfprgFZrgFo9QC8GjsATNMUjd7sAO9vdPKq2APgAAAAASUVORK5CYII=) 50% no-repeat;
+    background-size: 8px auto;
+    
+}
+
+

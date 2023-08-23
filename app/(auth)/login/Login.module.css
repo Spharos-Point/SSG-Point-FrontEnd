@@ -1,0 +1,15 @@
+.logo {
+    width: 89px;
+    height: 56px;
+    background: url(https://m.shinsegaepoint.com/img/logo_header.840b502c.gif) no-repeat center 0;
+    background-size: 100% auto;
+    margin: 0 auto;
+    margin-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.login_input_area {
+    width: 80%;
+    height: 310px;
+    margin: auto;
+}

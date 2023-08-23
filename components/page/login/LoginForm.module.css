@@ -1,0 +1,219 @@
+/* 로그인 폼 */
+.input_box {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+
+    height: 48px;
+    border: 1px solid #e8e8e8;
+    border-radius: 28px;
+    
+    margin: 6px 0;
+}
+
+.input_box input {
+    font: inherit;
+    vertical-align: middle;
+    letter-spacing: -.025em;
+    appearance: none;
+    padding: 0 16px;
+    border: none; 
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+}
+
+.input_box label {
+    position: absolute;
+    display: table;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    line-height: 24px;
+    font-size: 14px;
+    color: #767676;
+
+    vertical-align: middle;
+}
+
+.in_box {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    word-break: keep-all;
+    color: #767676;
+
+}
+
+.wp {
+    color: #bcbcbc;
+    display: inline-block;
+    -webkit-white-space: nowrap;
+    white-space: nowrap;
+}
+
+.input_box label em {
+    font-size: 13px;
+    font-style: normal;
+}
+
+.input_box img {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    display: block;
+    width: 19px;
+    height: 14px;
+    font-size: 1px;
+    text-indent: -999999999rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 12;
+
+    text-decoration: none;
+}
+
+/* 아이디저장 및 자동로그인 */
+
+.login_checkBox {
+    margin: 6px 0 0 10px;
+    color: #000;
+    border: 0;
+    letter-spacing: -.25px;
+    vertical-align: baseline;
+    outline: none;
+    /* margin-top: -6px; */
+
+    display: flex;
+    margin-left: 12px;
+}
+
+.check_box {
+    width: 50%;
+
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.login_checkBox input {
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 12px;
+    border: 1px solid black;
+    appearance: none;
+    cursor: pointer;
+    vertical-align: middle;
+    font: inherit;
+}
+
+.login_checkBox label {
+    /* display: block; */
+    min-height: 22px;
+    padding: 1px 0 0 9px;
+    line-height: 18px;
+    word-break: keep-all;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* 로그인 버튼 */
+
+.btn_box {
+    margin: 40px 0;
+}
+
+.btn_primary {
+    border-radius: 28px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 28px;
+    padding-top: 14px!important;
+    font-weight: 700;
+    width: 100%;
+    padding: 12px 16px!important;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+    font-weight: 500;
+} 
+
+.btn_primary a {
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 17px;
+
+}
+
+/* 정보 찾기 및 회원가입 */
+.btn_list_box {
+    height: 24px;
+    text-align: center;
+}
+
+.btn_list_box li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 10px;
+    border-right: 1px solid #ebebeb;
+    padding: 0px 15px;
+}
+
+.btn_list_box li:last-child {
+    border-right: none;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 24px;
+    font-weight: 600;
+    width: calc(100/3);
+    
+}
+
+/* 간편 로그인 */
+/* .sns_list_box { */
+    /* padding: 40px 40px 80px; */
+    /* background-color: #fbfbfb; */
+    /* width: 100%; */
+/* } */
+
+/* .tit {
+    display: block;
+
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.sns_list_box .sns_list li {
+    display: inline-block;
+    margin-right: 32px;
+}
+
+.sns_list_box .sns_list li .btn {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: url(https://m.shinsegaepoint.com/img/ico_sns.6ebacaac.png) no-repeat;
+    background-size: 98% auto;
+    line-height: 0;
+    color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+} */
