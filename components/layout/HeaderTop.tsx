@@ -22,7 +22,7 @@ function HeaderTop() {
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
-        <div className='header_top w-auto flex justify-between items-center'>
+        <div className='header_top'>
             { 
                 pathname === '/' 
                 ? 
@@ -30,27 +30,24 @@ function HeaderTop() {
                 :
                 <HeaderPathName pathname={pathname}/>
             }
-            <nav className='header_menu'>
-                <ul className='flex gap-4 justify-center items-center pb-4'>
-                    <li className="text-sm font-bold">
-                        {
-                            isLogin 
-                            ?
-                            <HeaderUserStatus />
-                            :
-                            <Link href='/login'>로그인</Link>
-                        }
-                    </li>
-                    <li onClick={handleSideMenu}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 5H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
-                            <path d="M4 12L20 12" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
-                            <path d="M4 19H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>            
-                    </li>
-                </ul>
-            </nav>
-                    
+            <ul className='gnb flex'>
+                <li className='login_btn'>
+                    {
+                        isLogin 
+                        ?
+                        <HeaderUserStatus />
+                        :
+                        <Link href='/login'>로그인</Link>
+                    }
+                </li>
+                <li onClick={handleSideMenu} className='ml-4'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 5H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M4 12L20 12" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
+                        <path d="M4 19H20" stroke="#121212" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>            
+                </li>
+            </ul>
         </div>
     </>
   )

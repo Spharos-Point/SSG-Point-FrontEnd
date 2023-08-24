@@ -9,7 +9,7 @@ import { mainBannerData, mainBannerData2, mainBannerData3, mainBannerData4, main
 export default function Home() {
    
   return (      
-    <main className='mt-10' style={{marginTop: '100px'}}>
+    <main className='mt-10' style={{marginTop: '90.5px'}}>
       <div className='main_event_banner'>
         <div className='event_banner_wrap'>
           <MainBannerSwiper data={mainBannerData}/>        

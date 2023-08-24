@@ -24,7 +24,10 @@
     width: 100%;
     height: 100%;
     border-radius: 28px;
+    font-size: small;
+
 }
+
 
 .input_box label {
     position: absolute;
@@ -40,6 +43,8 @@
     color: #767676;
 
     vertical-align: middle;
+    
+    
 }
 
 .in_box {
@@ -48,7 +53,6 @@
     text-align: left;
     word-break: keep-all;
     color: #767676;
-
 }
 
 .wp {
@@ -125,6 +129,12 @@
     font-size: 13px;
 }
 
+.check_box input:checked, .check_box input:checked {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAiCAYAAAAge+tMAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEGSURBVHgB1ZfhDYMgEIWvG7hBu0FH6SgdwRHaTRzJERzhFZJr2hgEFQ4eX0KM/jCfYF7eiXTKRToBwM1dnnr7lh7w0m4t+LEIOyo9Y4Uw4/yGkHQP4hPC8P4qTm7ENg9hJCE9CiN+N3uUXsfeP5Mwgo3YU/zzQdhAJPb0+VUYQST2ktJ6VC9d1b4QObGHQBdw6y7GIDf2dJdDx2QmjxKxtyFuJo9SsZd4UVF5lI49L2ctD6vYs5ZHTuy1kkeNtldaHjXbXil5tGh7ufJo2fbOyoOh7R2VB1PbOyIPy9izkgfrkJuQj9F+XjwhzzPkHpDnG3J3yM9gHHI9EXkvzTnkfgnIm8feB4Jf38SOCiBoAAAAAElFTkSuQmCC) no-repeat 50% #000;
+    border-color: #000;
+    background-size: 12px auto;
+}
+
 /* 로그인 버튼 */
 
 .btn_box {
@@ -178,42 +188,3 @@
     width: calc(100/3);
     
 }
-
-/* 간편 로그인 */
-/* .sns_list_box { */
-    /* padding: 40px 40px 80px; */
-    /* background-color: #fbfbfb; */
-    /* width: 100%; */
-/* } */
-
-/* .tit {
-    display: block;
-
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: 500;
-    margin-bottom: 24px;
-}
-
-.sns_list_box .sns_list li {
-    display: inline-block;
-    margin-right: 32px;
-}
-
-.sns_list_box .sns_list li .btn {
-    position: relative;
-    display: block;
-    width: 48px;
-    height: 48px;
-    background: url(https://m.shinsegaepoint.com/img/ico_sns.6ebacaac.png) no-repeat;
-    background-size: 98% auto;
-    line-height: 0;
-    color: transparent;
-    cursor: pointer;
-    overflow: hidden;
-} */
