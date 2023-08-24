@@ -35,34 +35,118 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   min-height: 100%;
 }
 
-/* 헤더 */
+/* header*/
 .main_header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 102;
+  height: 56px;
   background-color: var(--ssg-point-secondary);
   padding: 1rem;
-  padding-bottom: 0;
+  /* padding-bottom: 0; */
 }
 
+/* header top */
 
-.main_header .header_top {
+.header_top {
+    display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
     height: 100%;
     box-sizing: border-box;
+    position: relative;
     z-index: 10;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    padding: 0 0 0 30px;
 }
 
-.header_bottom li {
+.header_logo {
   position: relative;
+    text-indent: -999em;
+    width: 57px;
+    height: 36px;
+    background-size: 100% auto;
+    margin-left: -28px;
 }
-.header_bottom li.active a::after {
+
+/* .header_menu ul li {
+  
+} */
+
+
+.login_btn {
+    display: flex;
+    font-size: 14px;
+    line-height: 21px;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 600;
+    padding-top: 3px;
+}
+
+.header_top .back_btn {
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  /* right: 6; */
+  top: 0;
+  text-indent: -999em;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAqCAYAAABYzsDTAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB1SURBVHgB7dfNDYAgGIPh4gSO4Aa6uSM5AiMo380Q/EloOfVNuD5NjAdI0DSXs0JQoLmcE+TuMBWvYRregin4E5zR2Rvc9bcYNmzY8J8WFRztbHjCoGTf2wMe8IAHPADCFfprgFZrgFo9QC8GjsATNMUjd7sAO9vdPKq2APgAAAAASUVORK5CYII=) 50% no-repeat;
+  background-size: 8px auto;
+}
+
+/* header bottom*/
+
+.main_page_btn {
+    height: 36px;
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    background: var(--ssg-point-secondary);
+    z-index: 102;
+}
+
+.main_page_btn ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 2px;
+}
+
+.main_page_btn ul li {
+  font-weight: bold;
+}
+
+.main_page_btn ul li+li {
+  margin-left: 32px;
+}
+
+.main_page_btn ul a {
+    font-size: 16px;
+    line-height: 26px;
+    position: relative;
+    text-decoration: none;
+}
+
+/* .main_page_btn ul {
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 2px;
+} */
+
+/* .header_bottom li {
+  position: relative;
+} */
+
+.main_page_btn li.active a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -177,6 +261,12 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   margin-bottom: 20px;
 }
 
+.footer_box .info .txt0 {
+  margin-left: 10px;
+  margin-bottom: 20px;
+
+}
+
 .info{
   width: 350px;
   height: 51px;
@@ -205,7 +295,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   display: flex;
 
   font-size: small;
-  font-weight: 700;
+  font-weight: 500;
 
   font-size: 12px;
   line-height: 18px;
@@ -213,7 +303,16 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   display: inline-block;
 }
 
+.footer_box {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 26px 25px 35px 18px;
+  position: relative;
+  border-top: 1px solid #e5e5e5;
+}
+
 .footer_box .txt {
+  
   font-size: 0;
   padding: 3px 0 10px 0;
   margin-left: 10px;
@@ -227,7 +326,6 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   font-size: 12px;
   line-height: 22px;
   color: #767676;
-  display: inline-block;
   vertical-align: top;
   margin-right: 9px;
 }
@@ -251,16 +349,6 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   gap: 2rem;
 }
 
-.header_top .back_btn {
-    width: 48px;
-    height: 56px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-indent: -999em;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAqCAYAAABYzsDTAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB1SURBVHgB7dfNDYAgGIPh4gSO4Aa6uSM5AiMo380Q/EloOfVNuD5NjAdI0DSXs0JQoLmcE+TuMBWvYRregin4E5zR2Rvc9bcYNmzY8J8WFRztbHjCoGTf2wMe8IAHPADCFfprgFZrgFo9QC8GjsATNMUjd7sAO9vdPKq2APgAAAAASUVORK5CYII=) 50% no-repeat;
-    background-size: 8px auto;
-    
-}
+
 
 

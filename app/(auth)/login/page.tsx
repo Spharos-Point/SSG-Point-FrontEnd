@@ -1,6 +1,7 @@
 import LoginForm from '@/components/page/login/LoginForm'
 import React from 'react'
 import styles from  './Login.module.css'
+import LoginSns from '@/components/page/login/LoginSns'
 
 function Login() {
   return (
@@ -12,7 +13,7 @@ function Login() {
           <LoginForm/>  
         </div>
       </div>
-      <div className='sns_list_box'></div>
+      <LoginSns/>
     </section>
   )
 }

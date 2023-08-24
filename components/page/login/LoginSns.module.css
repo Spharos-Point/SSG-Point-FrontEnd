@@ -1,0 +1,67 @@
+/* 간편 로그인 */
+
+.sns_list_box {
+    padding: 40px 40px 80px;
+    background-color: #fbfbfb;
+    width: 100%;
+}
+
+.tit {
+    display: block;
+
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.sns_list {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.sns_list li {
+    display: inline-block;
+    /* margin-right: 10px; */
+    
+}
+
+.sns_list li .btn {
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
+    background: url(https://m.shinsegaepoint.com/img/ico_sns.6ebacaac.png) no-repeat;
+    background-size: 98% auto;
+    line-height: 0;
+    color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.sns_list li .btn span {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    left: 0;
+    clip: rect(0,0,0,0);
+    font-size: 1px;
+}
+
+.sns_list .fb .btn {
+    background-position: 0 0;
+}
+
+.sns_list_box .sns_list .naver .btn {
+    background-position: 0 -56px;
+}
+
+.sns_list_box .sns_list .kakao .btn {
+    background-position: 0 -113px;
+}
+
+.sns_list_box .sns_list .apple .btn {
+    background-position: 0 -169px;
+}

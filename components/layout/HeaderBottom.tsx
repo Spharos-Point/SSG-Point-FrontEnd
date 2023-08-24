@@ -9,18 +9,16 @@ function HeaderBottom() {
     const pathname = usePathname();
 
     return (
-        <div className='header_bottom p-4'>
-            <nav>
-                <ul className='flex gap-4 justify-center items-center'>
-                    <li className={ pathname === '/coupon' ? `text-base font-medium active` : `text-base font-medium`}>
-                        <Link href='/coupon'>쿠폰</Link>
-                    </li>
-                    <li className={ pathname === '/' ? `text-base font-medium active` : `text-base font-medium`}>
-                        <Link href='/'>홈</Link>
-                    </li>
+        <div className="main_page_btn">
+            <ul>
+                <li className={ pathname === '/coupon' ? `text-base font-medium active` : `text-base font-medium`}>
+                    <Link href='/coupon'>쿠폰</Link>
+                </li>
+                <li className={ pathname === '/' ? `text-base font-medium active` : `text-base font-medium`}>
+                    <Link href='/'>홈</Link>
+                </li>
 
-                </ul>
-            </nav>    
+            </ul>
         </div>
     )
 }

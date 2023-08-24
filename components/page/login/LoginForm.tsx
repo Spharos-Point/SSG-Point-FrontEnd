@@ -25,31 +25,26 @@ function LongForm() {
   };
 
 return (
-  <>
+  <div>
     <form>
       <div className={styles.input_box}>
         <label htmlFor="loginId">
-          <span className={styles.in_box}>
-            아이디
-          </span>
         </label>
         <input 
           type="text" 
           name="loginId" 
           id="loginId" 
+          placeholder='아이디'
         />
       </div>
       <div className={styles.input_box}>
         <label htmlFor='password'>
-          <span className={styles.in_box}>
-            비밀번호
-            <em className={styles.wp}>(영문, 숫자, 특수문자 8~20자)</em>
-          </span>
         </label>
         <input 
           type={pwType ? 'password' : 'text'} 
           name="password" 
           id="password"
+          placeholder='비밀번호(영문, 숫자, 특수문자 8 ~ 20자)'
         />
         <Image className={styles.img} src={imageSrc} onClick={handleClick} width={16} height={14} alt='비밀번호 보기'/>
       </div>
@@ -62,7 +57,7 @@ return (
           />
           <label htmlFor="isAutoId">아이디 저장</label>
         </div>
-        <div className='check_box'>
+        <div className={styles.check_box}>
           <input 
             type="checkbox" 
             name="isAutoLogin" 
@@ -74,7 +69,6 @@ return (
       <div className={styles.btn_box}>
         <button type="submit" className={styles.btn_primary}>
             <Link href="/">로그인</Link>
-            {/* 로그인 */}
         </button>
       </div>
       <ul className={styles.btn_list_box}>
@@ -89,21 +83,7 @@ return (
         </li>
       </ul>
     </form>
-    <div className={styles.sns_list_box}>
-      <h3 className={styles.tit}>간편로그인</h3>
-      <ul className={styles.sns_list}>
-        <li className='naver'>
-          <Link href="/" className={styles.btn}></Link>
-        </li>
-        <li className='kakao'>
-          <Link href="/" className={styles.btn}></Link>
-        </li>
-        <li className='apple'>
-          <Link href="/" className={styles.btn}></Link>
-        </li>
-      </ul>
-    </div>
-  </>
+  </div>
 )
 }
 
