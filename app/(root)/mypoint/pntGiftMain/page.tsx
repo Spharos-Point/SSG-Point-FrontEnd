@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function pntGiftMain() {
   return (
-    <div>page</div>
+    <div>포인트 선물</div>
   )
 }

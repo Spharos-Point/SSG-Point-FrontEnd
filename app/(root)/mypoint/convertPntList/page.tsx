@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function convertPntList() {
   return (
-    <div>page</div>
+    <div>포인트 전환</div>
   )
 }
 
