@@ -1,0 +1,52 @@
+.box{
+    border-bottom: 1px solid #e5e5e5;}
+
+.gnb_depth2 ul li a {
+    position: relative;
+    color: #767676;
+    display: block;
+    height: 100%;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding: 12px 0;
+}
+
+.gnb_depth2.customer ul li {
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0;
+    text-align: center;
+}
+
+.gnb_depth2 ul li.on a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(93.4deg,#f40000,#ff8a00 14.06%,#f9ad05 37.76%,#fc348c 62.77%,#b258cb 78.91%,#00c4b4 94.39%);
+}
+
+.btn_style button{
+        margin-left: 8px;
+        font-size: 30px;
+        color: rgb(153, 153, 153);
+        background-color: transparent;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+/* 
+        &:active,
+        &:focus,
+        &.active {
+          color: #000;
+          font-weight: bold; }
+*/} 
+
+.btn_style button:active{
+    color: #000;
+    font-weight: bold; 
+}
