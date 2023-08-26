@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import styles from './LoginForm.module.css'
 import Link from 'next/link';
+import { LoginFormDataType } from '@/types/formDataType';
 
 function LongForm() {
 
@@ -24,17 +25,80 @@ function LongForm() {
     }
   };
 
+  // 자동로그인, 아이디 저장
+  const [loginData, setLoginData] = useState<LoginFormDataType>({
+    loginId: '',
+    password:'',
+    isAutoId:false,
+    isAutoLogin:false
+
+  });
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = e.target;
+
+    if(name === 'isAutoId' || name === 'isAutoLogin') {
+        setLoginData({
+        ...loginData,
+        [name]: e.target.checked
+      });
+
+      if(name === 'isAutoId' && !e.target.checked) {
+        localStorage.removeItem('autoLogin');
+      }
+    } else {
+        setLoginData({
+        ...loginData,
+        [name]: value
+    })
+    } 
+  }
+
+  const handleLocalStorage = (loginId: String) => {
+    localStorage.setItem('autoLogin', loginId.toString())
+  }
+
+  const handleLoginFetch = async (e : React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if(loginData.isAutoId) {
+      handleLocalStorage(loginData.loginId)
+    }
+
+    fetch('/api/vi/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        
+      })
+    })
+  }
+
+  useEffect(() => {
+    if(typeof window !== 'undefined') {
+      const autoLogin = localStorage.getItem('autoLogin') || '';
+      if(autoLogin) {
+        setLoginData({
+          ...loginData,
+          loginId: autoLogin,
+          isAutoId: true
+        })
+      }
+    }    
+  },[])
+
 return (
   <div>
-    <form>
+    <form onSubmit={handleLoginFetch}>
       <div className={styles.input_box}>
         <label htmlFor="loginId">
         </label>
         <input 
-          type="text" 
+          type="email" 
           name="loginId" 
           id="loginId" 
           placeholder='아이디'
+          defaultValue={loginData.loginId}
+          onChange={handleOnChange}
         />
       </div>
       <div className={styles.input_box}>
@@ -45,6 +109,7 @@ return (
           name="password" 
           id="password"
           placeholder='비밀번호(영문, 숫자, 특수문자 8 ~ 20자)'
+          onChange={handleOnChange}
         />
         <Image className={styles.img} src={imageSrc} onClick={handleClick} width={16} height={14} alt='비밀번호 보기'/>
       </div>
@@ -54,6 +119,8 @@ return (
             type="checkbox" 
             name="isAutoId" 
             id="isAutoId" 
+            onChange={handleOnChange}
+            checked={loginData.isAutoId&&true}
           />
           <label htmlFor="isAutoId">아이디 저장</label>
         </div>
@@ -62,6 +129,7 @@ return (
             type="checkbox" 
             name="isAutoLogin" 
             id="isAutoLogin"
+            onChange={handleOnChange}
           />
           <label htmlFor="isAutoLogin">자동로그인</label>
         </div>

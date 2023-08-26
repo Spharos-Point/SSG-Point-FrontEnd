@@ -2,7 +2,7 @@
 
 .sns_list_box {
     padding: 40px 40px 80px;
-    background-color: #fbfbfb;
+    background-color: var(--ssg-point-secondary);
     width: 100%;
 }
 

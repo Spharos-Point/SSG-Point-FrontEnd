@@ -135,17 +135,6 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     text-decoration: none;
 }
 
-/* .main_page_btn ul {
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding-top: 2px;
-} */
-
-/* .header_bottom li {
-  position: relative;
-} */
-
 .main_page_btn li.active a::after {
   content: "";
   position: absolute;
@@ -168,6 +157,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
 }
 
 
+/* main home */
 
 .main_event_banner {
   background-color: var(--ssg-point-secondary);
@@ -180,18 +170,69 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   position: relative;
 }
 
-
+/* swiper */
 .main_event_banner .event_banner_wrap .swiper-scrollbar {
-  width: 75%;
-  height: 1.8px;
+  width: 73%;
+  height: 3px;
   position: absolute;
   z-index: 10;
   bottom: 2.5rem;
-  left: 45%;
+  left: 43%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.main_event_banner .event_banner_wrap .swiper-control {
+    position: absolute;
+    right: 30px;
+    bottom: 32px;
+    z-index: 2;
+    box-sizing: border-box;
+    height: 18px;
+}
+
+.main_banner_box .main_banner_cnt .swiper-scrollbar{
+    width: 70% !important; 
+    height: 2px;
+    position: absolute;
+    z-index: 10;
+    bottom: 2.5rem;
+    left: 43% !important;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.main_banner_box .main_banner_cnt .swiper-control {
+    position: absolute;
+    right: 30px;
+    bottom: 7px;
+    z-index: 2;
+    box-sizing: border-box;
+    height: 18px;
+}
+
+.swiper-pagination {
+    color: #000;
+    font-size: 12px;
+    letter-spacing: -1.5px;
+    line-height: 14px;
+    font-family: Inter,Noto Sans KR,sans-serif;
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+.swiper-pagination span {
+  padding: 0px 3px;
+}
+
+.swiper-pagination-current {
+    color: #000;
+    font-weight: 700;
 }
 
 .main_menu_nav {

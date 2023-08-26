@@ -168,12 +168,14 @@
     text-align: center;
 }
 
+
 .btn_list_box li {
     display: inline-block;
     vertical-align: top;
     padding: 0 10px;
-    border-right: 1px solid #ebebeb;
-    padding: 0px 15px;
+    border-right: 2px solid #ebebeb;
+    padding: 0 15px;
+    height: 70%;
 }
 
 .btn_list_box li:last-child {
