@@ -47,11 +47,11 @@ export default function PntHistoryPonintList() {
         <div className='flex items-center bg-[#f8f8f8] h-[36px] box-border mr-[16px] px-[8px] w-full'>
           <p className={styles.p_accumulate}>
             <span className='text-[13px] pr-[8px] font-medium'>적립</span>
-            <span className='font-medium'>110p</span>
+            <span className='font-medium'>110P</span>
           </p>
           <p className={styles.p_use}>
             <span className='text-[13px] pr-[8px] font-medium'>사용</span>
-            <span className='font-medium'>620p</span>
+            <span className='font-medium'>620P</span>
           </p>
         </div>
         {/* 포인트 내역 조회 결과 리스트 */}
