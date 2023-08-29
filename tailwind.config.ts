@@ -11,7 +11,11 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'pntHistoryLogo':"url('../public/pnthistorycardlogo.png')",
+        'pnthistoryinfoLogo':"url('../public/pnthistoryinfoicon.png')",
+        'pnticon01':"url('../public/pnticon01.png')",
+        'pntCell':"url('../public/pntCell.png')",
       },
     },
   },

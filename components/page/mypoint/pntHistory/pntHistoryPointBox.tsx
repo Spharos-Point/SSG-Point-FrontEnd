@@ -1,35 +1,47 @@
 import React from 'react'
 import styles from './pntHistory.module.css'
+import LaterOneMonth from './LaterOneMonth'
+import LaterTwoMonth from './LaterTwoMonth'
 
 
 export default function PntHistoryPointBox(){
     return(
-        <div className='pt-[24px]'>
+        <div className='p-[24px]'>
         <div className={styles.cardbox}>
-          <div className="flex">
-            <h3 className=''>신세계 포인트 로고</h3>
-            <button className=''> 정보 팝업 버튼</button>
+
+          <div className="h-[40px] relative items-center pr-[12px] pl-[20px] flex">
+            <h3 className={styles.tit_img}><span className='hidden'>신세계 포인트 로고</span></h3>
+            <button className={styles.btn_info}><span className='hidden'>신세계포인트 상세 안내</span></button>
           </div>
+
             <div className={styles.item_cnt}>
-                <dl className={styles.total_point}></dl>
-                <dl className='flex'>
-                  <dt className='text-[13px] font-medium leading-6 grow shrink basis-0'>사용가능</dt>
-                  <dd className='basis shrink'>70</dd>
+                <dl className={styles.total_point}>
+                    {/* 보유포인트 */}
+                    <div className='text-[13px] font-bold leading-6 grow shrink basis-0'>사용 가능</div>
+                    <div className='flex item-center justify-end text-[24px] leading-[29px] font-bold'>
+                      9999999999
+                      <div className={styles.total_point_dd_icon}>
+                        <span className='hidden'>아이콘</span>
+                      </div>
+                    </div>
                 </dl>
-                <dl className='flex'>
-                  <dt >적립 예정</dt>
-                  <dd>0p</dd>
+                <dl className='flex text-[12px] '>
+                  {/* 적립예정 포인트 */}
+                  <dt className={styles.item_cnt_dt}>적립 예정</dt>
+                  <dd className='not-italic'>12345p</dd>
                 </dl>
-                <dl className=''>
-                  <dt className=''>소멸 예정</dt>
+                <dl className='flex text-[12px]'>
+                  <dt className={styles.item_cnt_dt}>소멸 예정</dt>
                   <dd>
-                    <span className='flex'>
-                        <em className={styles.date}>2023-09-01</em>
-                        <em>0p</em>
+                    <span className='flex text-left'>
+                        {/* 다음달 1일 소멸 예정 포인트 */}
+                        <em className={styles.date}><LaterOneMonth/></em>
+                        <em className='not-italic'>10020p</em>
                     </span>
-                    <span className='flex'>
-                        <em className={styles.date}>2023-10-01</em>
-                        <em>0p</em>
+                    <span className='flex text-left'>
+                        {/* 다다음달 1일 소멸 예정 포인트 */}
+                        <em className={styles.date}><LaterTwoMonth/></em>
+                        <em className='not-italic'>999999999999999999p</em>
                     </span>
                   </dd>
                 </dl>
