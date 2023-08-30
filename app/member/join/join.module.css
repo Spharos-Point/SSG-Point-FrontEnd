@@ -1,0 +1,68 @@
+.step_list li{
+    position: relative;
+    box-sizing: border-box;
+    height: 92px;
+    padding: 0 0 0 90px;
+}
+
+.step_list li ::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 60px;
+    height: 62px;
+    background: url(https://m.shinsegaepoint.com/img/ico_step.7dd5193d.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.step_list li.step2 ::before {
+    background-position: 0 -70px
+}
+
+.step_list li.step3 ::before {
+    background-position: 0 -140px
+}
+
+.step_list li.step4 ::before {
+    background-position: 0 bottom
+}
+
+.txt0 {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Inter,Noto Sans KR,sans-serif;
+    padding: 36px 9px 0 0;
+}
+
+.txt1 {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+    padding-top: 33px
+}
+
+.btn_box [class*=btn] {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+.btn_primary {
+    border-radius: 8px;
+    padding: 12px 16px!important;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+}

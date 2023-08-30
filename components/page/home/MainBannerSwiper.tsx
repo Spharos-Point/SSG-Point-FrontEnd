@@ -14,13 +14,13 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
 
   const {data} = props;
   
-  const [isDraggableIndex, setIsDraggableIndex] = useState(1);
+  const [isCurrentIndex, setIsCurrentIndex] = useState(1);
 
 
-  const handleTransitionEnd = (swiper: any) => {
+  const handleTransitionStart = (swiper: any) => {
     // console.log(swiper.realIndex);
 
-    setIsDraggableIndex(swiper.realIndex + 1);
+    setIsCurrentIndex(swiper.realIndex + 1);
   }
 
 
@@ -30,7 +30,8 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
       slidesPerView={1}
       modules={[Scrollbar]}
       scrollbar={{ draggable: true }}
-      onTransitionEnd={handleTransitionEnd}
+      onTransitionStart={handleTransitionStart}
+      
     >
         {
           data.map((item:MainBannerCardProps) => (
@@ -50,7 +51,7 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
             <div className='swiper-control'>
               <div className='swiper-pagination'>
                 <span className='swiper-pagination-current'>
-                  {isDraggableIndex}
+                  {isCurrentIndex}
                 </span>
                   /
                 <span className='swiper-pagination-total'>

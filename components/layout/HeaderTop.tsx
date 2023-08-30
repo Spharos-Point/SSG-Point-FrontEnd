@@ -7,17 +7,20 @@ import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
 import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
-import HeaderUserStatus from './HeaderUserStatus'
+import { useSession } from 'next-auth/react'
 
 
 function HeaderTop() {
     const [isLogin, setIsLogin] = useState<Boolean>(false)
     const [isOpened, setIsOpened] = useState<Boolean>(false)
     const pathname = usePathname();
+    const session = useSession();
 
     const handleSideMenu = () => {
         setIsOpened(!isOpened)
     }
+
+
 
   return ( 
     <>
@@ -33,9 +36,10 @@ function HeaderTop() {
             <ul className='gnb flex'>
                 <li className='login_btn'>
                     {
-                        isLogin 
+                        session.status === 'authenticated'
                         ?
-                        <HeaderUserStatus />
+                        // <HeaderUserStatus />
+                        session.data?.user
                         :
                         <Link href='/login'>로그인</Link>
                     }
