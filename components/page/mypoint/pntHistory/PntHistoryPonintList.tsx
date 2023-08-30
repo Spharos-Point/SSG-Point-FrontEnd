@@ -8,16 +8,16 @@ export default function PntHistoryPonintList() {
     <>
     <div className='pt-[25px] pb-[60px] pr-[20px] pl-[20px] tracking-tight'>
       <div className={styles.sort_radio_box}>
-        <div className={styles.sort_box}><input type="radio" className='hidden'>
+        <div className={styles.sort_box}><input type="radio" id='' name='00'className=''>
           </input><label>
             전체</label></div>
-        <div className={styles.sort_box}><input type="radio" className='hidden'>
+        <div className={styles.sort_box}><input type="radio" id='' name='00'className=''>
           </input><label>
             적립/사용</label></div>
-        <div className={styles.sort_box}><input type="radio" className='hidden'>
+        <div className={styles.sort_box}><input type="radio" id='' name='00'className=''>
           </input><label>
             선물</label></div>
-        <div className={styles.sort_box}><input type="radio" className='hidden'>
+        <div className={styles.sort_box}><input type="radio" id='' name='00'className=''>
           </input><label>
             전환</label></div>
       </div>

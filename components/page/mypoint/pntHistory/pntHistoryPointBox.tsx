@@ -6,7 +6,7 @@ import LaterTwoMonth from './LaterTwoMonth'
 
 export default function PntHistoryPointBox(){
     return(
-        <div className='p-[24px]'>
+        <div className='p-[24px] bg-[#fbfbfb]'>
         <div className={styles.cardbox}>
 
           <div className="h-[40px] relative items-center pr-[12px] pl-[20px] flex">
