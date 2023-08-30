@@ -1,0 +1,40 @@
+.auth_tab_menu li a::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    left: 50%;
+    margin-left: -25px;
+    top: 15px;
+    background: url(https://m.shinsegaepoint.com/img/ico_find_tab.f8d8ffcf.png) no-repeat;
+    background-size: 85px auto;
+}
+
+.auth_tab_menu li.on {
+    position: relative;
+    background: linear-gradient(93.4deg,#f40000,#ff8a00 14.06%,#f9ad05 37.76%,#fc348c 62.77%,#b258cb 78.91%,#00c4b4);
+}
+
+.auth_tab_menu li.on a {
+    font-weight: 700;
+    color: #000;
+}
+
+.auth_tab_menu li.on a.phone:after {
+    background-position: 15px 0
+}
+
+.auth_tab_menu li.on a.card:after {
+    background-position: 9px -46px
+}
+
+
+
+.auth_tab_menu li a.phone::after {
+    background-position: -37px 0
+}
+
+.auth_tab_menu li a.card::after {
+    background-position: -43px -46px
+}
+
