@@ -3,12 +3,10 @@
 import React from 'react'
 import { useRouter } from 'next/navigation';
 
-
 function HeaderPathName(props : {pathname: string}) {
 
   const {pathname} = props;
   const router = useRouter();
-
 
   return (
     <>
@@ -20,6 +18,8 @@ function HeaderPathName(props : {pathname: string}) {
           : pathname === '/ingevents' ? '이벤트 - 진행 이벤트' 
           : pathname === '/endevents' ? '이벤트 - 종료 이벤트'
           : pathname === '/winevents' ? '이벤트 - 당첨 확인'
+          : pathname === '/member/join' ? '회원가입'
+          : pathname === '/member/join/cert' ? '회원가입 본인인증'
           :'other page'
         }
       </div>

@@ -1,25 +1,37 @@
 'use client'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css';
+
 import 'swiper/css/scrollbar';
-import { Pagination, Scrollbar } from 'swiper/modules';
+import {Scrollbar} from 'swiper/modules';
 import MainEvent from './MainEvent'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MainBannerCardProps } from '@/types/homeDataType';
 
 function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
 
   const {data} = props;
+  
+  const [isCurrentIndex, setIsCurrentIndex] = useState(1);
+
+
+  const handleTransitionStart = (swiper: any) => {
+    // console.log(swiper.realIndex);
+
+    setIsCurrentIndex(swiper.realIndex + 1);
+  }
+
 
   return (
     <Swiper
-      className='main_event_banner'
       spaceBetween={0}
       slidesPerView={1}
-      scrollbar
       modules={[Scrollbar]}
+      scrollbar={{ draggable: true }}
+      onTransitionStart={handleTransitionStart}
+      
     >
         {
           data.map((item:MainBannerCardProps) => (
@@ -32,6 +44,23 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
               />
             </SwiperSlide>    
           ))         
+        }
+        {
+          data.length !== 1 
+          ?
+            <div className='swiper-control'>
+              <div className='swiper-pagination'>
+                <span className='swiper-pagination-current'>
+                  {isCurrentIndex}
+                </span>
+                  /
+                <span className='swiper-pagination-total'>
+                  {data.length}
+                </span>
+              </div>  
+            </div>
+          :
+          ''  
         }
     </Swiper>
   )
