@@ -20,6 +20,7 @@ function HeaderPathName(props : {pathname: string}) {
           : pathname === '/winevents' ? '이벤트 - 당첨 확인'
           : pathname === '/member/join' ? '회원가입'
           : pathname === '/member/join/cert' ? '회원가입 본인인증'
+          : pathname === '/member/join/agree' ? '회원가입 약관동의'
           :'other page'
         }
       </div>

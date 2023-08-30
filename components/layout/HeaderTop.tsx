@@ -7,7 +7,7 @@ import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
 import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
-import { useSession } from 'next-auth/react'
+import { signOut, useSession } from 'next-auth/react'
 
 
 function HeaderTop() {
@@ -39,7 +39,9 @@ function HeaderTop() {
                         session.status === 'authenticated'
                         ?
                         // <HeaderUserStatus />
-                        session.data?.user
+                        <p onClick={()=>signOut(
+                            {callbackUrl: 'http://localhost:3000/'}
+                          )}>로그아웃 : {session.data.user.name}</p> 
                         :
                         <Link href='/login'>로그인</Link>
                     }
