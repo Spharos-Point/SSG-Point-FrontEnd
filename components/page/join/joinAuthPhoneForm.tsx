@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import styles from './joinAuthPhoneForm.module.css'
+import { certAgreements } from '@/data/agreeData';
+import { Agreement } from '@/types/agreeDataType';
 import Link from 'next/link';
 
 function JoinAuthPhoneForm() {
@@ -11,12 +13,18 @@ function JoinAuthPhoneForm() {
       setSelectedGender(value);
     };
 
-    // 내국인, 외구인
+    // 내국인, 외국인
     const [selectedClassification, setSelectedClassification] = useState('L');
 
     const handleClassificationChange = (value:string) => {
       setSelectedClassification(value)
     }
+
+    // 모두 동의
+    const [agreeAll, setAgreeAll] = useState(false);
+    const handleClick = () => {
+      setAgreeAll(!agreeAll);
+    };
     
   return (
     <>
@@ -84,7 +92,7 @@ function JoinAuthPhoneForm() {
               <div className='relative'>
                 <div className={`${styles.select_box} relative inline-block align-top bg-white rounded-lg w-full`}>
                   <select name="telecom" id="telecom" className='appearance-none block w-full h-12 py-0 pr-8 pl-4 box-border border-2 border-solid border-gray-200 rounded-lg text-sm relative'>
-                    <option value="01" selected>SKT</option>
+                    <option value="01">SKT</option>
                     <option value="02">KT</option>
                     <option value="03">LG U+</option>
                     <option value="04">SKT 알뜰폰</option>
@@ -112,50 +120,36 @@ function JoinAuthPhoneForm() {
                   className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
                   id='agreeAllChk'
                   type='checkbox'
+                  onClick={handleClick}
                 />
                 <label htmlFor='agreeAllChk' className='block min-h-5 pt-px pl-7 text-sm leading-4 break-keep font-bold'>모든 약관에 동의합니다.</label>
               </div>
             </div>
             <ul className='agree_list'>
-              <li className='relative pr-5 mb-4'>
-                <input
-                  className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                  id='agree01'
-                  type='checkbox'
-                />
-                <label htmlFor='agree01' className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>[필수] 휴대전화 인증 서비스 이용약관</label>
-              </li>
-              <li className='relative pr-5 mb-4'>
-                <input
-                  className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                  id='agree02'
-                  type='checkbox'
-                />
-                <label htmlFor='agree02' className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>[필수] 고유식별정보 처리 동의</label>
-              </li>
-              <li className='relative pr-5 mb-4'>
-                <input
-                  className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                  id='agree03'
-                  type='checkbox'
-                />
-                <label htmlFor='agree03' className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>[필수] 통신사 이용약관 동의</label>
-              </li>
-              <li className='relative pr-5 mb-4'>
-                <input
-                  className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                  id='agree04'
-                  type='checkbox'
-                />
-                <label htmlFor='agree04' className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>[필수] 개인정보 수집/이용동의</label>
-              </li>
+              {
+                certAgreements.map((items:Agreement) => (
+                <li key={items.id} className='relative pr-5 mb-4'>
+                  <div className={styles.chk_box}>
+                    <input
+                      className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
+                      id={items.id}
+                      type='checkbox'
+                      defaultChecked={agreeAll}
+                    />
+                    <label htmlFor={items.id} className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>
+                      {items.label}
+                    </label>
+                  </div>
+                </li>
+                ))
+              }
             </ul>
           </div>
         </div>
         <div className='tab_box1 pt-10 py-5'>
           <div className={styles.btn_box}>
-            <button className={`${styles.btn_primary}`}>인증번호 요청</button>
-            {/* <Link href={'/'} className={`${styles.btn_primary}`}>인증번호 요청</Link> */}
+            {/* <button className={`${styles.btn_primary}`}>인증번호 요청</button> */}
+            <Link href='/member/join/agree' className={`${styles.btn_primary}`}>인증번호 요청</Link>
           </div>
           <div className='form_box'>
             <p></p>
