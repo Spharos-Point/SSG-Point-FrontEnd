@@ -1,0 +1,11 @@
+.form_box .tit::after {
+    content: "*";
+    display: inline-block;
+    color: #eb0000;
+}
+
+.input_box input.readonly_bg:read-only, .input_box input:disabled {
+    background: #fbfbfb;
+    border: 1px solid #e8e8e8;
+    color: #767676;
+}

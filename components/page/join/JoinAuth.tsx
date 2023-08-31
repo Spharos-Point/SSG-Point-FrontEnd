@@ -2,8 +2,8 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import styles from './JoinAuth.module.css'
-import JoinAuthPhoneForm from './joinAuthPhoneForm';
-import JoinAuthCardForm from './joinAuthCardForm';
+import JoinAuthPhoneForm from './JoinAuthPhoneForm';
+import JoinAuthCardForm from './JoinAuthCardForm';
 
 function JoinAuth() {
 
