@@ -27,7 +27,7 @@ export default function AffiliatePntCardDetail() {
                 <button id="asianaair_membership"
                     className={isclicked === "asianaair_membership" ? styles.membership_tab_on : styles.membership_tab}
                     onClick={() => handleClick("asianaair_membership")}>
-                    페리카나 항공?
+                    아시아나 항공
                 </button>
             </div>
 
