@@ -7,13 +7,8 @@ import styles from '@/components/page/mypoint/cardManage/CardManage.module.css'
 export default function cardMange() {
   return (
     <>
-    <div>
       <CardManagePointBox />
-    </div>
-
-    <div>
       <PntCardList />
-    </div>
 
     <div className='px-[20px] pb-[40px]'>
       <button className='bg-[#fff] box-border border-[1px] block rounded-[8px] 
