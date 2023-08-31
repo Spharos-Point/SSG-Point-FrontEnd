@@ -1,12 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react'
-import AffiliatePntCardDetail from '@/components/page/mypoint/regAffiliatePntCard/AffiliatePntCardDetail'
+import AffiliatePntCardDetail from '@/components/page/mypoint/regAffiliatePntCard/AffiliateCompany/AffiliateCompany'
+import AffiliateAgreeForm from '@/components/page/mypoint/regAffiliatePntCard/AffiliateAgreeForm/AffiliateAgreeForm'
 
 export default function regAffiliatePntCard() {
   return (
     <>
       <div className='px-[20px] py-[40px]'>
-        <h3 className='text-[20px] leading-[30px] font-normal break-all'>신세계 포인트에
+        <h3 className='text-[20px] leading-[30px] font-normal break-all'>신세계포인트에
           <strong className='text-[#ea035c]'> 제휴사 포인트 </strong>
           더하기!
         </h3>
@@ -17,20 +17,13 @@ export default function regAffiliatePntCard() {
           <br />
           모두 적립할 수 있어요.
         </p>
-      {/* 멤버십 안내 */}
       </div>
+
+      {/*제휴사별 멤버십 안내 */}
       <AffiliatePntCardDetail />
+
       {/* 동의 여부 확인 및 제휴 멤버쉽 카드 번호 입력 */}
-      <div>
-        <div className=' bg-[#fbfbfb] p-[20px] border-b-[1px] border-b-[#e8e8e8] mb-[39px]'>
-          <div>
-            <p></p>
-          </div>
-          <div>
-            <input type='checkbox'></input>동의합니다
-          </div>
-        </div>
-      </div>
+      <AffiliateAgreeForm />
     </>
   )
 }
