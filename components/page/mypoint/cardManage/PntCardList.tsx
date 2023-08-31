@@ -67,7 +67,6 @@ function PntCardList() {
               {/* 제휴 카드 리스트 본문 */}
             </thead>
             <tbody className='font-normal text-center align-center border-b-[1px] leading-[21px] break-keep'>
-              <tr>
                 <td className='col-span-3 text-[12px] text-[#767676] py-3'>
                   <div className='py-[28px]'>
                     <p className='relative text-[13px] text-center pt-[64px] after:bg-[url(../public/noneinfoicon.png)]'>
@@ -75,7 +74,6 @@ function PntCardList() {
                     </p>
                   </div>
                 </td>
-              </tr>
             </tbody>
           </table>
         </div>

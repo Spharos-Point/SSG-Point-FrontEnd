@@ -15,9 +15,8 @@ export default function CardManagePointBox(){
         <div className={styles.cardbox}>
           <div className="h-[40px] relative items-center pr-[12px] pl-[20px] flex">
             <h3 className={styles.tit_img}><span className='hidden'>신세계 포인트 로고</span></h3>
-            <button id='barcode btn' className='w-[56px] h-[24px] bg-contain'>
-                {/* 바코드 */}
-                <BarcodeGenerator />
+            <button className='pl-[130px]'>
+              <BarcodeGenerator width={0.4} height={17}/>
             </button>
           </div>
 
@@ -31,7 +30,8 @@ export default function CardManagePointBox(){
               <span className='text-[10px] text-[#bcbcbc] inline-block font-normal align-top'>-</span>
               {" 0000"}
             </p>
-            <button className={styles.copy_btn}>복사</button>
+            {/* 복사 기능 추가 필요 */}
+            <button className={styles.copy_btn} onClick={()=>{}}>복사</button>
             <div>
               <dl className='flex box-border absolute bottom-[20px] left-0 px-[20px] w-full items-center'>
                 <dt className='grow shrink basis-0 text-[12px] font-normal'>사용 가능</dt>
