@@ -1,8 +1,27 @@
-import React, { useState } from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import styles from './JoinForm.module.css'
-import Postcode from '@/components/widget/Postcode'
+import { DaumAddressType } from '@/types/DaumAddressType';
+import Postcode from '@/components/widget/Postcode';
 
 function JoinForm() {
+
+    // 우편 주소
+    const [isView, setIsView] = useState<boolean>(false);
+    const [address, setAddress] = useState<DaumAddressType>();
+
+    const handleOpenModal = () => {
+        setIsView(!isView);
+    }
+
+    useEffect(() => {
+        if(address){
+            // setIsView(false);
+            console.log(address)
+        }
+    }, [address])
+
+    
 
     return (
     <>
@@ -108,14 +127,14 @@ function JoinForm() {
                         <input 
                             type="text"
                             id="addressId"
-                            // value={addressId}
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             placeholder='우편번호'
                         />
                     </div>    
                     <div className={`${styles.btn_box} ml-[5px]`}>
                         <div className='p-3 text-[#000] border border-solid border-[#bcbcbc] font-normal rounded-lg h-12 block w-full text-center text-sm leading-6 box-border'>
-                            <Postcode />
+                            <button onClick={handleOpenModal}>우편번호 찾기</button>
+                            <Postcode isView={isView} setIsView={setIsView} setAddress={setAddress} />
                         </div>
                     </div>    
                 </div>
@@ -124,7 +143,6 @@ function JoinForm() {
                         type="text"
                         id="addressId01"
                         className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
-                        // value={addressId01}
                         readOnly
                     />
                 </div>
@@ -134,7 +152,6 @@ function JoinForm() {
                         id="addressId02"
                         className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                         readOnly
-                        // value={addressId02}
                         placeholder='상세주소'
                     />
                 </div>

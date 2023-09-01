@@ -64,7 +64,7 @@ function page() {
                     className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
                     id={items.id}
                     type='checkbox'
-                    // checked={allChecked}
+                    defaultChecked={allChecked}
                     // onChange={() => handleCheck(items.id)}
                   />
                   <label htmlFor={items.id} className='block min-h-5 pt-px pl-7 text-[11px] leading-4 break-keep font-bold'>
@@ -77,9 +77,6 @@ function page() {
         </ul>
       </div>
       <div className={styles.btn_box}>
-        {
-          
-        }
         <Link className={styles.btn_primary} href='/member/join/form'>다음</Link>
       </div>
     </div>

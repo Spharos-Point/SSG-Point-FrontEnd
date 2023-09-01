@@ -22,6 +22,8 @@ function HeaderPathName(props : {pathname: string}) {
           : pathname === '/member/join/cert' ? '회원가입 본인인증'
           : pathname === '/member/join/agree' ? '회원가입 약관동의'
           : pathname === '/member/join/form' ? '회원가입 정보입력'
+          : pathname === '/member/join/success' ? '회원가입 완료'
+          : pathname === '/mypoint/pntHistory' ? '마이 포인트'
           :'other page'
         }
       </div>

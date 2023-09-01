@@ -4,3 +4,12 @@ export interface LoginFormDataType {
     isAutoId: Boolean,
     isAutoLogin: Boolean,
   }
+
+  export interface JoinFormDataType {
+    loginId: string,
+    name: string,
+    password: string,
+    email: string,
+    phone: string,
+    address: string
+  }

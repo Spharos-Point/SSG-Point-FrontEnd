@@ -11,10 +11,10 @@ function HeaderBottom() {
     return (
         <div className="main_page_btn">
             <ul>
-                <li className={ pathname === '/coupon' ? `text-base font-medium active` : `text-base font-medium`}>
+                <li className={ pathname === '/coupon' ? `text-sm font-medium active` : `text-base font-medium`}>
                     <Link href='/coupon'>쿠폰</Link>
                 </li>
-                <li className={ pathname === '/' ? `text-base font-medium active` : `text-base font-medium`}>
+                <li className={ pathname === '/' ? `text-sm font-medium active` : `text-base font-medium`}>
                     <Link href='/'>홈</Link>
                 </li>
 

@@ -3,6 +3,7 @@ import styles from './joinAuthPhoneForm.module.css'
 import { certAgreements } from '@/data/agreeData';
 import { Agreement } from '@/types/agreeDataType';
 import Link from 'next/link';
+import { JoinFormDataType } from '@/types/formDataType';
 
 function JoinAuthPhoneForm() {
 
@@ -25,11 +26,12 @@ function JoinAuthPhoneForm() {
     const handleClick = () => {
       setAgreeAll(!agreeAll);
     };
+
     
   return (
     <>
       <div className='auth_tab_content'>
-        <div className='box-border pb-10'>
+        <div className='box-border'>
           <h3 className='hidden'>휴대폰인증</h3>
           <div className='py-10 px-5'>
             <div className='box-border pb-4'>
@@ -40,6 +42,7 @@ function JoinAuthPhoneForm() {
                     type="text" 
                     placeholder='이름 입력'
                     id="name"
+                    name='name'
                 />
               </div>
               <p className='error_txt'></p>
@@ -149,7 +152,7 @@ function JoinAuthPhoneForm() {
         <div className='tab_box1 pt-10 py-5'>
           <div className={styles.btn_box}>
             {/* <button className={`${styles.btn_primary}`}>인증번호 요청</button> */}
-            <Link href='/member/join/agree' className={`${styles.btn_primary}`}>인증번호 요청</Link>
+            <Link href='/member/join/agree' className={`${styles.btn_primary}`} >인증번호 요청</Link>
           </div>
           <div className='form_box'>
             <p></p>

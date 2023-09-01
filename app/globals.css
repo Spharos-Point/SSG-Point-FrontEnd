@@ -58,7 +58,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    z-index: 10;
+    z-index: 102;
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0 0 0 30px;
@@ -109,7 +109,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     top: 56px;
     left: 0;
     background: var(--ssg-point-secondary);
-    z-index: 102;
+    z-index: 100;
 }
 
 .main_page_btn ul {
@@ -117,7 +117,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     display: flex;
     -ms-flex-pack: center;
     justify-content: center;
-    padding-top: 2px;
+    padding-top: 6px;
 }
 
 .main_page_btn ul li {
@@ -140,8 +140,8 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background-color: var(--ssg-point-primary);
   animation: slideUp 0.3s ease-in-out forwards;
