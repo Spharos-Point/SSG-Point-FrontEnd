@@ -1,6 +1,7 @@
 import React from 'react'
 import AffiliatePntCardDetail from '@/components/page/mypoint/regAffiliatePntCard/AffiliateCompany/AffiliateCompany'
 import AffiliateAgreeForm from '@/components/page/mypoint/regAffiliatePntCard/AffiliateAgreeForm/AffiliateAgreeForm'
+import AffiliateAgreeNotice from '@/components/page/mypoint/regAffiliatePntCard/AffiliateAgreeNotice'
 
 export default function regAffiliatePntCard() {
   return (
@@ -24,6 +25,9 @@ export default function regAffiliatePntCard() {
 
       {/* 동의 여부 확인 및 제휴 멤버쉽 카드 번호 입력 */}
       <AffiliateAgreeForm />
+
+      {/* 버튼클릭에 따라 컴포넌트 호출 */}
+      <AffiliateAgreeNotice />
     </>
   )
 }
