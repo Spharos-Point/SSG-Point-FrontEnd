@@ -90,14 +90,11 @@ function PntCardList() {
             <col className="w-[81px]" />
           </colgroup>
           <thead>
-            <td>
-              <tr className='font-normal text-center text-[13px]
-                  border-b-[1px] box-border leading-[21px] '>
+              <tr className='font-normal text-center text-[13px] border-b-[1px] box-border leading-[21px] '>
                 <th scope='col' className='py-3'>카드번호</th>
                 <th scope='col' className='py-3'>발급처</th>
                 <th scope='col' className='py-3'>발급일자</th>
               </tr>
-            </td>
             {/* 오프라인 카드 리스트 본문 */}
           </thead>
           <tbody className='font-normal text-center align-center border-b-[1px] leading-[21px] break-keep'>

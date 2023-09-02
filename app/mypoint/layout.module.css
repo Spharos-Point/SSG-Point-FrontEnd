@@ -1,0 +1,23 @@
+.gnb_depth2_default {
+    position: relative;
+    color: #767676;
+    display: block;
+    height: 100%;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 400;
+    box-sizing: border-box;
+    padding: 12px 0;
+}
+
+.gnb_depth2_active {
+    position: relative;
+    color: #ea035c;
+    display: block;
+    height: 100%;
+    font-size: 15px;
+    line-height: 21px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding: 12px 0;
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react'
 import styles from './AffiliateAgreeForm.module.css'
 
@@ -45,7 +46,7 @@ export default function AffiliateAgreeForm() {
                         </div>
                     </div>
                 </div>
-                <button className='pt-[30px] w-full h-[48px] box-border'>
+                <button className='pt-[30px] w-full h-[48px] box-border' >
                     <a className={styles.btn_box}>등록하기</a>
                 </button>
             </div>
