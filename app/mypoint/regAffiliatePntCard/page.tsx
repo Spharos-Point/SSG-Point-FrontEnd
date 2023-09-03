@@ -27,6 +27,7 @@ export default function regAffiliatePntCard() {
       <AffiliateAgreeForm />
 
       {/* 버튼클릭에 따라 컴포넌트 호출 */}
+      {/* 컴포넌트 제작 중 (정완's) */}
       <AffiliateAgreeNotice />
     </>
   )
