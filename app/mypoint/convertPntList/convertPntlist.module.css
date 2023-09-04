@@ -80,3 +80,39 @@
     color: #000;
     font-weight: 500;
 }
+
+.alert_popup_on {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.popup_layer {
+    position: relative;
+    z-index: 500;
+    box-sizing: border-box;
+    padding: 24px 20px;
+    width: calc(100vw - 60px);
+    max-width: 285px;
+    height: auto;
+    min-width: 285px;
+    background: #fff;
+    border-radius: 16px;
+}
+
+.alert_popup_dimmed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 499;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.8);
+}
