@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import styles from './JoinAuth.module.css'
-import JoinAuthPhoneForm from './JoinAuthPhoneForm';
-import JoinAuthCardForm from './JoinAuthCardForm';
+import styles from './Auth.module.css'
+import AuthPhoneForm from './AuthPhoneForm';
+import AuthCardForm from './AuthCardForm';
 
 function JoinAuth() {
 
@@ -34,7 +34,7 @@ function JoinAuth() {
             </li>
         </ul>
         {
-            activeTab === 'phone'? <JoinAuthPhoneForm/> : <JoinAuthCardForm/>
+            activeTab === 'phone'? <AuthPhoneForm/> : <AuthCardForm/>
         }
     </>
   )

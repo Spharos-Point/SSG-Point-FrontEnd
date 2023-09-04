@@ -13,3 +13,8 @@ export interface LoginFormDataType {
     phone: string,
     address: string
   }
+
+  export interface AuthFormDataType {
+    name: string,
+    phone: string
+  }

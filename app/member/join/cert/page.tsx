@@ -1,4 +1,4 @@
-import JoinAuth from '@/components/page/join/JoinAuth'
+import JoinAuth from '@/components/page/auth/Auth'
 import React from 'react'
 import styles from './cert.module.css'
 

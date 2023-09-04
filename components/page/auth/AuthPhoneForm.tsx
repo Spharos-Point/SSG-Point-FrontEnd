@@ -1,8 +1,11 @@
+'use client'
+
 import React, { useState } from 'react'
-import styles from './joinAuthPhoneForm.module.css'
+import styles from './AuthPhoneForm.module.css'
 import { certAgreements } from '@/data/agreeData';
 import { Agreement } from '@/types/agreeDataType';
 import { usePathname, useRouter } from 'next/navigation';
+import { AuthFormDataType } from '@/types/formDataType';
 
 function JoinAuthPhoneForm() {
 
@@ -36,6 +39,22 @@ function JoinAuthPhoneForm() {
       }
     }
 
+    // 데이터 전달
+    const [authData, setAuthData] = useState<AuthFormDataType>({
+      name: '',
+      phone: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const {name, value} = e.target;
+      console.log(name, value);
+
+      setAuthData({
+        ...authData,
+        [name]: value,
+      })
+    }
+
     
   return (
     <>
@@ -52,6 +71,7 @@ function JoinAuthPhoneForm() {
                     placeholder='이름 입력'
                     id="name"
                     name='name'
+                    onChange={handleChange}
                 />
               </div>
               <p className='error_txt'></p>
@@ -117,6 +137,7 @@ function JoinAuthPhoneForm() {
                     type="text" 
                     placeholder='-없이 휴대폰 번호 입력'
                     id="phone"
+                    onChange={handleChange}
                 />
               </div>
               <p className='error_txt'></p>
