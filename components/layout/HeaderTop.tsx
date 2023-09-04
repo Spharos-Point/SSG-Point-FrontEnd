@@ -41,7 +41,7 @@ function HeaderTop() {
                         // <HeaderUserStatus />
                         <p onClick={()=>signOut(
                             {callbackUrl: 'http://localhost:3000/'}
-                          )}>로그아웃 : {session.data.user.name}</p> 
+                          )}>로그아웃 : {session.data.user.user_name}</p> 
                         :
                         <Link href='/login'>로그인</Link>
                     }

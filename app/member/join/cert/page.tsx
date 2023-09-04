@@ -1,4 +1,4 @@
-import JoinAuth from '@/components/page/join/JoinAuth'
+import JoinAuth from '@/components/page/auth/Auth'
 import React from 'react'
 import styles from './cert.module.css'
 
@@ -20,8 +20,22 @@ function page() {
         <div className='auth_tab'>
             <JoinAuth/>
         </div>
-        <div className='notice_box'>
-
+        <div className='pt-8 px-5 pb-20'>
+            <h3 className='pb-2 text-sm leading-[24px] font-medium'>[유의사항]</h3>
+            <ul className={styles.list_cnt}>
+                <li className='relative text-[11px] leading-5 text-[#767676] pl-[7px] tracking-tighter'>
+                    본인 명의의 인증 수단 정보를 정확히 입력해 주세요.
+                </li>
+                <li className='relative text-[11px] leading-5 text-[#767676] pl-[7px] tracking-tighter'>
+                    법인명의 휴대전화(법인폰)는 통신사에서 본인인증 서비스 신청 후 휴대폰 인증을 하실 수 있습니다.
+                </li>
+                <li className='relative text-[11px] leading-5 text-[#767676] pl-[7px] tracking-tighter'>
+                    개명하신 회원님의 경우 통신사 등에 등록된 본인인증 정보가 개명하신 이름으로 바뀐 이후부터 자동으로 변경됩니다.
+                </li>
+                <li className='relative text-[11px] leading-5 text-[#767676] pl-[7px] tracking-tighter'>
+                    인증 오류 시 코리아크레딧뷰로 고객센터 02-708-1000에 문의해 주세요.
+                </li>
+            </ul>
         </div>
     </section>
   )

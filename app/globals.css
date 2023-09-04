@@ -58,7 +58,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     height: 100%;
     box-sizing: border-box;
     position: relative;
-    z-index: 10;
+    z-index: 102;
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0 0 0 30px;
@@ -109,7 +109,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     top: 56px;
     left: 0;
     background: var(--ssg-point-secondary);
-    z-index: 102;
+    z-index: 100;
 }
 
 .main_page_btn ul {
@@ -117,7 +117,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
     display: flex;
     -ms-flex-pack: center;
     justify-content: center;
-    padding-top: 2px;
+    padding-top: 6px;
 }
 
 .main_page_btn ul li {
@@ -140,8 +140,8 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 3px;
-  height: 3px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background-color: var(--ssg-point-primary);
   animation: slideUp 0.3s ease-in-out forwards;
@@ -390,6 +390,23 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   gap: 2rem;
 }
 
+/* 버튼 */
+.btn_box [class*=btn] {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  height: 48px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 12px;
+  box-sizing: border-box;
+}
 
-
-
+.btn_primary {
+  padding: 12px 16px!important;
+  background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+  color: #000;
+  font-weight: bold;
+}

@@ -3,6 +3,7 @@ import styles from './form.module.css'
 import { adAgreement, formAgreements } from '@/data/agreeData'
 import { Agreement } from '@/types/agreeDataType'
 import JoinForm from '@/components/page/join/JoinForm'
+import Link from 'next/link'
 
 function page() {
 
@@ -47,10 +48,10 @@ function page() {
                         <p className='text-sm leading-6 mb-4 font-bold'>신세계포인트 광고정보 수신동의</p>
                         <div className={styles.chk_box}>
                             <input 
-                                className='left-0 top-0 w-3.5 h-3.5 rounded-full border border-black appearance-none cursor-pointer align-middle'
+                                className='left-0 top-0 w-4 h-4 rounded-full border border-black appearance-none cursor-pointer align-middle'
                                 type="checkbox" 
                                 id="receveAllspoint" 
-                                disabled 
+                                // disabled 
                             />
                             <label htmlFor="receveAllspoint" className='min-h-5 pt-px pl-2 text-[11px] leading-4 break-keep font-bold'>
                                 전체동의
@@ -61,10 +62,10 @@ function page() {
                                 adAgreement.map((items:Agreement) => (
                                     <div className={styles.chk_box}>
                                         <input 
-                                            className='left-0 top-0 w-3.5 h-3.5 rounded-full border border-black appearance-none cursor-pointer align-middle'
+                                            className='left-0 top-0 w-4 h-4 rounded-full border border-black appearance-none cursor-pointer align-middle'
                                             type="checkbox" 
                                             id={items.id} 
-                                            disabled 
+                                            // disabled 
                                         />
                                         <label htmlFor="receveAllspoint" className='min-h-5 pt-px pl-2 pr-3 text-[11px] leading-4 break-keep font-bold'>
                                             {items.label}
@@ -74,6 +75,21 @@ function page() {
                             } 
                         </div>
                     </div>    
+                </div>
+            </div>
+            <div className='my-0 mx-5'> 
+                <p className='text-[11px] leading-5 text-[#505050] break-keep'>
+                    당사, 관계사, 신세계포인트 제휴사가 제공하는 상품 및 서비스 홍보, 
+                    소식지 제공, 이벤트 정보 제공(할인 쿠폰, 포인트 추가 적립, 상품 할인 포함),
+                    제휴행사를 안내해 드립니다. 수신동의 변경은 신세계포인트 
+                    고객센터 및 홈페이지(www.shinsegaepoint.com)에서 가능합니다.
+                    <br/>
+                    ※ 서비스 주요 정책 및 공지사항 안내 등은 수신동의 여부와 관계없이 발송됩니다. 
+                </p>
+            </div>
+            <div className='py-10 px-5'>
+                <div className={styles.btn_box}>
+                    <Link href='/member/join/success' className={styles.btn_primary}>확인</Link>
                 </div>
             </div>
         </section>

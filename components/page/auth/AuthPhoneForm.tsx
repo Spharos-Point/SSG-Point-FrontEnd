@@ -1,8 +1,11 @@
+'use client'
+
 import React, { useState } from 'react'
-import styles from './joinAuthPhoneForm.module.css'
+import styles from './AuthPhoneForm.module.css'
 import { certAgreements } from '@/data/agreeData';
 import { Agreement } from '@/types/agreeDataType';
-import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { AuthFormDataType } from '@/types/formDataType';
 
 function JoinAuthPhoneForm() {
 
@@ -25,11 +28,38 @@ function JoinAuthPhoneForm() {
     const handleClick = () => {
       setAgreeAll(!agreeAll);
     };
+
+    const pathname = usePathname();
+    const router = useRouter();
+    const handleButtonPush = () => {
+      if(pathname === '/member/join/cert') {
+        router.push('/member/join/agree');
+      } else if(pathname === '/member/findIdPw') {
+        router.push('/member/findIdResult');
+      }
+    }
+
+    // 데이터 전달
+    const [authData, setAuthData] = useState<AuthFormDataType>({
+      name: '',
+      phone: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const {name, value} = e.target;
+      console.log(name, value);
+
+      setAuthData({
+        ...authData,
+        [name]: value,
+      })
+    }
+
     
   return (
     <>
       <div className='auth_tab_content'>
-        <div className='box-border pb-10'>
+        <div className='box-border'>
           <h3 className='hidden'>휴대폰인증</h3>
           <div className='py-10 px-5'>
             <div className='box-border pb-4'>
@@ -40,6 +70,8 @@ function JoinAuthPhoneForm() {
                     type="text" 
                     placeholder='이름 입력'
                     id="name"
+                    name='name'
+                    onChange={handleChange}
                 />
               </div>
               <p className='error_txt'></p>
@@ -105,6 +137,7 @@ function JoinAuthPhoneForm() {
                     type="text" 
                     placeholder='-없이 휴대폰 번호 입력'
                     id="phone"
+                    onChange={handleChange}
                 />
               </div>
               <p className='error_txt'></p>
@@ -148,8 +181,8 @@ function JoinAuthPhoneForm() {
         </div>
         <div className='tab_box1 pt-10 py-5'>
           <div className={styles.btn_box}>
-            {/* <button className={`${styles.btn_primary}`}>인증번호 요청</button> */}
-            <Link href='/member/join/agree' className={`${styles.btn_primary}`}>인증번호 요청</Link>
+            <button onClick={handleButtonPush} className={`${styles.btn_primary}`}>인증번호 요청</button>
+            {/* <Link href='/member/join/agree' className={`${styles.btn_primary}`} >인증번호 요청</Link> */}
           </div>
           <div className='form_box'>
             <p></p>

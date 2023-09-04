@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { LoginFormDataType } from '@/types/formDataType';
 import { useSearchParams } from 'next/navigation';
 import { signIn} from 'next-auth/react';
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 
 function LongForm() {
 
@@ -72,7 +71,6 @@ function LongForm() {
 
     if(loginData.isAutoId) {
       handleLocalStorage(loginData.loginId)
-      return
     } 
 
     if(loginData.loginId !== '' || loginData.password !== '') {
@@ -158,7 +156,7 @@ return (
     </div>
     <ul className={styles.btn_list_box}>
       <li>
-        <Link href="/" className={styles.btn}>아이디 찾기</Link>
+        <Link href="/member/findIdPw" className={styles.btn}>아이디 찾기</Link>
       </li>
       <li>
         <Link href="/" className={styles.btn}>비밀번호 찾기</Link>
