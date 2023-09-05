@@ -410,3 +410,28 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   color: #000;
   font-weight: bold;
 }
+
+.view_btn {
+  font-size: 11px;
+  line-height: 19px;
+  margin-top: 2px;
+  position: relative;
+  margin-right: 8px;
+  word-break: keep-all;
+  color: #767676;
+}
+
+.view_btn:after {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  width: 6px;
+  height: 10px;
+  margin: 5px 0 0 1px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAUCAYAAAC58NwRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDA2IDc5LjE2NDc1MywgMjAyMS8wMi8xNS0xMTo1MjoxMyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjlFNzNERTREMjQxMTFFQkExOEU4RjI1M0UwQkIzQjQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjlFNzNERTNEMjQxMTFFQkExOEU4RjI1M0UwQkIzQjQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjMgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTk5NTA3MEFDOUEwMTFFQjhBNTNDRjQzNURDRTZERDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTk5NTA3MEJDOUEwMTFFQjhBNTNDRjQzNURDRTZERDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5ngdqXAAABDUlEQVR42pTTy0pCURSH8a0IDTMqKa0GJ7qQBIU+gF1eocBZD9DLBD1A43qECh0L3Ygoi9OkC4aZTRsdvwX/Zp69ccEPQdZ39lGPmSiKys65I9TRdZ6J49hleT3GDhoouMBYsI97lBXNhIKuTrjDmqJZX+AU7eIWq4qKvsDmW9ENVhSVfIFNT9E1lhXN+QKbH0VXWEIT877Apq+ohUVFC77A5hd7+EOEk1AwjjOM4RUH9mYuZTmPc1TticAW3tJOmMCFll9Q+18eFkziEhU868rvaV/rlK68ibaWP9J+uGktb+BJy5/DPlxOy3Yb63jENjq+h+9Uyw+6cif0eB/qBFv+Cv2BMkmSuFFmIMAAiNo6JMbGR0EAAAAASUVORK5CYII=) no-repeat 0 0;
+  background-size: 100% auto;
+  position: absolute;
+  right: -11px;
+  top: 0;
+  opacity: .6;
+}

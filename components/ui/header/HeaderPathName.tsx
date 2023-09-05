@@ -29,7 +29,7 @@ function HeaderPathName(props : {pathname: string}) {
           : pathname === '/mypoint/cardManage' ? '마이 포인트'
           : pathname === '/mypoint/regAffiliatePntCard' ? '마이 포인트'
           : pathname === '/mypoint/pntGiftMain' ? '마이 포인트'
-          : pathname === '/mypoint/pntGiftMain' ? '마이 포인트'
+          : pathname === '/mypoint/pntGiftMainsub' ? '마이 포인트'
           : pathname === '/mypoint/convertPntList' ? '마이 포인트'
           : pathname === '/mypoint/savePoint' ? '마이 포인트'
           : pathname === '/mypoint/chgPntPwdCert' ? '마이 포인트'

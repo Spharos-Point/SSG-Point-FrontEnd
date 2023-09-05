@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '@/components/page/mypoint/pntHistory/pntHistory.module.css'
-import PntHistoryPointBox from '@/components/page/mypoint/pntHistory/PntHistoryPointBox'
+import PntHistoryPointBox from '@/components/page/mypoint/pntHistory/pntHistoryPointBox'
 import PntHistoryPonintList from '@/components/page/mypoint/pntHistory/PntHistoryPonintList'
 
 export default function pntHistory() {
