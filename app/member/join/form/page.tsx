@@ -7,6 +7,15 @@ import Link from 'next/link'
 
 function page() {
 
+    // const handleJoinFetch = async () => {
+    //     const response = await fetch(`http://10.10.10.95:8000/api/v1/auth/signup`, {
+    //       method: 'POST',
+    //     //   body: {
+
+    //     //   }
+    //     });
+    // }
+
     return (
         <section className='mt-10' style={{marginTop: '60px'}}>
             <div className='top_cnt1 py-10 px-5'>
@@ -22,7 +31,7 @@ function page() {
                 </div>
             </div>
             <div className='px-5 pb-10'>
-                <JoinForm/>
+                <JoinForm />
             </div>
             <div className='py-10 px-5 pt-0'>
                 <div>
@@ -88,8 +97,9 @@ function page() {
                 </p>
             </div>
             <div className='py-10 px-5'>
-                <div className={styles.btn_box}>
-                    <Link href='/member/join/success' className={styles.btn_primary}>확인</Link>
+                <div className='btn_box'>
+                    {/* <Link href='/member/join/success' className={styles.btn_primary}>확인</Link> */}
+                    <button className='btn_primary' >확인</button>
                 </div>
             </div>
         </section>

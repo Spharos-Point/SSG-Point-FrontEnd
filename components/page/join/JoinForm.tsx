@@ -3,9 +3,36 @@ import React, { useEffect, useState } from 'react'
 import styles from './JoinForm.module.css'
 import { DaumAddressType } from '@/types/DaumAddressType';
 import Postcode from '@/components/widget/Postcode';
+import { AuthFormDataType, JoinFormDataType } from '@/types/formDataType';
 
 function JoinForm() {
+    // 회원가입 
+    const [singUp, setSignUp] = useState<JoinFormDataType>({
+        loginId: '',
+        password: '',
+        name: '',
+        phone: '',
+        email: '',
+        address: ''
+    });
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value} = e.target;
+        // console.log(name, value);
+        
+        setSignUp({
+            ...singUp,
+            [name]: value,
+            
+        })
+    }
+
+    // 휴대폰, 이름
+    const [authData, setAuthData] = useState<AuthFormDataType>({
+        name: '',
+        phone: ''
+    });
+    
     // 우편 주소
     const [isView, setIsView] = useState<boolean>(false);
     const [address, setAddress] = useState<DaumAddressType>();
@@ -21,7 +48,14 @@ function JoinForm() {
         }
     }, [address])
 
-    
+    // 로컬에 있는 이름, 전화번호 
+    useEffect(() => {
+        if(typeof window !== 'undefined') {
+            const jsonAuthData = localStorage.getItem('authData') || '';
+            const authData = JSON.parse(jsonAuthData);
+            setAuthData(authData);
+        }    
+      },[])
 
     return (
     <>
@@ -38,6 +72,7 @@ function JoinForm() {
                         title='회원 가입을 위한 아이디 입력'
                         className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                         placeholder='영문, 숫자 6~20자리 입력해주세요'
+                        onChange={handleChange}
                     />
                 </div>    
                 <div className={`${styles.btn_box} ml-[5px]`}>
@@ -59,6 +94,7 @@ function JoinForm() {
                         title='회원 가입을 위한 비밀번호 입력'
                         className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                         placeholder='영문 대/소문자, 숫자, 특수문자 중 3가지 이상을 조합하여 8-20자리로 입력해 주세요.'
+                        onChange={handleChange}
                     />
                 </div>    
             </div>
@@ -94,7 +130,9 @@ function JoinForm() {
                         id="nameId"
                         title='회원 가입을 위한 이름 입력'
                         className={`${styles.readonly} first-line:box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4`}
+                        value={authData.name}
                         readOnly
+                        onChange={handleChange}
                     />
                 </div>    
             </div>
@@ -111,7 +149,9 @@ function JoinForm() {
                         id="phoneId"
                         title='회원 가입을 위한 휴대폰번호 입력'
                         className={`${styles.readonly} box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4`}
+                        value={authData.phone}
                         readOnly
+                        onChange={handleChange}
                     />
                 </div>    
             </div>
@@ -129,6 +169,8 @@ function JoinForm() {
                             id="addressId"
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             placeholder='우편번호'
+                            readOnly
+                            value={address?.zonecode}
                         />
                     </div>    
                     <div className={`${styles.btn_box} ml-[5px]`}>
@@ -143,7 +185,9 @@ function JoinForm() {
                         type="text"
                         id="addressId01"
                         className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
+                        value={address?.address}
                         readOnly
+                        onChange={handleChange}
                     />
                 </div>
                 <div className='input_box mt-2'>
