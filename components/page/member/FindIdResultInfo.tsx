@@ -8,7 +8,6 @@ function FindIdResultInfo() {
             <dl className='flex items-center'>
                 <dt className='mt-[2px] mr-3 text-xs leading-[20px]'>아이디</dt>
                 <dd className='text-base leading-[26px] font-bold'>
-                    hnso1010
                 </dd>
             </dl>
         </div>

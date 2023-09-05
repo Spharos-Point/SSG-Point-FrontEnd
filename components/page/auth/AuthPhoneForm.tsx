@@ -5,7 +5,10 @@ import styles from './AuthPhoneForm.module.css'
 import { certAgreements } from '@/data/agreeData';
 import { Agreement } from '@/types/agreeDataType';
 import { usePathname, useRouter } from 'next/navigation';
+
 import { AuthFormDataType } from '@/types/formDataType';
+// import { useRouter } from 'next/router';
+
 
 function JoinAuthPhoneForm() {
 
@@ -29,15 +32,6 @@ function JoinAuthPhoneForm() {
       setAgreeAll(!agreeAll);
     };
 
-    const pathname = usePathname();
-    const router = useRouter();
-    const handleButtonPush = () => {
-      if(pathname === '/member/join/cert') {
-        router.push('/member/join/agree');
-      } else if(pathname === '/member/findIdPw') {
-        router.push('/member/findIdResult');
-      }
-    }
 
     // 데이터 전달
     const [authData, setAuthData] = useState<AuthFormDataType>({
@@ -47,13 +41,41 @@ function JoinAuthPhoneForm() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const {name, value} = e.target;
-      console.log(name, value);
+      // console.log(name, value);
 
       setAuthData({
         ...authData,
         [name]: value,
+        
       })
     }
+
+    const pathname = usePathname();
+    const router = useRouter();
+    const [fetchedData, setFetchedData] = useState(null);
+    const handleButtonFetch = async () => {
+      if(pathname === '/member/join/cert') {
+
+          localStorage.setItem('authData', JSON.stringify(authData));
+
+          router.push('/member/join/agree');
+
+      } else if(pathname === '/member/findIdPw') {
+        const response = await fetch(`http://10.10.10.95:8000/api/v1/search/NameAndPhoneNum?phoneNumber=${authData.phone}&userName=${authData.name}`, {
+          method: 'GET',
+        });
+
+        if(response.ok) {
+          const data = await response.json();
+          setFetchedData(data);
+          console.log(data);
+          router.push('/member/findIdResult');
+        } else {
+          alert('일치하는 정보가 없습니다.')
+        }
+      }
+    }
+
 
     
   return (
@@ -71,6 +93,7 @@ function JoinAuthPhoneForm() {
                     placeholder='이름 입력'
                     id="name"
                     name='name'
+                    value={authData.name}
                     onChange={handleChange}
                 />
               </div>
@@ -137,6 +160,8 @@ function JoinAuthPhoneForm() {
                     type="text" 
                     placeholder='-없이 휴대폰 번호 입력'
                     id="phone"
+                    name='phone'
+                    value={authData.phone}
                     onChange={handleChange}
                 />
               </div>
@@ -181,7 +206,7 @@ function JoinAuthPhoneForm() {
         </div>
         <div className='tab_box1 pt-10 py-5'>
           <div className={styles.btn_box}>
-            <button onClick={handleButtonPush} className={`${styles.btn_primary}`}>인증번호 요청</button>
+            <button onClick={handleButtonFetch} className={`${styles.btn_primary}`}>인증번호 요청</button>
             {/* <Link href='/member/join/agree' className={`${styles.btn_primary}`} >인증번호 요청</Link> */}
           </div>
           <div className='form_box'>
