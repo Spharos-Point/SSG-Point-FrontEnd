@@ -5,6 +5,8 @@ import styles from './agree.module.css'
 import { agreements } from '@/data/agreeData'
 import { Agreement } from '@/types/agreeDataType'
 import Link from 'next/link'
+import Note from '@/components/page/note/note'
+import { agreeNotice } from '@/data/noticeData'
 
 function page() {
 
@@ -80,17 +82,7 @@ function page() {
         <Link className={styles.btn_primary} href='/member/join/form'>다음</Link>
       </div>
     </div>
-    <div className='pt-8 px-5 pb-20 text-[#767676]'>
-      <h3 className='pb-2 text-sm leading-6 font-bold'>[유의사항]</h3>
-      <ul className={styles.list_cnt}>
-        <li className='relative text-[11px] leading-5 bg-[var(--ssg-point-secondary)] pl-[7px] tracking-tighter'>
-          선택항목 수집 및 이용동의를 거부하시더라도 기본 서비스는 이용하실 수 있습니다.
-        </li>
-        <li className='relative text-[11px] leading-5 bg-[var(--ssg-point-secondary)] pl-[7px] tracking-tighter'>
-          이미 신세계포인트 회원이신 경우 신세계포인트 온라인 통합ID 가입 시 입력한 정보로 회원정보가 변경됩니다. 
-        </li>
-      </ul>
-    </div>
+    <Note note={agreeNotice}/>
 </section>
   )
 }

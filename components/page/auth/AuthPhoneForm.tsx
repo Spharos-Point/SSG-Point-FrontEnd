@@ -61,7 +61,7 @@ function JoinAuthPhoneForm() {
           router.push('/member/join/agree');
 
       } else if(pathname === '/member/findIdPw') {
-        const response = await fetch(`http://10.10.10.95:8000/api/v1/search/NameAndPhoneNum?phoneNumber=${authData.phone}&userName=${authData.name}`, {
+        const response = await fetch(`http://localhost:8000/api/v1/search/NameAndPhoneNum?phoneNumber=${authData.phone}&userName=${authData.name}`, {
           method: 'GET',
         });
 
