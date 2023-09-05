@@ -2,7 +2,9 @@ import React from 'react'
 
 export default function chgPntPwdCert() {
   return (
-    <div>포인트 비밀번호 변경</div>
+    <div className='px-[20px] py-[40px]'>
+      포인트 비번변경
+    </div>
   )
 }
 

@@ -1,0 +1,25 @@
+.membership_tab{
+    background: #fbfbfb;
+    border-bottom: 1px solid #fbfbfb;
+    font-size: 14px;
+    color: #767676;
+    line-height: 21px;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+    word-break: keep-all;
+}
+
+.membership_tab_on {
+    background: #fff3f8;
+    border-bottom: 1px solid #d9044b;
+    font-size: 14px;
+    color: #d9044b;
+    line-height: 21px;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+    word-break: keep-all;
+}

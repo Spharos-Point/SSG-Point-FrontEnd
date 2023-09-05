@@ -1,0 +1,65 @@
+.select_box {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 0 32px 0 15px;
+    box-sizing: border-box;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    color: #000;
+}
+
+.select_box:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: 14px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 10px;
+    height: 7px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgBzdZLDsAgCARQblRuyhE4atuFpi60fmDQSdg0hnlpXEj05UoTnWqvvHOnEYqL1nq5+JhHCR+t9HILhEZpo5N7BxCoVpeMHvRETXcgUcu7ESjzTk+U2y6PRe5/27IQdh9XFsMwKwVwzExRGGakMBzTQ23BzKDCMCOocMwfahsmR07C5DAVjytLHkm1yW3+j4vHAAAAAElFTkSuQmCC) no-repeat;
+    background-size: 10px auto;
+}
+
+.info_ico {
+    width: 15px;
+    height: 15px;
+    text-indent: -999em;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGkSURBVHgBxVeLcYMwDH3JBGxQbZBsEDZoN8gIHSHdgBGSDdJMkHQDOgFsQDdopUYCQ5NgAzXv7h1nsKwPsiwv4I+E+cxMmWsm6TvBF7Nk5swL86TvJgExM2bF/A7gnvmEEUhUsbvomfmKawSSztxUv507MllnrheIWWC4N6QyJl+EyK8c5YWOh4JC13IFxIPg0N2ArHGERyQSR/kR02PvGHHTsaxvwki4Dmbdj4QmYXyThXTBkARb3dNj4dnDHztnsV2AnOmqo5Ag3HsBITwCJie6KtWNLZoiEwtWrLZLXCuY4B3xYLpSMWCtg0+EgTDsFwg+9Pmr2w6Z0K03NAmBJu+qJdpHaiyYrmSJmSEG1NYgHuqoiwGlDgjxYKdiKQbkOtggHmzn5WKAbYkXxIPpuogBUhQkD1KM7OE8QWiK38mS8KAv3vD/sJpxgLP1CU1R8W3BRCa0EhIeHHyzNiTdCSF9gS/cvvCug4R2XzhVU+r2g72/q9uWj9kZg1t8wowXE8Ojq9kGf69mK0x4NXNBaHvjw0oV93q9gD98r+dS2q269uIH0X6yfKQesiUAAAAASUVORK5CYII=) no-repeat;
+    background-size: 100% auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.input_box {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 16px;
+    background: #fff;
+    z-index: 2;
+}
+
+.btn_box {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 12px 16px!important;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+}

@@ -1,25 +1,23 @@
-import React from 'react'
-import Barcode from 'react-barcode'
+import React from 'react';
+import { useBarcode } from 'next-barcode';
 
-interface BarcodeGeneratorProps {
-    value: string
-}
+export default function BarcodeGenerator( {width, height, value}: { width?:number, height?:number, value?:string }) {
 
-{/* 포인트 카드번호 받아서 value에 집어 넣기 */}
-// export default function BarcodeGenerator({value}: BarcodeGeneratorProps) {
-//   return (
-//     <div>
-//         <Barcode value={value} />
-//     </div>
-//   )
-// }
+    const { inputRef } = useBarcode({
+      // 유저의 포인트 카드번호 16자리를 받아 value에 입력받도록 변경 필요
+      value: value ? value : '9350120018634486',
+      options: {
+        format: 'CODE128',
+        displayValue: false,
+        background: 'white',
+        margin: 5,
+        height: height ? height: 100,
+        width: width ? width: 2,
+        // 기본값 height:100, weight:2
+      }
+    });
+  
+  return <svg ref={inputRef} className='rounded-[4px]'/>;
+};
 
-
-export default function BarcodeGenerator() {
-  return (
-    <div className='w-[56px] h-[24px]'>
-        <Barcode value={"123456789"} />
-    </div>
-  )
-}
 
