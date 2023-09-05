@@ -26,6 +26,13 @@ function HeaderPathName(props : {pathname: string}) {
           : pathname === '/member/findIdPw' ? '아이디 찾기 본인인증'
           : pathname === '/member/findIdResult' ? '아이디 찾기'
           : pathname === '/mypoint/pntHistory' ? '마이 포인트'
+          : pathname === '/mypoint/cardManage' ? '마이 포인트'
+          : pathname === '/mypoint/regAffiliatePntCard' ? '마이 포인트'
+          : pathname === '/mypoint/pntGiftMain' ? '마이 포인트'
+          : pathname === '/mypoint/pntGiftMain' ? '마이 포인트'
+          : pathname === '/mypoint/convertPntList' ? '마이 포인트'
+          : pathname === '/mypoint/savePoint' ? '마이 포인트'
+          : pathname === '/mypoint/chgPntPwdCert' ? '마이 포인트'
           :'other page'
         }
       </div>
