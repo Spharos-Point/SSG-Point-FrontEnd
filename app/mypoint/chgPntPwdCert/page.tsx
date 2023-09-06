@@ -1,10 +1,16 @@
+import JoinAuth from '@/components/page/auth/Auth'
+import FindIdBottom from '@/components/page/member/FindIdBottom'
+import ChgPntPwdTop from '@/components/page/mypoint/chgPntPwdCert/ChgPntPwdTop'
 import React from 'react'
 
-export default function chgPntPwdCert() {
+export default function ChgPntPwdCert() {
   return (
-    <div className='px-[20px] py-[40px]'>
-      포인트 비번변경
-    </div>
+    <section>
+        <ChgPntPwdTop />
+        <JoinAuth/>
+        <FindIdBottom/>
+    </section>
   )
 }
+
 

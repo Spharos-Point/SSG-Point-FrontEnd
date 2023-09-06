@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './pntHistory.module.css'
 import PntHistoryDetail from './pntHistoryDetail'
 
-export default function PntHistoryPonintList() {
+export default function  PntHistoryPonintList() {
   return (
     <>
     <div className='pt-[25px] pb-[60px] pr-[20px] pl-[20px] tracking-tight'>

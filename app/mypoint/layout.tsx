@@ -15,7 +15,7 @@ export default function mypointLayout({ children }: { children: React.ReactNode 
 
   return (
     <>
-      <div className="flex pt-20 box-border text-center ">
+      <div className="flex pt-[70px] box-border text-center ">
         <Swiper slidesPerView={3} freeMode={true}>
           <SwiperSlide>
             <li role="presentation" className={pathName === "/mypoint/pntHistory" ? styles.gnb_depth2_active : styles.gnb_depth2_default}>

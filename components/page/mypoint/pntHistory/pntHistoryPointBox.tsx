@@ -19,7 +19,7 @@ export default function PntHistoryPointBox(){
                     {/* 보유포인트 */}
                     <div className='text-[13px] font-bold leading-6 grow shrink basis-0'>사용 가능</div>
                     <div className='flex item-center justify-end text-[24px] leading-[29px] font-bold'>
-                      9999999999
+                      {0}
                       <div className={styles.total_point_dd_icon}>
                         <span className='hidden'>아이콘</span>
                       </div>
@@ -28,7 +28,7 @@ export default function PntHistoryPointBox(){
                 <dl className='flex text-[12px] '>
                   {/* 적립예정 포인트 */}
                   <dt className={styles.item_cnt_dt}>적립 예정</dt>
-                  <dd className='not-italic'>12345p</dd>
+                  <dd className='not-italic'>{0}p</dd>
                 </dl>
                 <dl className='flex text-[12px]'>
                   <dt className={styles.item_cnt_dt}>소멸 예정</dt>
@@ -36,12 +36,12 @@ export default function PntHistoryPointBox(){
                     <span className='flex text-left'>
                         {/* 다음달 1일 소멸 예정 포인트 */}
                         <em className={styles.date}><LaterOneMonth/></em>
-                        <em className='not-italic'>10020p</em>
+                        <em className='not-italic'>{0}p</em>
                     </span>
                     <span className='flex text-left'>
                         {/* 다다음달 1일 소멸 예정 포인트 */}
                         <em className={styles.date}><LaterTwoMonth/></em>
-                        <em className='not-italic'>999999999999999999p</em>
+                        <em className='not-italic'>{0}p</em>
                     </span>
                   </dd>
                 </dl>
