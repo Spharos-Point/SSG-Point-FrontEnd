@@ -48,17 +48,17 @@ export default function PntGiftMainsubpage() {
             </div>
           </div>
 
-          <label htmlFor="phoneNumber" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+          <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
           text-sm font-bold text-slate-700 pb-2">
             선물할 포인트
           </label>
-          <input type="text" id="phoneNumber" className={styles.input_box2} />
+          <input type="text" id="" className={styles.input_box2} />
 
-          <label htmlFor="phoneNumber" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+          <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
           text-sm font-bold text-slate-700 pb-2">
             포인트 비밀번호
           </label>
-          <input type="text" id="userName" className={styles.input_box3} />
+          <input type="text" id="" className={styles.input_box3} />
           <button className={styles.Link_btn}>
             <Link href={'/mypoint/chgPntPwdCert'}>
               포인트 비밀번호가 기억나지 않으세요?
