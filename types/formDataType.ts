@@ -10,7 +10,7 @@ export interface LoginFormDataType {
     name: string,
     password: string,
     email: string,
-    phone: string,
+    phone: string
     address: string
   }
 

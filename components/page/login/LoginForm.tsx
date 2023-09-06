@@ -159,7 +159,7 @@ return (
         <Link href="/member/findIdPw" className={styles.btn}>아이디 찾기</Link>
       </li>
       <li>
-        <Link href="/" className={styles.btn}>비밀번호 찾기</Link>
+        <Link href="/member/findPw" className={styles.btn}>비밀번호 찾기</Link>
       </li>
       <li>
         <Link href="/member/join"  className={styles.btn}>회원가입</Link>
