@@ -16,8 +16,8 @@ function JoinForm() {
         password: '',
         name: '',
         phone: '',
-        email: ''
-        // address: ''
+        email: '',
+        address: ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +31,7 @@ function JoinForm() {
         })
     }
 
+
     const handSignupFetch = async () => {
         const response = await fetch('http://localhost:8000/api/v1/auth/signup', {
             method: 'POST',
@@ -43,18 +44,33 @@ function JoinForm() {
                 name: signup.name,
                 phone: signup.phone,
                 email: signup.email,
-                address: '해운대'
+                address: signup.address
             })
         })
         .then((res) => {
             if(res.status === 200) {
-                router.push('/');
+                sessionStorage.setItem('signup', JSON.stringify(signup));
+                router.push('/member/join/success');
             } else {
                 alert('에러');
             }
         })
-        .then((result) => console.log("결과: ", result))
-        ;
+        .then((result) => console.log("결과: ", result));
+    }
+
+    // 아이디 중복체크
+    const handleIdCheckFetch = async () => {
+        const response = await fetch(`http://localhost:8000/api/v1/validateLoginId?loginId=${signup.loginId}`, {
+            method: 'GET',
+        })
+        .then((res) => {
+            if(res.status === 200) {
+                alert('사용 가능한 아이디 입니다');
+            } else {
+                alert('에러');
+            }
+        })
+        .then((result) => console.log("결과: ", result));
     }
 
     // 휴대폰, 이름
@@ -69,12 +85,15 @@ function JoinForm() {
 
     const handleOpenModal = () => {
         setIsView(!isView);
+
     }
 
     useEffect(() => {
         if(address){
-            // setIsView(false);
-            console.log(address)
+            setSignup({
+                ...signup,
+                address: address?.address
+            })
         }
     }, [address])
 
@@ -84,6 +103,12 @@ function JoinForm() {
             const jsonAuthData = localStorage.getItem('authData') || '';
             const authData = JSON.parse(jsonAuthData);
             setAuthData(authData);
+
+            setSignup({
+                ...signup,
+                name: authData.name,
+                phone: authData.phone
+            })
         }    
     },[])
 
@@ -107,7 +132,12 @@ function JoinForm() {
                         />
                     </div>    
                     <div className={`${styles.btn_box} ml-[5px]`}>
-                        <button className='p-3 text-[#000] border border-solid border-[#bcbcbc] font-normal rounded-lg h-12 block w-full text-center text-sm leading-6 box-border'>중복확인</button>
+                        <button 
+                            className='p-3 text-[#000] border border-solid border-[#bcbcbc] font-normal rounded-lg h-12 block w-full text-center text-sm leading-6 box-border'
+                            onClick={handleIdCheckFetch}
+                        >
+                            중복확인
+                        </button>
                     </div>    
                 </div>
                 <p className='error_txt'></p>  
@@ -120,7 +150,7 @@ function JoinForm() {
                 <div className='flex'>
                     <div className='w-auto flex-1 box-border relative inline-block align-top'>
                         <input 
-                            type="text"
+                            type="password"
                             id="pwId"
                             name='password'
                             title='회원 가입을 위한 비밀번호 입력'
@@ -140,7 +170,7 @@ function JoinForm() {
                 <div className='flex'>
                     <div className='w-auto flex-1 box-border relative inline-block align-top'>
                         <input 
-                            type="text"
+                            type="password"
                             id="pwChkId"
                             title='회원 가입을 위한 비밀번호 확인 입력'
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
@@ -204,7 +234,13 @@ function JoinForm() {
                                 className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                                 placeholder='우편번호'
                                 readOnly
-                                value={address?.zonecode}
+                                value={
+                                    address
+                                    ?
+                                    address?.zonecode
+                                    :
+                                    ''
+                                }
                             />
                         </div>    
                         <div className={`${styles.btn_box} ml-[5px]`}>
@@ -220,9 +256,13 @@ function JoinForm() {
                             id="addressId01"
                             name="addressId01"
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
-                            value={address?.address}
+                            value={
+                                address?
+                                    address?.address
+                                :
+                                ''
+                            }
                             readOnly
-                            // onChange={handleChange}
                         />
                     </div>
                     <div className='input_box mt-2'>

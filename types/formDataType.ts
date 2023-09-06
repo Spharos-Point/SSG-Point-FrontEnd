@@ -11,7 +11,7 @@ export interface LoginFormDataType {
     password: string,
     email: string,
     phone: string
-    // address: string
+    address: string
   }
 
   export interface AuthFormDataType {

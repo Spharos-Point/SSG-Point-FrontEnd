@@ -1,17 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
 import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
 import { signOut, useSession } from 'next-auth/react'
+import { pageTitleData } from '@/data/pageTitleData'
 
 
 function HeaderTop() {
-    const [isLogin, setIsLogin] = useState<Boolean>(false)
     const [isOpened, setIsOpened] = useState<Boolean>(false)
     const pathname = usePathname();
     const session = useSession();
@@ -20,8 +20,19 @@ function HeaderTop() {
         setIsOpened(!isOpened)
     }
 
-    // console.log(session);
+    // 헤더 경로
+    const [title, setTitle] = useState<string>('');
 
+    useEffect(() =>  {
+        const getTitle = () => {
+            const result = pageTitleData.find((item) => item.path === pathname)?.title
+            if(result === undefined) {
+                return setTitle('신세계 포인트')
+            }
+            setTitle(result)
+        }
+        getTitle()
+    }, [pathname])
 
   return ( 
     <>
@@ -32,7 +43,7 @@ function HeaderTop() {
                 ? 
                 <Logo url={'/'} imgUrl={'https://m.shinsegaepoint.com/img/logo_header.840b502c.gif'} imgAlt={'신세계포인트 로고'} />
                 :
-                <HeaderPathName pathname={pathname}/>
+                <HeaderPathName title={title}/>
             }
             <ul className='gnb flex'>
                 <li className='login_btn'>

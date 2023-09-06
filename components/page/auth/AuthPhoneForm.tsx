@@ -73,6 +73,8 @@ function JoinAuthPhoneForm() {
         } else {
           alert('일치하는 정보가 없습니다.')
         }
+      } else if(pathname === '/member/findPw') {
+        router.push('/member/findPwResult');
       }
     }
 
@@ -84,6 +86,27 @@ function JoinAuthPhoneForm() {
         <div className='box-border'>
           <h3 className='hidden'>휴대폰인증</h3>
           <div className='py-10 px-5'>
+            {
+              pathname === '/member/findPw'
+              ?
+              <div className='box-border pb-4'>
+                <p className='pb-2 text-xs leading-5'>아이디를 입력해 주세요.</p>
+                <div className='input_box box-border relative inline-block w-full align-top'>
+                  <input 
+                      className='h-12 py-0 px-4 bg-white box-border block w-full border-2 border-solid border-gray-200 text-sm rounded-lg'
+                      type="text" 
+                      placeholder='아이디 입력'
+                      id="loginId"
+                      name='loginId'
+                      value={authData.name}
+                      onChange={handleChange}
+                  />
+                </div>
+                <p className='error_txt'></p>
+              </div>
+              :
+              <div></div>
+            }
             <div className='box-border pb-4'>
               <p className='pb-2 text-xs leading-5'>이름을 입력해 주세요.</p>
               <div className='input_box box-border relative inline-block w-full align-top'>
