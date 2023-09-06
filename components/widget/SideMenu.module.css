@@ -10,12 +10,12 @@
 }
 
 .sidemenuwrap {
-  width: 320px;
+  width: 85%;
   height: 1200px;
   background-color: var(--ssg-point-secondary);
   position: absolute;
   top: 0;
-  left: -320px;
+  left: -340px;
   z-index: 200;
   transition: all 0.3s ease-in-out;
 }
@@ -23,4 +23,60 @@
 .sidemenuwrap.open {
   left: 0;
   transition: all 0.3s ease-in-out;
+}
+
+.btn_box {
+  display: flex;
+  margin-top: 25px;
+}
+
+.btn_box a {
+  border-radius: 8px;
+  width: 50%;
+  height: 36px;
+  text-align: center;
+  font-size: 12px!important;
+  line-height: 24px;
+  font-weight: 1000!important;
+}
+
+.btn_box [class*=btn] {
+  height: 36px;
+  font-size: 12px;
+  padding-top: 6px!important;
+  border-radius: 6px;
+}
+
+.btn_box [class*=btn] {
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  height: 36px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.btn_primary {
+  padding: 12px 16px!important;
+  background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+  color: #000;
+  font-weight: 500;
+}
+
+.btn_box .btn {
+  margin-left: 8px;
+  color: #fff;
+  background: #000;
+}
+
+.btn_box .btn0 {
+  font-size: 12px!important;
+  font-weight: 1000!important;
+  color: #000;
+  background: #fff;
+  border: 1px solid #bcbcbc;
 }
