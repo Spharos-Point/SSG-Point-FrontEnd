@@ -35,6 +35,7 @@ function JoinAuthPhoneForm() {
 
     // 데이터 전달
     const [authData, setAuthData] = useState<AuthFormDataType>({
+      loginId: '',
       name: '',
       phone: ''
     });
@@ -52,7 +53,6 @@ function JoinAuthPhoneForm() {
 
     const pathname = usePathname();
     const router = useRouter();
-    const [fetchedData, setFetchedData] = useState(null);
     const handleButtonFetch = async () => {
       if(pathname === '/member/join/cert') {
 
@@ -61,23 +61,47 @@ function JoinAuthPhoneForm() {
           router.push('/member/join/agree');
 
       } else if(pathname === '/member/findIdPw') {
-        const response = await fetch(`http://localhost:8000/api/v1/search/NameAndPhoneNum?phoneNumber=${authData.phone}&userName=${authData.name}`, {
-          method: 'GET',
+        const response = await fetch('http://localhost:8000/api/v1/search/NameAndPhoneNum', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userName: authData.name,
+            phoneNumber: authData.phone
+          })
         });
-
-        if(response.ok) {
-          const data = await response.json();
-          setFetchedData(data);
-          console.log(data);
+        if(response.status === 200) {
+          const text = await response.text();
+          sessionStorage.setItem('loginId', JSON.stringify(text));
           router.push('/member/findIdResult');
         } else {
-          alert('일치하는 정보가 없습니다.')
+          alert('에러')
         }
-      } else if(pathname === '/member/findPw') {
-        router.push('/member/findPwResult');
+    } else if(pathname === '/member/findPw'){
+      const response = await fetch('http://localhost:8000/api/v1/search/NameAndPhoneNum', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: authData.name,
+          phoneNumber: authData.phone
+        })
+      });
+
+      if(response.status === 200) {
+        const text = await response.text();
+        if(text === authData.loginId) {
+          console.log(text)
+          sessionStorage.setItem('loginId', JSON.stringify(text));
+          router.push('/member/findPwResult');
+        } else {
+          alert('정보와 일치하는 아이디가 존재하지않습니다.')
+        }
       }
     }
-
+  }
 
     
   return (
@@ -98,7 +122,7 @@ function JoinAuthPhoneForm() {
                       placeholder='아이디 입력'
                       id="loginId"
                       name='loginId'
-                      value={authData.name}
+                      value={authData.loginId}
                       onChange={handleChange}
                   />
                 </div>

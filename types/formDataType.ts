@@ -15,6 +15,11 @@ export interface LoginFormDataType {
   }
 
   export interface AuthFormDataType {
+    loginId: string,
     name: string,
     phone: string
+  }
+
+  export interface ChangePwDataType {
+    password: string,
   }
