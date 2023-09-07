@@ -15,14 +15,14 @@ export default function PntHistoryPonintList() {
       {/* 포인트 내역 sort 박스 */}
       <div className={styles.sort_radio_box}>
         <div className={styles.sort_box} >
-          <input type="radio1" id='' name='sortPointList'>
+          <input type="radio" id='' name='sortPointList'>
           </input>
           <label>
             전체
           </label>
         </div>
         <div className={styles.sort_box} >
-          <input type="radio2" id='' name='sortPointList'>
+          <input type="radio" id='' name='sortPointList'>
           </input>
           <label>
             적립/사용

@@ -1,0 +1,67 @@
+import React from 'react'
+import Link from 'next/link'
+import styles from './PntGiftMainSub.module.css'
+
+export default function SearchUser() {
+    return (
+        <div className='box-bording px-5'>
+            <label htmlFor="phoneNumber" className="hidden">
+                휴대폰 번호
+            </label>
+            <input type="text" id="phoneNumber" className={styles.input_box1} placeholder="-없이 휴대폰 번호를 입력해 주세요." />
+            
+            <label htmlFor="userName" className="hidden">
+                사용자 이름
+            </label>
+            <input type="text" id="userName" className={styles.input_box1} placeholder='실명을 정확하게 입력해 주세요.' />
+            
+            <button className='mt-10 mb-20 box-border bg-black text-[14px] text-white text-center p-[12px] w-full rounded-[8px]'>
+                조회하기
+            </button>
+
+            {/* 받을 사람 조회 결과 일치하는 유저 정보가 있고, 그 정보를 선택하는 버튼을 누르면 'box-border': 'hidden' */}
+            {/* 조회 결과 받아온 유저의 이름, ID 정보를 아래에 삽입 */}
+            
+            {/* {isUserChecked ? ( */}
+            <>
+            <div className='box-border'>
+                <p className='text-[14px] text-[#ea035c] font-bold pb-[15px]'>포인트 선물 받으실 분을 확인하세요.</p>
+                <div className='box-border border-[2px] border-[#ea035c] shadow-xl rounded-[8px] p-[20px]'>
+                    <div className='flex justify-between box-border leading-[19px]'>
+                        <p className={'text-[11px] text-[#767676]'}>선물 받을 분 :
+                            <strong className='block text-[14px] leading-[24px] pt-[2px] text-black'>
+                                {"양*민"}(ID: {"yc****"})
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+                <div className='box-border pt-10'>
+                    <p className='text-[14px] font-bold'>선물가능 포인트</p>
+                    <div className='h-[50px] pt-[5px]'>
+                        <p className={styles.p_accumulate}>
+                            {9999999}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+            text-sm font-bold text-slate-700 pb-2">
+                선물할 포인트
+            </label>
+            <input type="text" id="" className={styles.input_box2} />
+
+            <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+            text-sm font-bold text-slate-700 pb-2">
+                포인트 비밀번호
+            </label>
+            <input type="text" id="" className={styles.input_box2} />
+            <button className={styles.Link_btn}>
+                <Link href={'/mypoint/chgPntPwdCert'}>
+                    포인트 비밀번호가 기억나지 않으세요?
+                </Link>
+            </button>
+            </>
+            {/* ) : null} */}
+        </div>
+    )
+}
