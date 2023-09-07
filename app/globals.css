@@ -449,3 +449,45 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   border-color: #e5e5e5;
 
 }
+
+/* 헤더 바텀 active시 색변화 */
+.gnb_depth2_default {
+  color: #767676;
+  display: block;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e8e8e8;
+  flex: 1;
+  display: flex;
+  height: 48px;
+}
+
+.gnb_depth2_active {
+  position: relative;
+  color: #ea035c;
+  display: block;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 12px 20px ;
+  letter-spacing: -.25px;
+  flex: 1;
+  display: flex;
+  height: 48px;
+}
+
+.gnb_depth2_active :after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+  #f40000,#ff8a00 14.06%,#f9ad05 37.76%,
+  #fc348c 62.77%,#b258cb 78.91%,#00c4b4 94.39%) !important;
+  letter-spacing: -.25px;
+}

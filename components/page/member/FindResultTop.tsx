@@ -1,6 +1,7 @@
 import React from 'react'
 
 function FindResultTop() {
+
   return (
     <div className='py-10 px-5'>
         <p className='text-xl leading-[30px] font-normal break-keep tracking-tighter'>

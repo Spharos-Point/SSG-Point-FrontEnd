@@ -70,11 +70,11 @@ function JoinForm() {
                 alert('에러');
             }
         })
-        .then((result) => console.log("결과: ", result));
     }
 
     // 휴대폰, 이름
     const [authData, setAuthData] = useState<AuthFormDataType>({
+        loginId:'',
         name: '',
         phone: ''
     });

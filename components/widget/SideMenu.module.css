@@ -10,12 +10,12 @@
 }
 
 .sidemenuwrap {
-  width: 85%;
+  width: 80%;
   height: 1200px;
   background-color: var(--ssg-point-secondary);
   position: absolute;
   top: 0;
-  left: -340px;
+  left: -600px;
   z-index: 200;
   transition: all 0.3s ease-in-out;
 }
