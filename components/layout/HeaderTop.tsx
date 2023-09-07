@@ -50,11 +50,15 @@ function HeaderTop() {
                     {
                         session.status === 'authenticated'
                         ?
-                        // <HeaderUserStatus />
-                        <p onClick={()=>signOut(
-                            {callbackUrl: 'http://localhost:3000/'}
-                            )}>로그아웃
-                        </p> 
+                        // <p onClick={()=>signOut(
+                        //     {callbackUrl: 'http://localhost:3000/'}
+                        //     )}>로그아웃
+                        // </p> 
+                        <button className='flex items-center cursor-pointer align-middle'>
+                            <span className='mr-[6px] relative w-[27px] bg-barcode bg-no-repeat bg-cover inline-block h-[15px] -indent-[999em] align-top'></span>
+                            <strong className='font-bold text-[#000] text-sm leading-[24px] -mt-[2px]'>0</strong>
+                            <span className='w-6 h-6 -indent-[999em] ml-1 bg-point bg-cover'></span>
+                        </button>
                         :
                         <Link href='/login'>로그인</Link>
                     }
