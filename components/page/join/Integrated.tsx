@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 function Integrated() {
@@ -24,6 +25,11 @@ function Integrated() {
                     </div>
                 </div>
             </div>
+        </div>
+        <div className='btn_box mt-10'>
+            <Link href='/login' className='btn_primary'>
+                신세계포인트 로그인하기
+            </Link>
         </div>
     </div>
   )
