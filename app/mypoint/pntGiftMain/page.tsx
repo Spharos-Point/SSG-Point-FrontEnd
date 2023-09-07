@@ -20,10 +20,12 @@ export default function pntGiftMain() {
           친구나 가족, 소중한 사람에게 선물해 보세요.
         </p>
         <div className='pt-[40px]'>
+          <Link href='./pntGiftMainsub'>
           <button className={styles.btn_primary}>
             {/* 포인트 선물하기 링크 수정하기 */}
-            <Link href='./pntGiftMainsub'>선물하기</Link>
+            선물하기
           </button>
+          </Link>
         </div>
         {/* 포인트 선물 받은 유무에 따라, 결과에 따라 'hidden" : "" */}
         <section className={""}>
