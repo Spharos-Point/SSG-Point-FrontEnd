@@ -435,7 +435,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   right: -11px;
   top: 0;
   opacity: .6;
-} 
+}
 
 /* 체크 박스 */
 .chk_box input:checked, .chk_box input:checked {
