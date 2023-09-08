@@ -2,16 +2,17 @@
     width: 10px;
     height: 5px;
     padding: 12px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgBzdZLDsAgCARQblRuyhE4atuFpi60fmDQSdg0hnlpXEj05UoTnWqvvHOnEYqL1nq5+JhHCR+t9HILhEZpo5N7BxCoVpeMHvRETXcgUcu7ESjzTk+U2y6PRe5/27IQdh9XFsMwKwVwzExRGGakMBzTQ23BzKDCMCOocMwfahsmR07C5DAVjytLHkm1yW3+j4vHAAAAAElFTkSuQmCC) 50% no-repeat;
-    background-size: 10px auto;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/view_btn.png) 50% no-repeat;
+    background-size: 7px auto;
+    transform: rotate(270deg);
 }
 .membership_button_active {
     width: 10px;
     height: 5px;
     padding: 12px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgBzdZLDsAgCARQblRuyhE4atuFpi60fmDQSdg0hnlpXEj05UoTnWqvvHOnEYqL1nq5+JhHCR+t9HILhEZpo5N7BxCoVpeMHvRETXcgUcu7ESjzTk+U2y6PRe5/27IQdh9XFsMwKwVwzExRGGakMBzTQ23BzKDCMCOocMwfahsmR07C5DAVjytLHkm1yW3+j4vHAAAAAElFTkSuQmCC) 50% no-repeat;
-    background-size: 10px auto;
-    transform: rotate(180deg);
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/view_btn.png) 50% no-repeat;
+    background-size: 7px auto;
+    transform: rotate(90deg);
 }
 
 .hidden{

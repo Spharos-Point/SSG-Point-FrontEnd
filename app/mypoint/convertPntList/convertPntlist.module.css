@@ -11,7 +11,7 @@
     top: 39px;
     width: 18px;
     height: 14px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAQCAYAAABz9a1kAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEzSURBVHgBxZPBTcNQDIZtvxw5ZAOyAamQIo50AzZI2YCUDsAAgXSEMEnLDRUhwgZhg97ps3EUtXlIIDXoJfwny7L1Pv3+H4JHSXwXsjlJiajCl/lTn10Cj1KIQhCWVni9S/K0z65XECDsaoayD4xXEPqkDBFr6GCWktyfHbULHoVVtiVDUwcmtCzrY2AQBpBcFBFbXolI1DakNoyX+Lb4gDFB/gLjN6yO8DmrNbtXWm7bBkaW9EyT/PTHeRhYTT6anGgZtg11xgaTJk/u3GCO7IWb23dDdNM1MOLAriQuwm9zMJIkeUgtc+k8XNHOTPfODO7I4eHN/BGxc0YAYmts4YBp8zxPWS2DMYQwO/yklqgMXhfX2EBYhBL+UwIzAjPadX6XMrSn0SAxO3aNKCGsA83PF0qJg0FhHigNAAAAAElFTkSuQmCC) no-repeat 0 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/pnt_conv_arrow.png) no-repeat 0 0;
     background-size: 100% auto;
 
     left: calc(20px + 25%);
@@ -24,7 +24,7 @@
     top: 39px;
     width: 18px;
     height: 14px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAQCAYAAABz9a1kAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEzSURBVHgBxZPBTcNQDIZtvxw5ZAOyAamQIo50AzZI2YCUDsAAgXSEMEnLDRUhwgZhg97ps3EUtXlIIDXoJfwny7L1Pv3+H4JHSXwXsjlJiajCl/lTn10Cj1KIQhCWVni9S/K0z65XECDsaoayD4xXEPqkDBFr6GCWktyfHbULHoVVtiVDUwcmtCzrY2AQBpBcFBFbXolI1DakNoyX+Lb4gDFB/gLjN6yO8DmrNbtXWm7bBkaW9EyT/PTHeRhYTT6anGgZtg11xgaTJk/u3GCO7IWb23dDdNM1MOLAriQuwm9zMJIkeUgtc+k8XNHOTPfODO7I4eHN/BGxc0YAYmts4YBp8zxPWS2DMYQwO/yklqgMXhfX2EBYhBL+UwIzAjPadX6XMrSn0SAxO3aNKCGsA83PF0qJg0FhHigNAAAAAElFTkSuQmCC) no-repeat 0 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/pnt_conv_arrow.png) no-repeat 0 0;
     background-size: 100% auto;
 }
 
@@ -49,7 +49,7 @@
     width: 80px;
     height: 80px;
     margin-bottom: 8px;
-    background: url(/switch_step_icon.png) no-repeat;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/switch_step_icon.png) no-repeat;
     background-size: 258px auto;
 }
 

@@ -1,12 +1,13 @@
 import React from 'react';
+
 interface PntHistorySortDateProps {
-  selectedOption: string; // 선택한 옵션에 따라 타입을 조정하세요.
+  selectedOption: string; // 선택한 옵션에 따라 타입을 조정
 }
 
 export default function PntHistorySortDate({ selectedOption }: PntHistorySortDateProps) {
   const today = new Date(); // 현재 날짜 가져오기
 
-  // 선택한 옵션에 따라 날짜를 계산합니다.
+  // 선택한 옵션에 따라 날짜를 계산
   const calculateStartDate = () => {
     const startDate = new Date(today);
 
