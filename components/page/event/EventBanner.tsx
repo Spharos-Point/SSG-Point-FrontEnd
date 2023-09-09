@@ -1,31 +1,51 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import EventSort from './EventSort'
-import { ingEvnetData } from '@/data/eventData'
 import { EventDataType } from '@/types/eventDataType'
 import EventImage from './EventImage'
 
 function EventBanner() {
+
+    const [ingevent, setIngevent] = useState<EventDataType[]>();
+
+
+    useEffect(() => {
+        fetch("http://localhost:4000/event", {
+            method:'GET',
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then((res) => res.json())
+        .then((data) => setIngevent(data));
+    }, [])
+
+    const json = JSON.stringify(ingevent);
+    console.log(json)
+
     return (
         <>
             <EventSort/>
             <div className='pb-[60px]'>
                 <ul>
                     {
-                        ingEvnetData.map((items: EventDataType) => (
-                            <li className='text-center box-border relative' key={items.id}>
+                        ingevent !== undefined
+                        ?
+                        ingevent.map((items: EventDataType) => (
                                 <EventImage 
+                                    key={items.id}
                                     id={items.id}
-                                    imgAlt={items.imgAlt}
-                                    imgUrl={items.imgUrl}
-                                    url={items.url}
+                                    imgAlt={items.event_name}
+                                    imgUrl={items.event_img}
+                                    url={`/ingevent/datail?eventNo=${items.event_id}&tabActiveldx=0`}
+                                    title={items.event_name}
+                                    regDate={items.event_reg_date}
+                                    exDate={items.event_ex_date}
                                 />
-                                <div className='pt-5 px-5 pb-[35px]'>
-                                    <p className='text-base font-bold leading-[26px] text-left whitespace-nowrap'>
-                                        {items.title}
-                                    </p>
-                                </div>
-                            </li>
                         ))
+                        :
+                        null
                     }
                     
                 </ul>

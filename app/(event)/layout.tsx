@@ -7,7 +7,7 @@ export default function EventLayout({children}: {children: React.ReactNode}) {
   const pathName = usePathname()
   return (
     <section className='mt-10' style={{marginTop: '60px'}}>
-      <div className="p-0">
+      <div className="p-0 min-w-[370px]">
         <ul className="flex">
           <li className={pathName === "/ingevents" ? 'gnb_depth2_active' : 'gnb_depth2_default'}>
             <Link href="/ingevents" className="m-auto">

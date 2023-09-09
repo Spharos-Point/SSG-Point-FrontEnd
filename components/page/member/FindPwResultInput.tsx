@@ -33,11 +33,13 @@ function FindPwResultInput() {
             })
         });
 
-        if(response.status === 200) {
-            alert('비밀번호가 변경되었습니다.')
+        const json = await response.json();
+
+        if(json.code === 200) {
+            alert(json.message)
             router.push('/login');
         } else {
-            alert("비밀번호가 틀립니다.")
+            alert(json.message)
         }
     }
 
