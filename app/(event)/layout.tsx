@@ -9,17 +9,17 @@ export default function EventLayout({children}: {children: React.ReactNode}) {
     <section className='mt-10' style={{marginTop: '60px'}}>
       <div className="p-0 min-w-[370px]">
         <ul className="flex">
-          <li className={pathName === "/ingevents" ? 'gnb_depth2_active' : 'gnb_depth2_default'}>
+          <li className={pathName === "/ingevents" || pathName === "/ingevents/detail" ? 'gnb_depth2_active' : 'gnb_depth2_default'}>
             <Link href="/ingevents" className="m-auto">
               진행 이벤트
             </Link>
           </li>
-          <li className={pathName === "/endevents" ? 'gnb_depth2_active' : 'gnb_depth2_default'}>
+          <li className={pathName === "/endevents" || pathName === "/endevents/detail"? 'gnb_depth2_active' : 'gnb_depth2_default'}>
             <Link href="/endevents" className="m-auto">
               종료 이벤트
             </Link>
           </li>
-          <li className={pathName === "/winevents" ? 'gnb_depth2_active' : 'gnb_depth2_default'}>
+          <li className={pathName === "/winevents" || pathName === "/winevents/detail"? 'gnb_depth2_active' : 'gnb_depth2_default'}>
             <Link href="/winevents" className="m-auto">
               당첨 확인
             </Link>

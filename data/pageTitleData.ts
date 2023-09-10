@@ -65,6 +65,18 @@ export const pageTitleData: pageTitleDataType[] = [
         path: '/member/findPwResult',
         title: '비밀번호 찾기'
     },
+    {
+        path: '/ingevents/detail',
+        title: '이벤트'
+    },
+    {
+        path: '/endevents/detail',
+        title: '이벤트'
+    },
+    {
+        path: '/winevents/detail',
+        title: '이벤트'
+    },
     
 
 ]
