@@ -139,10 +139,32 @@
     background-size: 12px auto;
 }
 
-.gift_card_paper {
+/* 선물 메시지 종류 4가지 */
+.gift_card_paper_01{
     box-sizing: border-box;
     padding: 180px 0 25px 0;
     background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img01.png) no-repeat center 0 #e67162;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_02{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img02.png) no-repeat center 0 #EB9B54;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_03{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img03.png) no-repeat center 0 #71D2D1;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_04{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img04.png) no-repeat center 0 #EB7088;
     background-size: auto 180px;
     width: 100%;
 }
@@ -167,4 +189,27 @@
     font-weight: 400;
     line-height: 30px;
     overflow: hidden;
+}
+
+.card_select_btn_default{
+    background: #fbfbfb;
+    font-size: 14px;
+    color: #767676;
+    line-height: 21px;
+    width: calc(100%/4);
+    display: block;
+    height: 45px;
+    word-break: keep-all;
+}
+
+.card_select_btn_active{
+    background: #ea035c;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    color: white;
+    line-height: 21px;
+    width: calc(100%/4);
+    display: block;
+    height: 45px;
+    word-break: keep-all;
 }

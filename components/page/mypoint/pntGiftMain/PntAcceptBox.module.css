@@ -1,0 +1,35 @@
+.p_accumulate {
+    font-family: Inter,Noto Sans KR,sans-serif;
+    position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ea035c;
+    float: left;
+    line-height: 26px;
+    width: calc(100% - 135px);
+    box-sizing: border-box;
+    padding: 2px 0 0 26px;
+    word-break: break-all;
+}
+
+.p_accumulate:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_accumulate.png) no-repeat left 5.5px top 5px #ea035c;
+    background-size: 8px 8px;
+    border-radius: 50%;
+}
+
+.p_accumulate:after {
+    content: "";
+    width: 10px;
+    height: 19px;
+    margin: 7px 0 0 4px;
+    display: inline-block;
+    vertical-align: top;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntcell/point_cell2.png) no-repeat;
+    background-size: 100% auto;}
