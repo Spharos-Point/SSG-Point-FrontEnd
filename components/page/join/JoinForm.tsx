@@ -52,24 +52,33 @@ function JoinForm() {
                 sessionStorage.setItem('signup', JSON.stringify(signup));
                 router.push('/member/join/success');
             } else {
-                alert('에러');
+                alert("회원가입 실패했습니다.");
             }
-        })
-        .then((result) => console.log("결과: ", result));
+        }) 
+
+        // const json = await response.json();
+
+        // if(json.code == 200) {
+        //     sessionStorage.setItem('signup', JSON.stringify(signup));
+        //     router.push('/member/join/success');
+        // } else {
+        //     alert(json.message);
+        // }
     }
 
     // 아이디 중복체크
     const handleIdCheckFetch = async () => {
-        const response = await fetch(`http://localhost:8000/api/v1/validateLoginId?loginId=${signup.loginId}`, {
+        const response = await fetch(`http://localhost:8000/api/v1/validateLoginId/${signup.loginId}`, {
             method: 'GET',
         })
-        .then((res) => {
-            if(res.status === 200) {
-                alert('사용 가능한 아이디 입니다');
-            } else {
-                alert('에러');
-            }
-        })
+
+        const json = await response.json();
+
+        if(json.code === 200) {
+            alert(json.result);
+        } else {
+            alert(json.message);
+        }
     }
 
     // 휴대폰, 이름

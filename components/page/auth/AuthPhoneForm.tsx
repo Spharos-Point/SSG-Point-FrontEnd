@@ -7,6 +7,7 @@ import { Agreement } from '@/types/agreeDataType';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { AuthFormDataType } from '@/types/formDataType';
+import { json } from 'stream/consumers';
 // import { useRouter } from 'next/router';
 
 
@@ -61,45 +62,42 @@ function JoinAuthPhoneForm() {
           router.push('/member/join/agree');
 
       } else if(pathname === '/member/findIdPw') {
-        const response = await fetch('http://localhost:8000/api/v1/search/NameAndPhoneNum', {
-          method: 'POST',
+        const response = await fetch(`http://localhost:8000/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+          method: 'GET',
           headers: {
             "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userName: authData.name,
-            phoneNumber: authData.phone
-          })
+          }
         });
-        if(response.status === 200) {
-          const text = await response.text();
-          sessionStorage.setItem('loginId', JSON.stringify(text));
+
+        const json = await response.json();
+
+        if(json.code === 200) {
+          console.log(json)
+
+          sessionStorage.setItem('loginId', JSON.stringify(json.result));
           router.push('/member/findIdResult');
         } else {
-          alert('에러')
+          alert(json.message);
         }
     } else if(pathname === '/member/findPw'){
-      const response = await fetch('http://localhost:8000/api/v1/search/NameAndPhoneNum', {
-        method: 'POST',
+      const response = await fetch(`http://localhost:8000/api/v1/search/IdAndNameAndPhoneNum?loginId=${authData.loginId}&userName=${authData.name}&phoneNumber=${authData.phone}`, {
+        method: 'GET',
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          userName: authData.name,
-          phoneNumber: authData.phone
-        })
       });
 
-      if(response.status === 200) {
-        const text = await response.text();
-        if(text === authData.loginId) {
-          console.log(text)
-          sessionStorage.setItem('loginId', JSON.stringify(text));
-          router.push('/member/findPwResult');
-        } else {
-          alert('정보와 일치하는 아이디가 존재하지않습니다.')
-        }
+      const json = await response.json();
+
+      console.log(json)
+
+      if(json.code === 200) {
+        sessionStorage.setItem('loginId', JSON.stringify(authData.loginId));
+        router.push('/member/findPwResult');
+      } else {
+        alert(json.message);
       }
+    
     }
   }
 

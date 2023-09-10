@@ -15,7 +15,7 @@
   background-color: var(--ssg-point-secondary);
   position: absolute;
   top: 0;
-  left: -600px;
+  left: -1250px;
   z-index: 200;
   transition: all 0.3s ease-in-out;
 }

@@ -5,8 +5,8 @@ import Image from 'next/image';
 import styles from './LoginForm.module.css'
 import Link from 'next/link';
 import { LoginFormDataType } from '@/types/formDataType';
-import { useSearchParams } from 'next/navigation';
-import { signIn} from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 function LongForm() {
 
@@ -74,16 +74,17 @@ function LongForm() {
     } 
 
     if(loginData.loginId !== '' || loginData.password !== '') {
-      console.log(loginData)
+
       const result = await signIn('credentials', {
         loginId: loginData.loginId,
         password: loginData.password,
         redirect: true,
         callbackUrl: callBackUrl ? callBackUrl : '/'
-      })
-    } else {
-      alert('로그인 아이디는 필수입니다.')
-      
+      });
+
+      if(result?.status === 401) {
+        alert("아이디 혹은 비밀번호를 일치하지 않습니다.");
+      } 
     }
     
 

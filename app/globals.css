@@ -491,3 +491,10 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   #fc348c 62.77%,#b258cb 78.91%,#00c4b4 94.39%) !important;
   letter-spacing: -.25px;
 }
+
+
+.end_date p {
+  background: linear-gradient(106.4deg,#eb0000 6.03%,#eb6612 21.34%,#c68200 37.11%,#fc348c 52.88%,#7720a7 67.72%,#0ca19a 82.1%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
