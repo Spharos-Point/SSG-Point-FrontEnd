@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import styles from './PntGiftMainSub.module.css';
 import GiftmessageFormSelector from './GiftmessageFormSelector';
+import GiftmessageFormView from './GiftmessageFormView';
 
 export default function PntGiftMessageForm() {
     //선물 메시지 사용 여부
     const [isMesageUseChecked, setIsMesageUseChecked] = useState(false);
     const [isMesageNoChecked, setIsMesageNoChecked] = useState(false);
 
-    //선물 메시지 선택
+    //선물 메시지 카드 타입 선택
     const [selectedCard, setSelectedCard] = useState(1);
+    //선물 메시지 텍스트
+    const [messageText, setMessageText] = useState('');
 
     // 사용여부 둘 중 하나만 체크
     const handleIsMesageUseChecked = () => {
@@ -20,8 +23,14 @@ export default function PntGiftMessageForm() {
         setIsMesageNoChecked(true);
     };
 
+    // 버튼 클릭에 따라 selectedCard 업데이트
     const handleButtonClick = (value: React.SetStateAction<number>) => {
-        setSelectedCard(value); // 버튼 클릭에 따라 selectedCard 업데이트
+        setSelectedCard(value);
+    };
+
+    //메시지 입력에 따라 messageText 업데이트
+    const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setMessageText(event.target.value);
     };
 
     return (
@@ -52,13 +61,15 @@ export default function PntGiftMessageForm() {
                 <>
                     <div className='box-border my-5'>
                         {/* 메시지 버튼에 따라 메시지 폼 선택하여 css 적용 */}
-                        <GiftmessageFormSelector selectedCard={selectedCard} handleButtonClick={handleButtonClick} />
+                        <GiftmessageFormSelector
+                            selectedCard={selectedCard}
+                            handleButtonClick={handleButtonClick} />
                         <div className={`${selectedCard === 1 ? styles.gift_card_paper_01
-                                        : selectedCard === 2 ? styles.gift_card_paper_02
-                                        : selectedCard === 3 ? styles.gift_card_paper_03
-                                        : selectedCard === 4 ? styles.gift_card_paper_04
+                            : selectedCard === 2 ? styles.gift_card_paper_02
+                                : selectedCard === 3 ? styles.gift_card_paper_03
+                                    : selectedCard === 4 ? styles.gift_card_paper_04
                                         : ''
-                        }`}>
+                            }`}>
                             <div className='w-[315px] mx-auto'>
                                 <div className={styles.card_cotents}>
                                     <textarea
@@ -67,21 +78,27 @@ export default function PntGiftMessageForm() {
                                         maxLength={50}
                                         rows={3}
                                         className={styles.card_cotents_textarea}
+                                        value={messageText}
+                                        onChange={handleTextareaChange}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='flex justify-between items-center pb-[20px]'>
-                        <button className='mr-[5px] box-border border-[1px] rounded-[8px] px-[15px] py-[11px] text-[#767676] w-full'>
-                            미리보기
-                        </button>
-                        <button className='ml-[5px] box-border btn_primary rounded-[9px] w-full'>
-                            선물하기
-                        </button>
-                    </div>
                 </>
             ) : null}
+            <div className='box-border my-5'>
+                <GiftmessageFormView
+                    messageText={messageText}
+                    messageStyle={`${selectedCard === 1 ? styles.gift_card_paper_01
+                        : selectedCard === 2 ? styles.gift_card_paper_02
+                            : selectedCard === 3 ? styles.gift_card_paper_03
+                                : selectedCard === 4 ? styles.gift_card_paper_04
+                                    : ''
+                    }`} 
+                    isMesageUseChecked={isMesageUseChecked}
+                    />
+            </div>
         </div>
     );
 }
