@@ -3,7 +3,6 @@ import styles from './pntHistory.module.css'
 import LaterOneMonth from './LaterOneMonth'
 import LaterTwoMonth from './LaterTwoMonth'
 
-
 export default function PntHistoryPointBox(){
     return(
         <div className='p-[24px] bg-[#fbfbfb]'>
