@@ -285,5 +285,67 @@
   ],
   "pntgift": [
     {}
+  ],
+  "noticeList": [
+    {
+      "id": 1,
+      "title": "공지사항1",
+      "context": "공지사항1 내용입니다.",
+      "url": "/cscenter/notice/1"
+    },
+    {
+      "id": 2,
+      "title": "공지사항2",
+      "context": "공지사항2 내용입니다.",
+      "url": "/cscenter/notice/2"
+    },
+    {
+      "id": 3,
+      "title": "공지사항3",
+      "context": "공지사항3 내용입니다.",
+      "url": "/cscenter/notice/3"
+    },
+    {
+      "id": 4,
+      "title": "공지사항4",
+      "context": "공지사항4 내용입니다.",
+      "url": "/cscenter/notice/4"
+    },
+    {
+      "id": 5,
+      "title": "공지사항5",
+      "context": "공지사항5 내용입니다.",
+      "url": "/cscenter/notice/5"
+    },
+    {
+      "id": 6,
+      "title": "공지사항6",
+      "context": "공지사항6 내용입니다.",
+      "url": "/cscenter/notice/6"
+    },
+    {
+      "id": 7,
+      "title": "공지사항7",
+      "context": "공지사항7 내용입니다.",
+      "url": "/cscenter/notice/7"
+    },
+    {
+      "id": 8,
+      "title": "공지사항8",
+      "context": "공지사항8 내용입니다.",
+      "url": "/cscenter/notice/8"
+    },
+    {
+      "id": 9,
+      "title": "공지사항9",
+      "context": "공지사항9 내용입니다.",
+      "url": "/cscenter/notice/9"
+    },
+    {
+      "id": 10,
+      "title": "공지사항10",
+      "context": "공지사항10 내용입니다.",
+      "url": "/cscenter/notice/10"
+    }
   ]
 }

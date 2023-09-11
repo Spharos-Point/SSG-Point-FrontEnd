@@ -3,52 +3,74 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './PntGiftMainSub.module.css';
 import Swal from 'sweetalert2';
+import { useSession } from 'next-auth/react'
 
 export default function SearchUser() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [userName, setUserName] = useState('');
-    const [searchResult, setSearchResult] = useState(''); // 서버에서 받아온 조회 결과 데이터
     const [isUserChecked, setIsUserChecked] = useState(false); // 조회 결과 일치하는 유저 정보가 있는지 확인
+    const [searchResult, setSearchResult] = useState(null); // 서버에서 받아온 조회 결과 데이터
 
-    const handleSearch = () => {
-        // 서버 URL 설정
-        const serverUrl = '서어버어 주우소오';
+    const { data: session } = useSession();
+    console.log(session);
+    console.log(phoneNumber, userName);
 
-        // 서버에 보낼 요청 데이터 설정
-        const requestData = {
-            phoneNumber: phoneNumber,
-            userName: userName,
-        };
+    const handleSearch = async () => {
+    let accessToken;
 
-        // 서버에 POST 요청을 보냅니다.
-        fetch(serverUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                // 서버에서 받은 데이터를 상태 변수에 저장
-                setSearchResult(data);
-
-                // 서버에서 받은 데이터를 모달 창에 표시합니다.
-                Swal.fire({
-                    icon: 'success',
-                    title: '조회 결과',
-                    text: data.result, // 서버에서 받은 결과 데이터
-                });
-            })
-            .catch((error) => {
-                // 오류 처리
-                console.error('서버 요청 오류:', error);
-                Swal.fire({
-                    icon: 'error',
-                    title: '오류',
-                    text: '서버 요청 중 오류가 발생했습니다.',
-                });
+        //사용자가 로그인되지 않았을 경우에 대한 처리
+        if (!userName || !phoneNumber) {
+            Swal.fire({
+                icon: 'error',
+                title: '입력 오류',
+                text: '받을 분의 전화번호와 이름을 모두 입력하세요.',
             });
+            return;
+        }
+        else {
+            // 서버 URL 설정
+            const serverUrl = await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `${accessToken}`,
+                }   
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    // 서버에서 받은 데이터를 상태 변수에 저장
+                    setSearchResult(data);
+                    if (data.isSuccess === true) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '조회 결과',
+                            text: `${data.message}`, // 서버에서 받은 성공 메시지
+                        });
+                    } else if (data.code === 3003){
+                        Swal.fire({
+                            icon: 'error',
+                            title: '오류',
+                            text: `${data.message}`, // 존재하지 않는 유저일 때
+                        });
+                    }  else if (data.code === 5001){
+                        Swal.fire({
+                            icon: 'error',
+                            title: '오류',
+                            text: `${data.message}`, // 본인에게 선물 시도할 시
+                        });
+                    }
+                }) 
+                .catch((error) => {
+                    // 오류 처리
+                    console.error('서버 요청 오류:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: '오류',
+                        text: '서버 요청 중 오류가 발생했습니다.',
+                    });
+                });
+        };
+    console.log(searchResult);
     };
 
     return (
@@ -58,8 +80,8 @@ export default function SearchUser() {
             </label>
 
             <input
-                type="text"
                 id="phoneNumber"
+                type='text'
                 className={styles.input_box1}
                 placeholder="-없이 휴대폰 번호를 입력해 주세요."
                 value={phoneNumber}
@@ -69,8 +91,8 @@ export default function SearchUser() {
                 사용자 이름
             </label>
             <input
-                type="text"
                 id="userName"
+                type='text'
                 className={styles.input_box1}
                 placeholder='실명을 정확하게 입력해 주세요.'
                 value={userName}
@@ -84,7 +106,7 @@ export default function SearchUser() {
 
             {/* 받을 사람 조회 결과 일치하는 유저 정보가 있고, 그 정보를 선택하는 버튼을 누르면 'box-border': 'hidden' */}
             {/* 조회 결과 받아온 유저의 이름, ID 정보를 아래에 삽입 */}
-            {!isUserChecked && !searchResult && (
+            {isUserChecked && searchResult && (
                 <div>
                     <div className='box-border mt-[20px]'>
                         <p className='text-[14px] text-[#ea035c] font-bold pb-[15px]'>포인트 선물 받으실 분을 확인하세요.</p>
