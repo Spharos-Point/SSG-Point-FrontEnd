@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './PntGiftMainSub.module.css';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/react'
+import { data } from 'autoprefixer';
 
 export default function SearchUser() {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -14,12 +15,11 @@ export default function SearchUser() {
     const { data: session } = useSession();
     console.log(session);
     console.log(phoneNumber, userName);
-
+    console.log(`isUserChecked :  ${isUserChecked}`);
 
     const handleSearch = async () => {
     let accessToken;
-
-        //사용자가 로그인되지 않았을 경우에 대한 처리
+        //전화번호 이름 둘 중 하나 입력되지 않았을 경우
         if (!userName || !phoneNumber) {
             Swal.fire({
                 icon: 'error',
@@ -46,7 +46,7 @@ export default function SearchUser() {
                             icon: 'success',
                             title: '조회 결과',
                             text: `${data.message}`, // 서버에서 받은 성공 메시지
-                        });
+                        }); 
                     } else if (data.code === 3003){
                         Swal.fire({
                             icon: 'error',
@@ -71,14 +71,11 @@ export default function SearchUser() {
                     });
                 });
         };
-    };
+    };  
 
     return (
         <div className='box-bording px-5'>
-            <label htmlFor="phoneNumber" className="hidden">
-                휴대폰 번호
-            </label>
-
+            {/* 전화번호 입력 */}
             <input
                 id="phoneNumber"
                 type='text'
@@ -86,10 +83,7 @@ export default function SearchUser() {
                 placeholder="-없이 휴대폰 번호를 입력해 주세요."
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)} />
-
-            <label htmlFor="userName" className="hidden">
-                사용자 이름
-            </label>
+            {/* 이름 입력 */}
             <input
                 id="userName"
                 type='text'
@@ -129,17 +123,17 @@ export default function SearchUser() {
                         </div>
                     </div>
 
-                    <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+                    <label className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
             text-sm font-bold text-slate-700 pb-2">
                         선물할 포인트
                     </label>
-                    <input type="text" id="" className={styles.input_box2} />
+                    <input type="text" className={styles.input_box2} />
 
-                    <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+                    <label className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
             text-sm font-bold text-slate-700 pb-2">
                         포인트 비밀번호
                     </label>
-                    <input type="text" id="" className={styles.input_box2} />
+                    <input type="text"className={styles.input_box2} />
                     <button className={styles.Link_btn}>
                         <Link href={'/mypoint/chgPntPwdCert'}>
                             포인트 비밀번호가 기억나지 않으세요?

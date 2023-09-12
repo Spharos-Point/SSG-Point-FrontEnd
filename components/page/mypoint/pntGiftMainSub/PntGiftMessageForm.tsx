@@ -53,7 +53,7 @@ export default function PntGiftMessageForm() {
                     checked={isMesageNoChecked}
                     onChange={handleIsMesageNoChecked}
                 />
-                <label htmlFor="isMasageUNo">사용 안함</label>
+                <label >사용 안함</label>
             </div>
 
             {/* isMesageNoChecked 유무에 따라 표시 or null */}

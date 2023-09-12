@@ -11,7 +11,7 @@ export default function PntAcceptBox() {
   console.log(giftData);
 
   useEffect(() => {
-    let accessToken;
+    let accessToken: any;
     // 페이지가 로드될 때 실행되는 함수
     if (session) {
       // 로그인한 사용자 세션이 존재하는 경우
