@@ -4,7 +4,6 @@ import Link from 'next/link';
 import styles from './PntGiftMainSub.module.css';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/react'
-import { data } from 'autoprefixer';
 
 export default function SearchUser() {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -13,13 +12,11 @@ export default function SearchUser() {
     const [searchResult, setSearchResult] = useState(null); // 서버에서 받아온 조회 결과 데이터
 
     const { data: session } = useSession();
-    console.log(session);
+    console.log(session?.user.token);
     console.log(phoneNumber, userName);
-    console.log(`isUserChecked :  ${isUserChecked}`);
 
     const handleSearch = async () => {
-    let accessToken;
-        //전화번호 이름 둘 중 하나 입력되지 않았을 경우
+        //사용자가 로그인되지 않았을 경우에 대한 처리
         if (!userName || !phoneNumber) {
             Swal.fire({
                 icon: 'error',
@@ -30,13 +27,13 @@ export default function SearchUser() {
         }
         else {
             // 서버 URL 설정
-            const response = await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
+            await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `${accessToken}`,
+                    'Authorization': `Bearer ${session?.user.token}`,
                 }   
-            }) 
+            })
                 .then((response) => response.json())
                 .then((data) => {
                     // 서버에서 받은 데이터를 상태 변수에 저장
@@ -46,7 +43,7 @@ export default function SearchUser() {
                             icon: 'success',
                             title: '조회 결과',
                             text: `${data.message}`, // 서버에서 받은 성공 메시지
-                        }); 
+                        });
                     } else if (data.code === 3003){
                         Swal.fire({
                             icon: 'error',
@@ -71,11 +68,15 @@ export default function SearchUser() {
                     });
                 });
         };
-    };  
+    console.log(searchResult);
+    };
 
     return (
         <div className='box-bording px-5'>
-            {/* 전화번호 입력 */}
+            <label htmlFor="phoneNumber" className="hidden">
+                휴대폰 번호
+            </label>
+
             <input
                 id="phoneNumber"
                 type='text'
@@ -83,7 +84,10 @@ export default function SearchUser() {
                 placeholder="-없이 휴대폰 번호를 입력해 주세요."
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)} />
-            {/* 이름 입력 */}
+
+            <label htmlFor="userName" className="hidden">
+                사용자 이름
+            </label>
             <input
                 id="userName"
                 type='text'
@@ -100,7 +104,7 @@ export default function SearchUser() {
 
             {/* 받을 사람 조회 결과 일치하는 유저 정보가 있고, 그 정보를 선택하는 버튼을 누르면 'box-border': 'hidden' */}
             {/* 조회 결과 받아온 유저의 이름, ID 정보를 아래에 삽입 */}
-            {/* {isUserChecked && searchResult && ( */}
+            {isUserChecked && searchResult && (
                 <div>
                     <div className='box-border mt-[20px]'>
                         <p className='text-[14px] text-[#ea035c] font-bold pb-[15px]'>포인트 선물 받으실 분을 확인하세요.</p>
@@ -123,24 +127,24 @@ export default function SearchUser() {
                         </div>
                     </div>
 
-                    <label className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+                    <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
             text-sm font-bold text-slate-700 pb-2">
                         선물할 포인트
                     </label>
-                    <input type="text" className={styles.input_box2} />
+                    <input type="text" id="" className={styles.input_box2} />
 
-                    <label className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
+                    <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
             text-sm font-bold text-slate-700 pb-2">
                         포인트 비밀번호
                     </label>
-                    <input type="text"className={styles.input_box2} />
+                    <input type="text" id="" className={styles.input_box2} />
                     <button className={styles.Link_btn}>
                         <Link href={'/mypoint/chgPntPwdCert'}>
                             포인트 비밀번호가 기억나지 않으세요?
                         </Link>
                     </button>
                 </div>
-            {/* )} */}
+            )}
         </div>
     )
 }
