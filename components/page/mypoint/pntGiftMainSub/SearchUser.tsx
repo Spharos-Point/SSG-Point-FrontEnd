@@ -15,6 +15,7 @@ export default function SearchUser() {
     console.log(session);
     console.log(phoneNumber, userName);
 
+
     const handleSearch = async () => {
     let accessToken;
 
@@ -29,13 +30,13 @@ export default function SearchUser() {
         }
         else {
             // 서버 URL 설정
-            const serverUrl = await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
+            const response = await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `${accessToken}`,
                 }   
-            })
+            }) 
                 .then((response) => response.json())
                 .then((data) => {
                     // 서버에서 받은 데이터를 상태 변수에 저장
@@ -70,7 +71,6 @@ export default function SearchUser() {
                     });
                 });
         };
-    console.log(searchResult);
     };
 
     return (
@@ -106,7 +106,7 @@ export default function SearchUser() {
 
             {/* 받을 사람 조회 결과 일치하는 유저 정보가 있고, 그 정보를 선택하는 버튼을 누르면 'box-border': 'hidden' */}
             {/* 조회 결과 받아온 유저의 이름, ID 정보를 아래에 삽입 */}
-            {isUserChecked && searchResult && (
+            {/* {isUserChecked && searchResult && ( */}
                 <div>
                     <div className='box-border mt-[20px]'>
                         <p className='text-[14px] text-[#ea035c] font-bold pb-[15px]'>포인트 선물 받으실 분을 확인하세요.</p>
@@ -146,7 +146,7 @@ export default function SearchUser() {
                         </Link>
                     </button>
                 </div>
-            )}
+            {/* )} */}
         </div>
     )
 }
