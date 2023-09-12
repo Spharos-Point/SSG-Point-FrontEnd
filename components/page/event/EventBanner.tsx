@@ -28,7 +28,6 @@ function EventBanner() {
 
     return (
         <>
-            <EventSort/>
             <div className='pb-[60px]'>
                 <ul>
                     {

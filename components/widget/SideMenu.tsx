@@ -5,6 +5,9 @@ import styles from './SideMenu.module.css'
 import { signOut, useSession } from 'next-auth/react';
 import Logo from '../ui/header/Logo';
 import Link from 'next/link';
+import Bookmark from '../page/sideMenu/Bookmark';
+import MyPage from '../page/sideMenu/MyPage';
+import Menu from '../page/sideMenu/Menu';
 
 
 function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.SetStateAction<Boolean>>}) {
@@ -60,7 +63,34 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
             </div>
           }
         </div>
+        <Bookmark/>
+        <div>
+          {session.status === "authenticated" ? <MyPage/> : null}
+          <Menu/>
         </div>
+        <ul className="sidemenu_terms mt-[50px] mb-[80px] ml-[20px]">
+          <li className="inline-block">
+            <Link
+              href="/stplat/terms"
+              className="block text-[12px] text-[#767676] leading-[13px] py-[5px] font-semibold"
+            >
+              서비스 이용약관
+            </Link>
+          </li>
+          <li className="inline-block relative ml-[24px]">
+            <Link
+              href="/stplat/policy"
+              className="block text-[#eb0000] text-[12px] leading-3 py-[5px] font-semibold"
+            >
+              개인정보 처리방침
+            </Link>
+          </li>
+        </ul>
+        <button
+          className={`${styles.close} absolute right-0 top-0 w-[60px] h-[60px] bg-sideClose bg-[50%] bg-no-repeat indent-[-999em] text-transparent overflow-hidden`}
+          onClick={() => setIsOpened(false)}
+        ></button>
+      </div>
       <div className={isOpened ? styles.overlay : ''} onClick={() => setIsOpened(false)}></div>
     </>   
   )
