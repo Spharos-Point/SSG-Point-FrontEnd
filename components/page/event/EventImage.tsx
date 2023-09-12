@@ -4,6 +4,8 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import EventEnd from './EventEnd';
+import EventWin from './EventWin';
 
 function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: string, title: string, exDate: string, regDate:string, eventId:number}) {
 
@@ -17,18 +19,12 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
 
     exdate.setHours(0);
 
-    const difDate = Math.round((exdate.getTime() - date.getTime()) / (1000 * 60 *60 * 24));
+    const difDate = Math.ceil((exdate.getTime() - date.getTime()) / (1000 * 60 *60 * 24));
     // console.log(((exdate.getTime() - date.getTime())/ (1000 * 60 *60 * 24)), difDate)
 
     return (
         <li className='text-center box-border relative min-w-[400px]'>
-            <Link href={url}>
-                <Image
-                    src={imgUrl}
-                    alt={imgAlt}
-                    width={1960}
-                    height={1080}
-                />
+            <Link href={url} className='block relative'>
                 {
                     pathname === '/ingevents'
                     ?
@@ -52,10 +48,26 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
                             :
                             null
                         }
+                        
                     </>
+                    :
+                    pathname === '/endevents'
+                    ?
+                    <EventEnd/>
+                    :
+                    pathname === '/winevents'
+                    ?
+                    <EventWin/>
                     :
                     null
                 }
+                <Image
+                    className='w-full'
+                    src={imgUrl}
+                    alt={imgAlt}
+                    width={1960}
+                    height={1080}
+                />
             </Link>
             <div className='pt-[20px] px-5 pb-[35px]'>
                 <p className='text-[15px] font-bold leading-[26px] text-left whitespace-nowrap overflow-hidden text-ellipsis'>

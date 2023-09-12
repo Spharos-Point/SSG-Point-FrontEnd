@@ -1,0 +1,7 @@
+.acc_btn.on span {
+    background-position: 0 -7px;
+}
+
+.acc_btn span {
+    background-position: 0 1px;
+}

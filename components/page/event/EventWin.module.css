@@ -1,0 +1,19 @@
+.winEvent span {
+    background: linear-gradient(106.4deg,#eb0000 6.03%,#eb6612 21.34%,#c68200 37.11%,#fc348c 52.88%,#7720a7 67.72%,#0ca19a 82.1%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.winEvent::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 120px;
+    height: 120px;
+    background: url(https://m.shinsegaepoint.com/img/event_info_bg.fad5b98b.png) 0 0 no-repeat;
+    background-size: 100% auto;
+}
