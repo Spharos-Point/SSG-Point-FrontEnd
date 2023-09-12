@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import styles from './PntGiftMainSub.module.css';
 import GiftmessageFormSelector from './GiftmessageFormSelector';
@@ -34,7 +35,7 @@ export default function PntGiftMessageForm() {
     };
 
     return (
-        <div className='px-5'>
+        <div className=''>
             <p className='text-[12px] leading-[19px] mt-5'>포인트 선물 메시지</p>
             <div className={styles.Message_checkBox}>
                 <input
