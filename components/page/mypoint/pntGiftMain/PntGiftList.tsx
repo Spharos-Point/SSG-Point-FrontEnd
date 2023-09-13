@@ -33,6 +33,7 @@ export default function PntGiftList() {
                     </div>
                 </div>
             </div>
+            {/* 컴포넌트화 작업 필요 */}
             <ul className='px-[5px]'>
                 <li className='flex flex-wrap items-center min-h-[74px] py-[5px] border-b-[1px] '>
                     <p className={styles.p_accumulate}>{1}P

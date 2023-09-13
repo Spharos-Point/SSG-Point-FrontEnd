@@ -1,4 +1,3 @@
-'use client'
 import React, { useState } from 'react';
 import styles from './PntGiftMainSub.module.css';
 import GiftmessageFormSelector from './GiftmessageFormSelector';
@@ -35,7 +34,7 @@ export default function PntGiftMessageForm() {
     };
 
     return (
-        <div className=''>
+        <div className='px-5'>
             <p className='text-[12px] leading-[19px] mt-5'>포인트 선물 메시지</p>
             <div className={styles.Message_checkBox}>
                 <input
@@ -54,7 +53,7 @@ export default function PntGiftMessageForm() {
                     checked={isMesageNoChecked}
                     onChange={handleIsMesageNoChecked}
                 />
-                <label >사용 안함</label>
+                <label htmlFor="isMasageUNo">사용 안함</label>
             </div>
 
             {/* isMesageNoChecked 유무에 따라 표시 or null */}
