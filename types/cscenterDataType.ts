@@ -3,6 +3,7 @@ export interface CscenterNoticeProps {
     url: string
     title: string
     date: string
+    context : string
 }
 
 export interface CscenterFaqProps {
