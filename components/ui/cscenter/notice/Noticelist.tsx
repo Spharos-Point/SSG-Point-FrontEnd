@@ -8,6 +8,7 @@ export default function Noticelist() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 10; // 페이지당 아이템 수
 
+  // 데이터 가져오기
   useEffect(() => {
     async function fetchData() {
       try {
@@ -34,7 +35,6 @@ export default function Noticelist() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = noticeData.slice(startIndex, endIndex);
-
 
   return (
     <div>
