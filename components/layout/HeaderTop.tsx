@@ -41,7 +41,7 @@ function HeaderTop() {
             { 
                 pathname === '/' 
                 ? 
-                <Logo url={'/'} imgUrl={'https://m.shinsegaepoint.com/img/logo_header.840b502c.gif'} imgAlt={'신세계포인트 로고'} />
+                <Logo url={'/'} imgUrl={'https://storage.googleapis.com/team3_spharos_bucket/img/logo/logo_ssgont.gif'} imgAlt={'신세계포인트 로고'} />
                 :
                 <HeaderPathName title={title}/>
             }

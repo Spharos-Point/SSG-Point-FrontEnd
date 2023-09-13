@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 function Footer() {
   return (
@@ -45,6 +46,16 @@ function Footer() {
                 COPYRTGHT (c) EMART INC.
                 ALL RIGHTS RESERVED.
             </p>
+        </div>
+        <div className='absolute right-[15px] top-[158px]'>
+            <Link href='http://www.wa.or.kr/board/list.asp?BoardID=0006'>
+                <Image
+                    alt='(사)한국장애인단체총연합회 한국웹접든성인증평가원 웹 접근성 우수사이트 인증마크(WA인증마크)'
+                    src='https://storage.googleapis.com/team3_spharos_bucket/img/logo/wa_mark.png'
+                    width={67}
+                    height={46}
+                />
+            </Link>
         </div>
     </div>
   )

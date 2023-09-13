@@ -65,7 +65,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
 }
 
 .header_logo {
-  position: relative;
+    position: relative;
     text-indent: -999em;
     width: 57px;
     height: 36px;
