@@ -25,6 +25,7 @@ const config: Config = {
         'bookmark': "url('https://storage.googleapis.com/team3_spharos_bucket/img/icon/bookmark.png')",
         'sideonoff': "url('https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/sidemenuOnOff.png')",
         'sideClose': "url('https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/sideClose.png')",
+        'couponTop': "url('https://storage.googleapis.com/team3_spharos_bucket/img/coupon/couponTop.png')",
         
       },
     },

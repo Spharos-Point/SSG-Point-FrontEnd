@@ -10,7 +10,8 @@
             "event_reg_date":"2023-09-01",
             "event_ex_date": "2023-10-10",
             "event_type": "참여",
-            "prize_type": "포인트"
+            "prize_type": "포인트",
+            "deadline": "x"
         },
         {
             "id":2,
@@ -22,7 +23,8 @@
             "event_reg_date":"2023-09-01",
             "event_ex_date": "2023-09-15",
             "event_type": "안내",
-            "prize_type": "할인"
+            "prize_type": "할인",
+            "deadline": "x"
         },
         {
             "id":3,
@@ -34,7 +36,8 @@
             "event_reg_date":"2023-08-29",
             "event_ex_date": "2023-12-31",
             "event_type": "가입",
-            "prize_type": "쿠폰"
+            "prize_type": "쿠폰",
+            "deadline": "x"
         },
         {
             "id":4,
@@ -46,7 +49,8 @@
             "event_reg_date":"2023-09-01",
             "event_ex_date": "2023-09-26",
             "event_type": "안내",
-            "prize_type": "할인"
+            "prize_type": "할인",
+            "deadline": "x"
         },
         {
             "id":5,
@@ -58,7 +62,8 @@
             "event_reg_date":"2023-09-05",
             "event_ex_date": "2023-10-31",
             "event_type": "안내",
-            "prize_type": "할인"
+            "prize_type": "할인",
+            "deadline": "x"
         },
         {
             "id":6,
@@ -70,7 +75,8 @@
             "event_reg_date":"2023-01-02",
             "event_ex_date": "2023-12-31",
             "event_type": "안내",
-            "prize_type": "쿠폰"
+            "prize_type": "쿠폰",
+            "deadline": "x"
         },
         {
             "id":7,
@@ -82,7 +88,8 @@
             "event_reg_date":"2023-02-28",
             "event_ex_date": "2024-01-31",
             "event_type": "안내",
-            "prize_type": "혜택"
+            "prize_type": "혜택",
+            "deadline": "x"
         },
         {
             "id":8,
@@ -94,7 +101,8 @@
             "event_reg_date":"2022-12-05",
             "event_ex_date": "2023-09-30",
             "event_type": "안내",
-            "prize_type": "포인트"
+            "prize_type": "포인트",
+            "deadline": "x"
         },
         {
             "id":9,
@@ -106,7 +114,129 @@
             "event_reg_date":"2023-01-01",
             "event_ex_date": "2023-12-31",
             "event_type": "참여형",
-            "prize_type": "기타"
+            "prize_type": "기타",
+            "deadline": "x"
+        },
+        {
+            "id":10,
+            "event_id": 3340,
+            "event_img":"https://storage.googleapis.com/team3_spharos_bucket/img/event/event09.jpg",
+            "event_name": "신세계포인트 X 메가박스 더블 쿠폰 이벤트",
+            "description": "https://storage.googleapis.com/team3_spharos_bucket/img/event/event09.jpg",
+            "reg_date": "2023-12-01",
+            "event_reg_date":"2023-08-01",
+            "event_ex_date": "2023-08-31",
+            "event_type": "참여",
+            "prize_type": "포인트",
+            "deadline": "o"
+        }
+    ],
+
+    "coupon": [
+        {
+            "id":1,
+            "coupon_id": 1,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/emart24_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_emart24.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount_1000.png",
+            "coupon_name": "1만원 이상 구매 시 1천원 할인",
+            "coupon_desc": "이마트24(일부 매장 제외)",
+            "reg_date": "2023-08-30",
+            "coupon_reg_date":"2023-09-01",
+            "coupon_ex_date": "2023-09-30",
+            "coupon_type": "D",
+            "available_place": "이마트24",
+            "coupon_value": 1000
+        },
+        {
+            "id":2,
+            "coupon_id": 2,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/emarteveryone_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_emarteveryday.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount_2000.png",
+            "coupon_name": "3만원 이상 구매 시 2천원 할인",
+            "coupon_desc": "이마트 에브리데이",
+            "reg_date": "2023-08-30",
+            "coupon_reg_date":"2023-09-01",
+            "coupon_ex_date": "2023-09-30",
+            "coupon_type": "D",
+            "available_place": "이마트 에브리데이",
+            "coupon_value": 2000
+        },
+        {
+            "id":3,
+            "coupon_id": 3,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/speedMate_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_speed.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount20%25.png",
+            "coupon_name": "(수입차) 엔진오일 교환 20% 할인",
+            "coupon_desc": "스피드메이트 전국 지점",
+            "reg_date": "2023-01-01",
+            "coupon_reg_date":"2023-01-02",
+            "coupon_ex_date": "2023-12-31",
+            "coupon_type": "P",
+            "available_place": "스피드메이트",
+            "coupon_value": 20
+        },
+        {
+            "id":4,
+            "coupon_id": 4,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/speedMate_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_speed.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount_20000.png",
+            "coupon_name": "(국산차) 엔진오일 교환 2만원 할인",
+            "coupon_desc": "스피드메이트 전국 지점",
+            "reg_date": "2023-01-01",
+            "coupon_reg_date":"2023-01-02",
+            "coupon_ex_date": "2023-12-31",
+            "coupon_type": "D",
+            "available_place": "스피드메이트",
+            "coupon_value": 20000
+        },
+        {
+            "id":5,
+            "coupon_id": 5,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/speedMate_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_speed.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount20%25.png",
+            "coupon_name": "(국산차) 에어컨/히터 필터 교환 20% 할인",
+            "coupon_desc": "스피드메이트 전국 지점",
+            "reg_date": "2023-01-01",
+            "coupon_reg_date":"2023-01-02",
+            "coupon_ex_date": "2023-12-31",
+            "coupon_type": "P",
+            "available_place": "스피드메이트",
+            "coupon_value": 20
+        },
+        {
+            "id":6,
+            "coupon_id": 6,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/speedMate_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_speed.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount10%25.png",
+            "coupon_name": "(국산차) 배터리 교환 10% 할인",
+            "coupon_desc": "스피드메이트 전국 지점",
+            "reg_date": "2023-01-01",
+            "coupon_reg_date":"2023-01-02",
+            "coupon_ex_date": "2023-12-31",
+            "coupon_type": "P",
+            "available_place": "스피드메이트",
+            "coupon_value": 10
+        },
+        {
+            "id":7,
+            "coupon_id": 7,
+            "coupon_logo_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/speedMate_logo.png",
+            "coupon_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/coup_speed.png",
+            "coupon_value_img":"https://storage.googleapis.com/team3_spharos_bucket/img/coupon/cpon_discount20%25.png",
+            "coupon_name": "직도입 타이어 교환 20% 할인",
+            "coupon_desc": "스피드메이트 전국 지점",
+            "reg_date": "2023-01-01",
+            "coupon_reg_date":"2023-01-02",
+            "coupon_ex_date": "2023-12-31",
+            "coupon_type": "P",
+            "available_place": "스피드메이트",
+            "coupon_value": 20
         }
     ]
 }
