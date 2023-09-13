@@ -1,5 +1,5 @@
 'use client'
-import React, { useState }from 'react'
+import React from 'react'
 import styles from './ConvertPntList.module.css'
 import ConvertPntURL from '@/components/page/mypoint/convertPntList/convertPntURL'
 
