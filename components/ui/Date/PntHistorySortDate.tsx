@@ -1,6 +1,7 @@
 import React from 'react';
+
 interface PntHistorySortDateProps {
-  selectedOption: string; 
+  selectedOption: string; // 선택한 옵션에 따라 타입을 조정
 }
 
 export default function PntHistorySortDate({ selectedOption }: PntHistorySortDateProps) {

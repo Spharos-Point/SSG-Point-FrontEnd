@@ -6,12 +6,14 @@ const Cscenter_Header = () => {
 
     return (
         <>
-            <header className="main_header">
-                <HeaderTop />
-            </header>
-            <Cscenter_HeaderBottom />
+        <header className="main_header">
+            <HeaderTop />
+        </header>
+        <div>
+            <Cscenter_HeaderBottom/>
+        </div>
         </>
     )
 }
 
-export default Cscenter_Header;
+export default  Cscenter_Header;
