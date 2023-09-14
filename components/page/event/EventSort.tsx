@@ -4,6 +4,7 @@ import React from 'react'
 
 function EventSort() {
 
+    
     const router = useRouter();
     const handleselect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         router.push(`/ingevents?sort=${e.target.value}`)

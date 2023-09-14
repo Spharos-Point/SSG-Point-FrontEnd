@@ -77,6 +77,42 @@ export const pageTitleData: pageTitleDataType[] = [
         path: '/winevents/detail',
         title: '이벤트'
     },
+    {
+        path: '/benefits/pntPlus/attend',
+        title: '마이 혜택'
+    },   
+    {
+        path: '/benefits/pntPlus/roulette',
+        title: '마이 혜택'
+    }, 
+    {
+        path: '/benefits/benefitMyLuck',
+        title: '마이 혜택'
+    }, 
+    {
+        path: '/benefits/myCoupon',
+        title: '마이 혜택'
+    }, 
+    {
+        path: '/benefits/endCoupon',
+        title: '마이 혜택'
+    },  
+    {
+        path: '/benefits/myEvent',
+        title: '마이 혜택'
+    },  
+    {
+        path: '/benefits/winEvent',
+        title: '마이 혜택'
+    },  
+    {
+        path: '/benefits/pntTip',
+        title: '마이 혜택'
+    },  
+    {
+        path: '/benefits/myEvent/detail',
+        title: '마이 혜택'
+    },  
     
 
 ]

@@ -1,12 +1,15 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React from 'react'
 import styles from './CouponSort.module.css'
+import Link from 'next/link';
 
 function CouponSort() {
 
     const router = useRouter();
+    const pathname = usePathname();
+    console.log(pathname)
     const handleselect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     router.push(`/coupon?sort=${e.target.value}`)
     }
@@ -22,11 +25,25 @@ function CouponSort() {
                         <option value={'new'} className='border-0'>최신순</option>
                     </select>
                 </div>
-                <div className='pr-[5px]'>
-                    <button className={`${styles.btn_all} text-[13px] relative pr-[26px] font-bold `}>
-                        전체다운
-                    </button>
-                </div>
+                {
+                    pathname === '/coupon'
+                    ?
+                    <div className='pr-[5px]'>
+                        <button className={`${styles.btn_all} text-[13px] relative pr-[26px] font-bold `}>
+                            전체다운
+                        </button>
+                    </div>
+                    :
+                    pathname === '/benefits/myCoupon'
+                    ?
+                    <div className='pr-[5px]'>
+                        <Link className={styles.btn_more} href='/coupon'>
+                            더 많은 쿠폰 보기
+                        </Link>
+                    </div>
+                    :
+                    null
+                }   
             </div>
     )
 }

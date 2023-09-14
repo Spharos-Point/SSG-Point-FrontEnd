@@ -1,0 +1,115 @@
+.use_btn {
+    text-indent: 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/barcode.png)no-repeat 100% 0;
+    width: 85px;
+    height: 15px;
+    font-size: 10px;
+    color: #222;
+    background-size: 39px 15px;
+    -ms-flex: 0 0 85px;
+    flex: 0 0 85px;
+    padding-right: 45px;
+    line-height: 11px;
+}
+
+.coupon_list {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 16px 0 0 0;
+    box-sizing: border-box;
+}
+
+.coupon_headline {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.coupon_point_img {
+    width: 80px;
+    height: 80px;
+    display: block;
+    border-radius: 8px;
+}
+.brand_img {
+    width: 79px;
+    height: 40px;
+    display: block;
+}
+
+.coupon_content {
+    padding-left: 18px;
+    width: calc(100% - 80px);
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.cnt_desc {
+    font-size: 11px;
+    color: #767676;
+    line-height: 19px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cnt_tit {
+    font-size: 15px;
+    color: #000;
+    font-weight: 700;
+    padding: 2px 0 12px;
+    line-height: 26px;
+    overflow: hidden;
+}
+
+.cnt_term {
+    color: #767676;
+    font-size: 11px;
+    line-height: 19px;
+    font-weight: 500;
+}
+
+.wq {
+    color: #c85208;
+    padding-left: 7px;
+    word-break: keep-all;
+    -webkit-white-space: nowrap;
+    white-space: nowrap;
+}
+
+.wq::before {
+    content: "";
+    clear: both;
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #cbcbcb;
+    margin-right: 8px;
+    vertical-align: middle;
+    margin-bottom: 1px;
+}
+
+.franchisee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid #e8e8e8;
+    position: relative;
+    padding: 12px 0 16px;
+    margin-top: 12px;
+    box-sizing: border-box;
+}
+
+.coupon_btn_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.img_box {
+    margin: 0 5px 0 0;
+    width: 20px;
+    height: 20px;
+}

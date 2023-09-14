@@ -35,7 +35,7 @@ function Menu() {
             <ul className={styles.menu_list} >
                 {
                     sideMenuMembershipData.map((items:sideMenuType) => (
-                        <li key={items.id} className='inline-block align-top pt-5 w-[50%] '>
+                        <li key={items.id} className='inline-block align-top pt-5 w-[50%]'>
                             <Link className='flex items-center h-5 text-[12px] leading-[18px] align-top font-bold' href={items.url}>
                                 <Image
                                     className='mr-1 w-5 h-5'

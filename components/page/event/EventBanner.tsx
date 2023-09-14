@@ -1,26 +1,77 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import EventSort from './EventSort'
 import { EventDataType } from '@/types/eventDataType'
 import EventImage from './EventImage'
-import { useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 
 function EventBanner() {
 
-    const [ingevent, setIngevent] = useState<EventDataType[]>();
+    const [event, setEvent] = useState<EventDataType[]>();
+    const pathname = usePathname();
+
     const params = useSearchParams();
-    console.log(params.get("sort"))
-    
+    const sort = params.get("sort");
+    console.log(sort)
+
+    const handleSortChange = () => {
+
+        if(sort === 'new' || sort === null) {
+            fetch("https://newbiefive.store/api/v1/inevents", {
+                method:'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+        } else if(sort === 'end') {
+            // 마감 임박순
+            fetch("https://newbiefive.store/api/v1/inevents/expired", {
+                method:'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+        }
+    }
+
+
     useEffect(() => {
-        fetch("http://localhost:4000/event", {
-            method:'GET',
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then((res) => res.json())
-        .then((data) => setIngevent(data));
+        if(pathname === '/ingevents') {
+            fetch("https://newbiefive.store/api/v1/inevents", {
+                method:'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+
+        } else if(pathname === '/endevents'){
+            fetch("https://newbiefive.store/api/v1/endevents", {
+                method:'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+
+        } else if(pathname === '/winevents') {
+            fetch("https://newbiefive.store/api/v1/winevents", {
+                method:'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((res) => res.json())
+            .then((data) => setEvent(data));
+
+        }
+
     }, [])
 
     // const json = JSON.stringify(ingevent);
@@ -31,19 +82,18 @@ function EventBanner() {
             <div className='pb-[60px]'>
                 <ul>
                     {
-                        ingevent !== undefined
+                        event !== undefined
                         ?
-                        ingevent.map((items: EventDataType) => (
+                        event.map((items: EventDataType) => (
                                 <EventImage 
                                     key={items.id}
                                     id={items.id}
-                                    eventId={items.event_id}
-                                    imgAlt={items.event_name}
-                                    imgUrl={items.event_img}
-                                    url={`/ingevents/detail?eventNo=${items.event_id}&tabActiveIdx=0`}
-                                    title={items.event_name}
-                                    regDate={items.event_reg_date}
-                                    exDate={items.event_ex_date}
+                                    imgAlt={items.eventName}
+                                    img={items.img}
+                                    url={`${pathname}/detail?eventNo=${items.id}&tabActiveIdx=0`}
+                                    title={items.eventName}
+                                    regDate={items.regDate}
+                                    endDate={items.endDate}
                                 />
                         ))
                         :

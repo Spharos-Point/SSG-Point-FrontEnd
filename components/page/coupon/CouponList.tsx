@@ -5,14 +5,16 @@ import CouponSort from './CouponSort'
 import styles from './CouponList.module.css'
 import Image from 'next/image'
 import { CouponDataType } from '@/types/couponDataType'
-import { it } from 'node:test'
+import CouponDate from './CouponDate'
+import CouponDownload from './CouponDownload'
 
 function CouponList() {
 
     const [coupon, setCoupon] = useState<CouponDataType[]>();
 
+
     useEffect(() => {
-        fetch("http://localhost:4000/coupon", {
+        fetch("https://newbiefive.store/api/v1/couponPage", {
             method:'GET',
             headers: {
                 "Content-Type": "application/json",
@@ -21,6 +23,7 @@ function CouponList() {
         .then((res) => res.json())
         .then((data) => setCoupon(data));
     }, [])
+
 
     return (
         <div className='pt-[10px] px-5 pb-[60px] relative'>
@@ -35,45 +38,45 @@ function CouponList() {
                                 <div className='relative'>
                                     <Image
                                     className={styles.coupon_point_img}
-                                    src={items.coupon_value_img}
-                                    alt={items.coupon_desc}
+                                    src={items.couponValueImg}
+                                    alt=""
                                     width={80}
                                     height={80}
                                 />
                                 </div>
                                 <Image
                                     className={styles.brand_img}
-                                    src={items.coupon_logo_img}
-                                    alt={items.coupon_desc}
+                                    src={items.couponLogoImg}
+                                    alt=""
                                     width={79}
                                     height={40}
                                 />
                             </div>
                             <div className={styles.coupon_content}>
                                 <p className={styles.cnt_desc}>
-                                    {items.coupon_desc}
+                                    {items.couponDesc}
                                 </p>
                                 <p className={styles.cnt_tit}>
-                                    {items.coupon_name}
+                                    {items.couponName}
                                 </p>
                                 <p className={styles.cnt_term}>
-                                    {items.coupon_reg_date} ~ {items.coupon_ex_date}
-                                    <span className={styles.wq}>일 남음</span>
+                                    {items.regDate} ~ {items.endDate}
+                                    <span className={styles.wq}>
+                                        <CouponDate regDate={items.regDate} endDate={items.endDate}/>
+                                    </span>
                                 </p>
                                 <div className={styles.franchisee}>
                                     <div className={styles.coupon_btn_wrap}>
                                         <div>
                                             <Image
                                                 className={styles.img_box}
-                                                src={items.coupon_img}
-                                                alt={items.coupon_desc}
+                                                src={items.couponImg}
+                                                alt={items.couponDesc}
                                                 width={20}
                                                 height={20}
                                             />
                                         </div>
-                                        <button className={styles.coupon_use_btn}>
-
-                                        </button>
+                                        <CouponDownload couponId={items.id}/>                                        
                                     </div>
                                 </div>
                             </div>

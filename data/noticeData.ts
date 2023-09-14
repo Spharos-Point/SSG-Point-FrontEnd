@@ -95,3 +95,14 @@ export const giftpntNotice: FindIdNotice[]= [
     },
     
 ]
+
+export const luckServiceNotice: FindIdNotice[]= [
+    {
+        id: 1,
+        content: '운세의 모든 서비스는 신세계포인트와 제휴를 맺은 ㈜고든에서 제공 및 관리합니다.'
+    },
+    {
+        id: 2,
+        content: "서비스 이용 관련 자세한 내용은 ㈜고든으로 문의해주시기 바랍니다. ㈜고든 고객센터 : 070-7600-9624"
+    }
+]
