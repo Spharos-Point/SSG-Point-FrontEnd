@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './SideMenu.module.css'
 import { signOut, useSession } from 'next-auth/react';
 import Logo from '../ui/header/Logo';
@@ -8,12 +8,20 @@ import Link from 'next/link';
 import Bookmark from '../page/sideMenu/Bookmark';
 import MyPage from '../page/sideMenu/MyPage';
 import Menu from '../page/sideMenu/Menu';
+import { usePathname } from 'next/navigation';
 
 
 function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.SetStateAction<Boolean>>}) {
 
     const {isOpened, setIsOpened} = props;
     const session = useSession();
+    const pathName = usePathname();
+
+    useEffect(()=>{
+      if(isOpened===true){
+        setIsOpened(!isOpened)
+      }
+    },[pathName])
 
   return (
     <>  
@@ -35,7 +43,7 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
               <div className='flex items-center justify-between'>
                 <p className='text-lg leading-[26px]'>
                   <strong className={`relative align-top z-[1] pr-1 pl-[1px] after:content[''] after:inline-block after:absolute after:w-full after:h-[13px] after:bg-[#ffdfb5] after:-z-10 after:bottom-0 after:left-0`}>
-                    {session.data.user.userName}&nbsp;
+                    {session.data.user.name}&nbsp;
                   </strong>
                     님&nbsp;반갑습니다.
                 </p>

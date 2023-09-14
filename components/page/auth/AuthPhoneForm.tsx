@@ -7,8 +7,7 @@ import { Agreement } from '@/types/agreeDataType';
 import { usePathname, useRouter } from 'next/navigation';
 
 import { AuthFormDataType } from '@/types/formDataType';
-import { json } from 'stream/consumers';
-// import { useRouter } from 'next/router';
+
 
 
 function JoinAuthPhoneForm() {
@@ -62,7 +61,7 @@ function JoinAuthPhoneForm() {
           router.push('/member/join/agree');
 
       } else if(pathname === '/member/findIdPw') {
-        const response = await fetch(`http://localhost:8000/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+        const response = await fetch(`https://newbiefive.store/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
@@ -80,7 +79,7 @@ function JoinAuthPhoneForm() {
           alert(json.message);
         }
     } else if(pathname === '/member/findPw'){
-      const response = await fetch(`http://localhost:8000/api/v1/search/IdAndNameAndPhoneNum?loginId=${authData.loginId}&userName=${authData.name}&phoneNumber=${authData.phone}`, {
+      const response = await fetch(`https://newbiefive.store/api/v1/search/IdAndNameAndPhoneNum?loginId=${authData.loginId}&userName=${authData.name}&phoneNumber=${authData.phone}`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",

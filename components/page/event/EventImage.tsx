@@ -7,15 +7,17 @@ import { usePathname } from 'next/navigation';
 import EventEnd from './EventEnd';
 import EventWin from './EventWin';
 
-function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: string, title: string, exDate: string, regDate:string, eventId:number}) {
+function EventImage(props : {id: number, url: string, img: string, imgAlt: string, title: string, endDate: string, regDate:string}) {
 
-    const {id, url, imgUrl, imgAlt, title, regDate, exDate, eventId} = props;
+    const {id, url, img, imgAlt, title, regDate, endDate} = props;
     const pathname = usePathname();
+
+    console.log(id, url, img, imgAlt, title, regDate, endDate);
 
     // 현재시간과 이벤트 시작시간 및 이벤트 종료시간
     const date = new Date();
-    const exdate = new Date(exDate);
-    const subDate = exDate.substring(5, 10);
+    const exdate = new Date(endDate);
+    const subDate = endDate.substring(5, 10);
 
     exdate.setHours(0);
 
@@ -26,18 +28,18 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
         <li className='text-center box-border relative min-w-[400px]'>
             <Link href={url} className='block relative'>
                 {
-                    pathname === '/ingevents'
+                    pathname === '/ingevents' || pathname === '/benefits/myEvent'
                     ?
                     <>
                         {
-                            id === 1
+                            id === 0
                             ?
                             <p className='text-[13px] leading-[21px] text-[#FFF] absolute left-0 top-[15px] bg-recommend w-[60px] h-[26px] bg-cover bg-center font-bold pl-[15px] text-left pt-[2px]'>추천</p>
                             :
                             null
                         }
                         {
-                            difDate <= 30
+                            difDate <= 30 && difDate > 0
                             ?
                             <div className='end_date w-[82px] h-[56px] flex justify-center absolute top-[10px] right-[5px] bg-end bg-cover'>
                                 <p className='text-sm font-bold pt-[15px] tracking-tighter'>
@@ -51,11 +53,11 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
                         
                     </>
                     :
-                    pathname === '/endevents'
+                    pathname === '/endevents' 
                     ?
                     <EventEnd/>
                     :
-                    pathname === '/winevents'
+                    pathname === '/winevents' 
                     ?
                     <EventWin/>
                     :
@@ -63,7 +65,7 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
                 }
                 <Image
                     className='w-full'
-                    src={imgUrl}
+                    src={img}
                     alt={imgAlt}
                     width={1960}
                     height={1080}
@@ -75,11 +77,11 @@ function EventImage(props : {id: number, url: string, imgUrl: string, imgAlt: st
                 </p>
                 <p className='text-[13px] font-medium leading-[21px] text-left pt-1 tracking-tighter'>
                     {
-                        regDate.substring(0,4) === exDate.substring(0, 4)
+                        regDate.substring(0,4) === endDate.substring(0, 4)
                         ?
                         regDate + " ~ " + subDate
                         :
-                        regDate + " ~ " + exDate
+                        regDate + " ~ " + endDate
                     }
                     
                 </p>

@@ -460,7 +460,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   padding: 12px 20px;
   border-bottom: 1px solid #e8e8e8;
   flex: 1;
-  display: flex;
+  display:flex;
   height: 48px;
 }
 
@@ -475,7 +475,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   padding: 12px 20px ;
   letter-spacing: -.25px;
   flex: 1;
-  display: flex;
+  display:flex;
   height: 48px;
 }
 

@@ -15,7 +15,7 @@ export const options: NextAuthOptions = {
 
         if(!credentials?.loginId || !credentials?.password) return null
         
-        const res = await fetch("http://localhost:8000/api/v1/auth/login", {
+        const res = await fetch("https://newbiefive.store/api/v1/auth/login", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

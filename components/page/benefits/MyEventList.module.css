@@ -1,0 +1,27 @@
+.event_box {
+    margin-bottom: 60px;
+    margin: 15px 20px 80px;
+    border: 1px dashed #bababa;
+    padding: 40px 0;
+}
+
+.txt {
+    position: relative;
+    padding: 64px 0 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: #767676;
+}
+
+.txt::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/mypage_logo.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
