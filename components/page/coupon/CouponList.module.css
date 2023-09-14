@@ -99,10 +99,3 @@
     width: 20px;
     height: 20px;
 }
-
-.coupon_use_btn {
-    text-indent: -999em;
-    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/coupon/couponDown.png)no-repeat 0 0/18px 17px;
-    width: 18px;
-    height: 17px;
-}

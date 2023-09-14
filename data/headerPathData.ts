@@ -30,6 +30,46 @@ export const headerPathNameData :headerPathNameProps[] = [
         id: 6,
         url: '/login',
         pathname: '로그인'
-    },    
+    },
+    {
+        id: 7,
+        url: '/benefits/pntPlus/attend',
+        pathname: '마이혜택'
+    },   
+    {
+        id: 8,
+        url: '/benefits/pntPlus/roulette',
+        pathname: '마이혜택'
+    }, 
+    {
+        id: 9,
+        url: '/benefits/benefitMyLuck',
+        pathname: '마이혜택'
+    }, 
+    {
+        id: 10,
+        url: '/benefits/myCoupon',
+        pathname: '마이혜택'
+    }, 
+    {
+        id: 11,
+        url: '/benefits/endCoupon',
+        pathname: '마이혜택'
+    },  
+    {
+        id: 12,
+        url: '/benefits/myEvent',
+        pathname: '마이혜택'
+    },  
+    {
+        id: 13,
+        url: '/benefits/winEvent',
+        pathname: '마이혜택'
+    },  
+    {
+        id: 14,
+        url: '/benefits/pntTip',
+        pathname: '마이혜택'
+    },  
 
 ]
