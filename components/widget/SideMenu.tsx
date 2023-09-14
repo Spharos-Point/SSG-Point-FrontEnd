@@ -9,6 +9,7 @@ import Bookmark from '../page/sideMenu/Bookmark';
 import MyPage from '../page/sideMenu/MyPage';
 import Menu from '../page/sideMenu/Menu';
 import { usePathname } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 
 function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.SetStateAction<Boolean>>}) {
@@ -22,6 +23,24 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
         setIsOpened(!isOpened)
       }
     },[pathName])
+
+    const handleSignOut = () => {
+
+      Swal.fire({
+        text: "로그아웃 하시겠습니까?",
+        showCancelButton: true,
+        confirmButtonText: "네",
+        cancelButtonText: "아니요",
+        customClass: {
+          confirmButton: "mySwalConfirmButton",
+          cancelButton: "mySwalCancelButton",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          signOut({callbackUrl: '/'})
+        }
+      })
+    }
 
   return (
     <>  
@@ -54,7 +73,7 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
               <div className={styles.btn_box}>
                   <p 
                     className={styles.btn0}
-                    onClick={()=>signOut({callbackUrl: 'http://localhost:3000/'})}
+                    onClick={handleSignOut}
                   >로그아웃</p> 
                 <Link href='' className={styles.btn}>마이페이지</Link>
               </div>

@@ -5,14 +5,16 @@ import Image from 'next/image';
 import styles from './LoginForm.module.css'
 import Link from 'next/link';
 import { LoginFormDataType } from '@/types/formDataType';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { redirect, useRouter, useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
+import Swal from 'sweetalert2';
 
 function LongForm() {
 
   // 로그인 세션
   const query = useSearchParams();
   const callBackUrl = query.get('callbackUrl');
+  const router = useRouter();
 
   // 비밀번호 보기 구현
   const [imageSrc, setImageSrc] = useState("https://storage.googleapis.com/team3_spharos_bucket/img/logo/passwordOff.png");
@@ -38,7 +40,11 @@ function LongForm() {
     password:'',
     isAutoId:false,
     isAutoLogin:false
+  });
 
+  const [logInError, setLogInError] = useState<any>({
+    loginId: '',
+    password:'',
   });
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,6 +60,17 @@ function LongForm() {
         localStorage.removeItem('autoLogin');
       }
     } else {
+        if(name === 'loginId') {
+          setLogInError({
+            ...logInError,
+            loginId: ''
+          })
+        } else if(name === 'password') {
+          setLogInError({
+            ...logInError,
+            password: ''
+          })
+        }
         setLoginData({
         ...loginData,
         [name]: value
@@ -64,21 +81,39 @@ function LongForm() {
   // 로그인 버튼
   const handleLoginFetch = async () => {
 
-    if(loginData.loginId !== '' || loginData.password !== '') {
-
-      const result = await signIn('credentials', {
-        loginId: loginData.loginId,
-        password: loginData.password,
-        redirect: true,
-        callbackUrl: callBackUrl ? callBackUrl : '/'
-      });
-
-      if(result?.status === 401) {
-        alert("아이디 혹은 비밀번호를 일치하지 않습니다.");
-      } 
+   if(loginData.loginId === '') {
+      setLogInError({
+        ...logInError,
+        loginId: '아이디를 입력해주세요.'
+      })
+      return;
     }
-    
 
+    if(loginData.password === '') {
+      setLogInError({
+        ...logInError,
+        password: '비밀번호를 입력해주세요.'
+      })
+      return;
+    }
+
+    const result = await signIn('credentials', {
+      loginId: loginData.loginId,
+      password: loginData.password,
+      redirect: false,
+      
+      callbackUrl: callBackUrl ? callBackUrl : '/'
+    });
+    console.log(result)
+    if(result?.error !== null) {
+      
+      setLogInError({
+        ...logInError,
+        loginId: '아이디 또는 비밀번호가 일치하지 않습니다.'
+      })
+    } else {
+      router.push(callBackUrl ? callBackUrl : '/');
+    }
   }
 
 return (
@@ -91,9 +126,9 @@ return (
         name="loginId" 
         id="loginId" 
         placeholder='아이디'
-        // defaultValue={loginData.loginId}
         onChange={handleOnChange}
       />
+      { logInError.loginId !== '' ? <p className='myErrorToolTip'>{logInError.loginId}</p> : null}
     </div>
     <div className={styles.input_box}>
       <label htmlFor='password'>
@@ -106,6 +141,7 @@ return (
         onChange={handleOnChange}
       />
       <Image className={styles.img} src={imageSrc} onClick={handleClick} width={16} height={14} alt='비밀번호 보기'/>
+      { logInError.password !== '' ? <p className='myErrorToolTip'>{logInError.password}</p> : null}
     </div>
     <div className={styles.login_checkBox}>
       <div className={styles.check_box}>

@@ -9,12 +9,14 @@ import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
 import { signOut, useSession } from 'next-auth/react'
 import { pageTitleData } from '@/data/pageTitleData'
+import Swal from 'sweetalert2'
 
 
 function HeaderTop() {
     const [isOpened, setIsOpened] = useState<Boolean>(false)
     const pathname = usePathname();
     const session = useSession();
+    console.log(session.data?.user.name)
 
     const handleSideMenu = () => {
         setIsOpened(!isOpened)
@@ -24,6 +26,21 @@ function HeaderTop() {
     const [title, setTitle] = useState<string>('');
 
     useEffect(() =>  {
+        if(session.status === 'authenticated') {
+            Swal.fire({
+                text: `${session?.data.user.name}님 환영합니다.`,
+                toast: true,
+                position: "top",
+                showConfirmButton: true,
+                confirmButtonText: "확인",
+                timer: 5000,
+                timerProgressBar: false,
+                customClass: {
+                container: "mySwal-only-confirm",
+                confirmButton: "mySwalConfirmButtonOnly",
+                },
+            });
+        }
         const getTitle = () => {
             const result = pageTitleData.find((item) => item.path === pathname)?.title
             if(result === undefined) {
@@ -32,7 +49,7 @@ function HeaderTop() {
             setTitle(result)
         }
         getTitle()
-    }, [pathname])
+    }, [pathname, session.status])
 
   return ( 
     <>

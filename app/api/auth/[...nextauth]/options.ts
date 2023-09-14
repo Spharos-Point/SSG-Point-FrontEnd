@@ -1,7 +1,9 @@
+import { error } from 'console';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao"
 import NaverProvider from "next-auth/providers/naver"
+import { redirect } from 'next/navigation';
 
 export const options: NextAuthOptions = {
   providers: [
@@ -15,22 +17,24 @@ export const options: NextAuthOptions = {
 
         if(!credentials?.loginId || !credentials?.password) return null
         
-        const res = await fetch("https://newbiefive.store/api/v1/auth/login", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            loginId: credentials?.loginId,
-            password: credentials?.password,
+        try {
+          const res = await fetch("https://newbiefive.store/api/v1/auth/login", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              loginId: credentials?.loginId,
+              password: credentials?.password,
+            })
           })
-        })
-
-        const user = await res.json()
-  
-        if (res.ok && user) {
-          console.log(user)
-          return user
+          const user = await res.json()
+          console.log(user.isSuccess)
+          if(user.isSuccess){
+            return user.result
+          }     
+        } catch (e: any) {
+          throw new Error(e.message);
         }
         return null
       }
@@ -65,6 +69,7 @@ export const options: NextAuthOptions = {
 
   pages: {
     signIn: "/login",
+    error: "/my_error",
   },
 
 }

@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import style from "./ScrollToTop.module.css";
+import upIcon from "/public/assets/images/icons/chevrons-up.svg"
 
 export default function ScrollToTop() {
   const [isScroll, setIsScroll] = React.useState<boolean>(false);
@@ -35,7 +36,7 @@ export default function ScrollToTop() {
     >
       <div className={style.slideDown}>
         <Image
-          src="/assets/images/icons/chevrons-up.svg"
+          src={upIcon}
           width={200}
           height={200}
           alt="slideDownBtn"
