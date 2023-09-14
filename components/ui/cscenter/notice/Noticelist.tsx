@@ -3,6 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CscenterNoticeProps } from '@/types/cscenterDataType';
 
+function DateForm({ createAt }) {
+  const year = createAt[0];
+  const month = createAt[1] + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
+  const day = createAt[2];
+
+  return (
+    <div>
+      {year}-{month}-{day}
+    </div>
+  );
+}
+
 export default function Noticelist() {
   const [noticeData, setNoticeData] = useState<CscenterNoticeProps[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -11,7 +23,7 @@ export default function Noticelist() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:8000/api/v1/notice');
+        const response = await fetch('https://newbiefive.store/api/v1/notice');
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
@@ -35,19 +47,18 @@ export default function Noticelist() {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = noticeData.slice(startIndex, endIndex);
 
-
   return (
     <div>
       {currentItems.map((props, index) => (
         <div className='box-border p-4 border' key={index}>
-          <div className='hidden'>{props.id}</div>
-          {/* <Link href={props.url}> */}
-          <Link href={`/cscenter/notice/${props.id}`}>
+          <div className='hidden'>{props.noticeId}</div>
+          <Link href={`/cscenter/notice/${props.noticeId}`}>
             <p className='text-[14px] leading-[24px] break-all'>{props.title}</p>
-            <p className='text-[#767676] text-[11px] pt-[4px]'>{props.context}</p>
+            <p className='text-[#767676] text-[11px] pt-[4px]'><DateForm createAt={props.createAt} /></p>
           </Link>
         </div>
       ))}
+      
 
       {/* 페이지네이션 컴포넌트 또는 버튼을 여기에 추가 */}
       <div className='flex justify-center space-x-2'>

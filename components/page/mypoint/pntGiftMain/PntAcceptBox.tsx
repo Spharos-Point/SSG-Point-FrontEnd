@@ -17,7 +17,7 @@ export default function PntAcceptBox() {
       // 로그인한 사용자 세션이 존재하는 경우
       const fetchGiftData = async () => {
         try {
-          const response = await fetch('http://localhost:8000/api/v1/gift/Pending', {
+          const response = await fetch('https://newbiefive.store/api/v1/gift/Pending', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -36,20 +36,20 @@ export default function PntAcceptBox() {
           } else {
             // 오류 처리
             console.error('서버 응답 오류:', response.status);
-            Swal.fire({
-              icon: 'error',
-              title: '오류',
-              text: '서버 요청 중 오류가 발생했습니다.',
-            });
+            // Swal.fire({
+            //   icon: 'error',
+            //   title: '오류',
+            //   text: '서버 요청 중 오류가 발생했습니다.',
+            // });
           }
         } catch (error) {
           // 네트워크 오류 등을 처리
           console.error('서버 요청 오류:', error);
-          Swal.fire({
-            icon: 'error',
-            title: '오류',
-            text: '서버 요청 중 오류가 발생했습니다.',
-          });
+          // Swal.fire({
+          //   icon: 'error',
+          //   title: '오류',
+          //   text: '서버 요청 중 오류가 발생했습니다.',
+          // });
         }
       };
 

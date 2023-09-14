@@ -9,7 +9,7 @@ export default function CardManagePointBox() {
   const [totalCardnum, setTotalCardNum] = useState(0);
   const [totalPoint, setTotalPoint] = useState(0); // 총 포인트 [수정: 변수명 변경
   const [pointCardInfo, setPointCardInfo] = useState<PointCardType[]>([]);
-  const [pointCardNumber, setPointCardNumber] = useState('0000000000000000'); // 포인트 카드 번호
+  const [pointCardNumber, setPointCardNumber] = useState('0000-0000-0000-0000'); // 포인트 카드 번호
   const [pointMaker, setPointMaker] = useState('신세계포인트'); // 포인트 카드 제조사
   const [pointCardDate, setPointCardDate] = useState('2021.08.31'); // 포인트 카드 발급일자
 
@@ -17,13 +17,12 @@ export default function CardManagePointBox() {
   useEffect(() => {
     async function fetchData() {
       try {
-        // console.log(session?.user.token);
         if (session && session.user.token) {
           const response = await fetch('http://localhost:8000/api/v1/myinfo/cardManage', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${session?.user.token}`,
+              'Authorization': `Bearer ${session.user.token}`,
             },
           });
           if (!response.ok) {
@@ -57,12 +56,6 @@ export default function CardManagePointBox() {
         console.error(error);
       }
     }
-    if(session || session.user.token) {
-      fetchData(); // fetchData 함수 호출
-    } else {
-      console.error('session이 없습니다.');
-    }
-
   }, [session]);
 
   function formatCardNumber(cardNumber: string) {

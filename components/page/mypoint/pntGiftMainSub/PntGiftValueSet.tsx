@@ -11,7 +11,7 @@ export default function PntGiftValueSet() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch('http://localhost:8000/api/v1/pointRead/total', {
+                const response = await fetch('https://newbiefive.store/api/v1/pointRead/total', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

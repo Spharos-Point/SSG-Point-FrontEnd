@@ -1,8 +1,8 @@
 export interface CscenterNoticeProps {
-    id: number
-    url: string
-    title: string
-    date: string
+    title : string,
+    context : string,
+    noticeId : number,
+    createAt : string,
 }
 
 export interface CscenterFaqProps {
