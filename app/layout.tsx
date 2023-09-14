@@ -6,6 +6,8 @@ import '@/app/globals.css'
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import AuthProvider from './context/AuthProvider';
+import { Suspense } from 'react';
+import ScrollToTop from '@/components/ui/scrollToTop/ScrollToTop';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +27,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={inter.className}>
         <AuthProvider>
+          <ScrollToTop />
           <Header/>      
           {children}
           <Footer/>

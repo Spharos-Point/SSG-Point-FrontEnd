@@ -1,12 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import loadingimg from '/public/assets/images/login-loading.gif'
 
 const loading = () => {
   return (
-    <div className='myLoader'>
-      <div className='loader'>
-        <Image src="/public/assets/images/loader.svg" width={30} height={30} alt='loader'/>
-      </div>
+    <div className="h-screen flex justify-center items-center">
+        <Image src={loadingimg} alt="loading" width={200} height={200} />
     </div>
   )
 }
