@@ -106,3 +106,14 @@ export const luckServiceNotice: FindIdNotice[]= [
         content: "서비스 이용 관련 자세한 내용은 ㈜고든으로 문의해주시기 바랍니다. ㈜고든 고객센터 : 070-7600-9624"
     }
 ]
+
+export const rcvAgreeNotice: FindIdNotice[]= [
+    {
+        id: 1,
+        content: '광고정보 수신거부와 관계없이 회원 및 서비스 정책 변경, 주문/배송 안내, 법적 의무사항 등 안내성 고지 사항은 정상 발송됩니다.'
+    },
+    {
+        id: 2,
+        content: "광고정보 수신거부 전 예약 발송된 광고 메시지가 있는 경우 약 1-2일 동안 발송될 수 있습니다."
+    }
+]

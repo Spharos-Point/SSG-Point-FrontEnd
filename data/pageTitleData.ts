@@ -112,7 +112,27 @@ export const pageTitleData: pageTitleDataType[] = [
     {
         path: '/benefits/myEvent/detail',
         title: '마이 혜택'
-    },  
+    },
+    {
+        path: '/myinfo/infoRcvAgree',
+        title: '마이 회원정보'
+    },   
+    {
+        path: '/myinfo/serviceAgree',
+        title: '마이 회원정보'
+    }, 
+    {
+        path: '/myinfo/cert',
+        title: '마이 회원정보'
+    }, 
+    {
+        path: '/myinfo/changePwd',
+        title: '마이 회원정보'
+    }, 
+    {
+        path: '/myinfo/withdrawal/leavePassword',
+        title: '마이 회원정보'
+    }, 
     
 
 ]

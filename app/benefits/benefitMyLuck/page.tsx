@@ -4,6 +4,7 @@ import { luckServiceNotice } from '@/data/noticeData'
 import React from 'react'
 
 function page() {
+  
   return (
     <>
       <MyLuck/>
