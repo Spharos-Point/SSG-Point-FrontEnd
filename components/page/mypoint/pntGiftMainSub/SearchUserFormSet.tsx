@@ -27,7 +27,7 @@ export default function SearchUserFormSet() {
         }
         else {
             // 서버 URL 설정
-            await fetch(`http://localhost:8000/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
+            await fetch(`https://newbiefive.store/api/v1/gift/searchSenderUser?userName=${userName}&phoneNumber=${phoneNumber}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

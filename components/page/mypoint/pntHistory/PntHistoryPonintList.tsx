@@ -19,7 +19,7 @@ export default function PntHistoryPonintList({ }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:8000/PntList');
+        const response = await fetch('https://newbiefive.store/PntList');
         const jsonData = await response.json();
 
         jsonData.sort((a, b) => new Date(b.pnt_create_at) - new Date(a.pnt_create_at));
@@ -150,11 +150,11 @@ export default function PntHistoryPonintList({ }) {
         <div className='flex items-center bg-[#f8f8f8] h-[36px] box-border mr-[16px] px-[8px] w-full'>
           <p className={styles.p_accumulate}>
             <span className='text-[13px] pr-[8px] font-medium'>적립</span>
-            <span className='font-medium'>{110}P</span>
+            <span className='font-medium'>{0}P</span>
           </p>
           <p className={styles.p_use}>
             <span className='text-[13px] pr-[8px] font-medium'>사용</span>
-            <span className='font-medium'>{620}P</span>
+            <span className='font-medium'>{0}P</span>
           </p>
         </div>
         {/* 포인트 내역 조회 결과 리스트 */}
