@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react'
 import styles from './PntAcceptBox.module.css'
-import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/react'  
 
 export default function PntAcceptBox() {
@@ -11,8 +10,6 @@ export default function PntAcceptBox() {
   console.log(giftData);
 
   useEffect(() => {
-    let accessToken: any;
-    // 페이지가 로드될 때 실행되는 함수
     if (session) {
       // 로그인한 사용자 세션이 존재하는 경우
       const fetchGiftData = async () => {
@@ -21,7 +18,7 @@ export default function PntAcceptBox() {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `${accessToken}`, // 사용자 토큰을 헤더에 추가
+              Authorization: `Bearer ${session.user.token}`,
             },
           });
 
@@ -36,20 +33,10 @@ export default function PntAcceptBox() {
           } else {
             // 오류 처리
             console.error('서버 응답 오류:', response.status);
-            // Swal.fire({
-            //   icon: 'error',
-            //   title: '오류',
-            //   text: '서버 요청 중 오류가 발생했습니다.',
-            // });
           }
         } catch (error) {
           // 네트워크 오류 등을 처리
           console.error('서버 요청 오류:', error);
-          // Swal.fire({
-          //   icon: 'error',
-          //   title: '오류',
-          //   text: '서버 요청 중 오류가 발생했습니다.',
-          // });
         }
       };
 
