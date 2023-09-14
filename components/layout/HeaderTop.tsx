@@ -7,40 +7,23 @@ import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
 import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
-import { signOut, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { pageTitleData } from '@/data/pageTitleData'
-import Swal from 'sweetalert2'
-
+import Barcode from './Barcode'
 
 function HeaderTop() {
     const [isOpened, setIsOpened] = useState<Boolean>(false)
+    const [showBarcode, setShowBarcode] = useState<boolean>(false)
     const pathname = usePathname();
     const session = useSession();
-    console.log(session.data?.user.name)
 
     const handleSideMenu = () => {
         setIsOpened(!isOpened)
     }
 
-    // 헤더 경로
     const [title, setTitle] = useState<string>('');
 
     useEffect(() =>  {
-        if(session.status === 'authenticated') {
-            Swal.fire({
-                text: `${session?.data.user.name}님 환영합니다.`,
-                toast: true,
-                position: "top",
-                showConfirmButton: true,
-                confirmButtonText: "확인",
-                timer: 5000,
-                timerProgressBar: false,
-                customClass: {
-                container: "mySwal-only-confirm",
-                confirmButton: "mySwalConfirmButtonOnly",
-                },
-            });
-        }
         const getTitle = () => {
             const result = pageTitleData.find((item) => item.path === pathname)?.title
             if(result === undefined) {
@@ -49,11 +32,12 @@ function HeaderTop() {
             setTitle(result)
         }
         getTitle()
-    }, [pathname, session.status])
+    }, [pathname])
 
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
+        <Barcode showBarcode={showBarcode} token={session.data?.user.token} setShowBarcode={setShowBarcode} />
         <div className='header_top'>
             { 
                 pathname === '/' 
@@ -67,7 +51,7 @@ function HeaderTop() {
                     {
                         session.status === 'authenticated'
                         ?
-                        <button className='flex items-center cursor-pointer align-middle'>
+                        <button className='flex items-center cursor-pointer align-middle' onClick={()=>setShowBarcode(!showBarcode)}>
                             <span className='mr-[6px] relative w-[27px] bg-barcode bg-no-repeat bg-cover inline-block h-[15px] -indent-[999em] align-top'></span>
                             <strong className='font-bold text-[#000] text-sm leading-[24px] -mt-[2px]'>0</strong>
                             <span className='w-6 h-6 -indent-[999em] ml-1 bg-point bg-cover'></span>

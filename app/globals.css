@@ -687,7 +687,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   top: -20px;
   left: 10px;
   z-index: 10;
-  animation: slideUp 0.2s ease-in-out forwards;
+  animation: slideUpToolTip 0.2s ease-in-out forwards;
 }
 .myErrorToolTip::after {
   content: "";
@@ -699,7 +699,7 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   border-top-color: rgba(255, 0, 0, 0.5);
 }
 
-@keyframes slideUp {
+@keyframes slideUpToolTip {
   0% {
     top: 0;
   }
