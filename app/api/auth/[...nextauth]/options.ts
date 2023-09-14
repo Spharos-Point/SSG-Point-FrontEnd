@@ -44,7 +44,6 @@ export const options: NextAuthOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET
     })
   ],
-  secret: process.env.CRED_SECRET_KEY,
 
   callbacks: {
     async jwt({token, user}) {

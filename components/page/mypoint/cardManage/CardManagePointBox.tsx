@@ -8,7 +8,7 @@ import { useSession } from 'next-auth/react';
 export default function CardManagePointBox() {
   const [totalCardnum, setTotalCardNum] = useState(0);
   const [totalPoint, setTotalPoint] = useState(0); // 총 포인트 [수정: 변수명 변경
-  const [pointCardInfo, setPointCardInfo] = useState<PointCardType[]>([]);
+  const [pointCardInfo, setPointCardInfo] = useState<PointCardType[]>([] as PointCardType[]);
   const [pointCardNumber, setPointCardNumber] = useState('0000-0000-0000-0000'); // 포인트 카드 번호
   const [pointMaker, setPointMaker] = useState('신세계포인트'); // 포인트 카드 제조사
   const [pointCardDate, setPointCardDate] = useState('2021.08.31'); // 포인트 카드 발급일자
@@ -18,7 +18,8 @@ export default function CardManagePointBox() {
     async function fetchData() {
       try {
         if (session && session.user.token) {
-          const response = await fetch('http://localhost:8000/api/v1/myinfo/cardManage', {
+          console.log(session.user.token);
+          const response = await fetch(`${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -73,7 +74,7 @@ export default function CardManagePointBox() {
         <div className="h-[40px] relative items-center pr-[12px] pl-[20px] flex">
           <h3 className={styles.tit_img}><span className='hidden'>{pointMaker} 포인트 로고</span></h3>
           <button className='pl-[130px]' onClick={() => { }}>
-            <BarcodeGenerator height={17} width={0.4} value={pointCardInfo.cardNumber} />
+            <BarcodeGenerator height={17} width={0.4} value={pointCardInfo[0].cardNumber} />
           </button>
         </div>
         <div className='relative bg-[#fff] rounded-[18px] h-full min-h-[160px] mx-[2px] px-[20px] pt-[73px]'>

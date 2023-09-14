@@ -1,0 +1,35 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "orientation": "portrait",
+    "prefer_related_applications": true,
+    "name": "SSG POINT APP",
+    "short_name": "SSG POINT",
+    "description": "SSG POINT APP CLONE",
+    "icons": [
+        {
+            "src": "/assets/images/icons/icon_x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/icons/icon_x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/assets/images/icons/icon_x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/icons/icon_x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

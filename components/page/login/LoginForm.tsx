@@ -61,17 +61,8 @@ function LongForm() {
     } 
   }
 
-  const handleLocalStorage = (loginId: String) => {
-    localStorage.setItem('autoLogin', loginId.toString())
-  }
-
   // 로그인 버튼
   const handleLoginFetch = async () => {
-
-
-    if(loginData.isAutoId) {
-      handleLocalStorage(loginData.loginId)
-    } 
 
     if(loginData.loginId !== '' || loginData.password !== '') {
 
@@ -89,19 +80,6 @@ function LongForm() {
     
 
   }
-
-  useEffect(() => {
-    if(typeof window !== 'undefined') {
-      const autoLogin = localStorage.getItem('autoLogin') || '';
-      if(autoLogin) {
-        setLoginData({
-          ...loginData,
-          loginId: autoLogin,
-          isAutoId: true
-        })
-      }
-    }    
-  },[])
 
 return (
   <div>
