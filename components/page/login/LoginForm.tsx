@@ -106,12 +106,31 @@ function LongForm() {
     });
     console.log(result)
     if(result?.error !== null) {
-      
-      setLogInError({
-        ...logInError,
-        loginId: '아이디 또는 비밀번호가 일치하지 않습니다.'
-      })
+      Swal.fire({
+        text: `아이디 비빌번호를 확인 후 다시 시도해주세요.`,
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        customClass: {
+          container: "my-swal",
+        },
+      });
     } else {
+      console.log(result)
+      Swal.fire({
+        text: `신세계포인트에 오신 것을 환영합니다.`,
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 1000,
+        timerProgressBar: true,
+        customClass: {
+          container: "my-swal",
+        },
+      });
+
       router.push(callBackUrl ? callBackUrl : '/');
     }
   }
@@ -125,6 +144,7 @@ return (
         type="text" 
         name="loginId" 
         id="loginId" 
+        defaultValue=''
         placeholder='아이디'
         onChange={handleOnChange}
       />
@@ -138,6 +158,7 @@ return (
         name="password" 
         id="password"
         placeholder='비밀번호(영문, 숫자, 특수문자 8 ~ 20자)'
+        defaultValue=''
         onChange={handleOnChange}
       />
       <Image className={styles.img} src={imageSrc} onClick={handleClick} width={16} height={14} alt='비밀번호 보기'/>
