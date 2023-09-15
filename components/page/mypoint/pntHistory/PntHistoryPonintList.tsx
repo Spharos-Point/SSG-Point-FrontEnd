@@ -17,57 +17,57 @@ export default function PntHistoryPonintList({ }) {
   };
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('https://newbiefive.store/PntList');
-        const jsonData = await response.json();
+    // async function fetchData() {
+    //   try {
+    //     const response = await fetch('https://newbiefive.store/PntList');
+    //     const jsonData = await response.json();
 
-        jsonData.sort((a, b) => new Date(b.pnt_create_at) - new Date(a.pnt_create_at));
-        setData(jsonData);
+    //     jsonData.sort((a, b) => new Date(b.pnt_create_at) - new Date(a.pnt_create_at));
+    //     setData(jsonData);
 
-      } catch (error) {
-        console.error('데이터를 가져오는 중 오류 발생:', error);
-      }
-    }
-    fetchData();
+    //   } catch (error) {
+    //     console.error('데이터를 가져오는 중 오류 발생:', error);
+    //   }
+    // }
+    // fetchData();
   }, []);
 
-  const filteredData = data.filter(item => {
-    const currentDate = new Date();
-    const itemDate = new Date(item.pnt_create_at);
+  // const filteredData = data.filter(item => {
+  //   const currentDate = new Date();
+  //   const itemDate = new Date(item.pnt_create_at);
 
-    // 선택된 옵션 값에 따라 필터링 조건을 설정
-    if (selectedDateRange === '') {
-      // 빈 문자열인 경우 모든 데이터 반환
-      return true;
-    } else if (selectedDateRange === '7') {
-      // 1주일 내의 데이터
-      const oneWeekAgo = new Date(currentDate);
-      oneWeekAgo.setDate(currentDate.getDate() - 7);
-      return itemDate >= oneWeekAgo;
-    } else if (selectedDateRange === '1') {
-      // 1개월 내의 데이터
-      const oneMonthAgo = new Date(currentDate);
-      oneMonthAgo.setMonth(currentDate.getMonth() - 1);
-      return itemDate >= oneMonthAgo;
-    } else if (selectedDateRange === '3') {
-      // 3개월 내의 데이터
-      const threeMonthsAgo = new Date(currentDate);
-      threeMonthsAgo.setMonth(currentDate.getMonth() - 3);
-      return itemDate >= threeMonthsAgo;
-    } else if (selectedDateRange === '6') {
-      // 6개월 내의 데이터
-      const sixMonthsAgo = new Date(currentDate);
-      sixMonthsAgo.setMonth(currentDate.getMonth() - 6);
-      return itemDate >= sixMonthsAgo;
-    }
+  //   // 선택된 옵션 값에 따라 필터링 조건을 설정
+  //   if (selectedDateRange === '') {
+  //     // 빈 문자열인 경우 모든 데이터 반환
+  //     return true;
+  //   } else if (selectedDateRange === '7') {
+  //     // 1주일 내의 데이터
+  //     const oneWeekAgo = new Date(currentDate);
+  //     oneWeekAgo.setDate(currentDate.getDate() - 7);
+  //     return itemDate >= oneWeekAgo;
+  //   } else if (selectedDateRange === '1') {
+  //     // 1개월 내의 데이터
+  //     const oneMonthAgo = new Date(currentDate);
+  //     oneMonthAgo.setMonth(currentDate.getMonth() - 1);
+  //     return itemDate >= oneMonthAgo;
+  //   } else if (selectedDateRange === '3') {
+  //     // 3개월 내의 데이터
+  //     const threeMonthsAgo = new Date(currentDate);
+  //     threeMonthsAgo.setMonth(currentDate.getMonth() - 3);
+  //     return itemDate >= threeMonthsAgo;
+  //   } else if (selectedDateRange === '6') {
+  //     // 6개월 내의 데이터
+  //     const sixMonthsAgo = new Date(currentDate);
+  //     sixMonthsAgo.setMonth(currentDate.getMonth() - 6);
+  //     return itemDate >= sixMonthsAgo;
+  //   }
 
-    if (selectedPointType && item.pointtype !== selectedPointType) {
-      return false;
-    }
+  //   if (selectedPointType && item.pointtype !== selectedPointType) {
+  //     return false;
+  //   }
 
-    return true;
-  });
+  //   return true;
+  // });
 
   return (
     <div className='pt-[25px] pb-[60px] pr-[20px] pl-[20px] tracking-tight'>
@@ -159,7 +159,7 @@ export default function PntHistoryPonintList({ }) {
         </div>
         {/* 포인트 내역 조회 결과 리스트 */}
         <ul className='pr-[5px] pl-[8px]'>
-          <PntHistoryDetail filteredData={filteredData} selectedPointType={selectedPointType}/>
+          {/* <PntHistoryDetail filteredData={filteredData} selectedPointType={selectedPointType}/> */}
         </ul>
       </div>
     </div>

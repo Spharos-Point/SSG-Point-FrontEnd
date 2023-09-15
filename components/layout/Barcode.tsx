@@ -66,8 +66,10 @@ export default function Barcode({ setShowBarcode, showBarcode, cardNumber }: { s
         >
             <div className={`${styles.bacrode_banner}`}>
                 <div className={`${styles.contents_barcode}`}>
+                    <div className='flex justify-between items-center'>
                     <p className={`${styles.txt}`}>SHINSEGAE POINT</p>
                     <p className={`${styles.point}`}>3254</p>
+                    </div>
                     <div className={`${styles.image_barcode}`}>
                         <div id="barcode0" className={`${styles.barcode0}`}>
                             <div>

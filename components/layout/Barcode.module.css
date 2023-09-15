@@ -4,6 +4,7 @@
 }
 .point_barcode {
     position: fixed;
+    padding: 13px 0 16px;
     border-radius: 16px 16px 0 0;
     bottom: -160px;
     left: 0;
@@ -14,10 +15,7 @@
     -webkit-filter: drop-shadow(0 2px 10px rgba(0,0,0,.2));
     filter: drop-shadow(0 2px 10px rgba(0,0,0,.2));
     transition: bottom 0.5s;
-    z-index: 90;
-}
-.point_barcode {
-    padding: 13px 0 16px;
+    z-index: 9999;
 }
 
 .point_barcode .contents_barcode {
@@ -153,6 +151,7 @@
 
 .point_barcode .shows_barcode.on {
     transform: rotate(540deg) translateX(50%);
+    background: linear-gradient(-93.62deg,#f8ae04 64.68%,#faa503 85.01%);
     transition: all .3s;
 }
 .hidden {

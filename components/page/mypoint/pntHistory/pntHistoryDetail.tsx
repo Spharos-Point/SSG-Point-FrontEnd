@@ -2,14 +2,14 @@
 import React, {useState, useEffect}from 'react'
 import styles from './pntHistory.module.css'
 
-export default function PntHistoryDetail( { filteredData, selectedPointType } ) {
-  const filteredByPointType = selectedPointType
-  ? filteredData.filter(item => item.pointtype === selectedPointType)
-  : filteredData;
+export default function PntHistoryDetail(  ) {
+  // const filteredByPointType = selectedPointType
+  // ? filteredData.filter(item => item.pointtype === selectedPointType)
+  // : filteredData;
 
   return (
     <ul className='pr-[5px] pl-[8px]'>
-      {filteredByPointType.map((item) => (
+      {/* {filteredByPointType.map((item) => (
         <li
           key={item.point_ID}
           className='relative border-b-[1px] flex items-center min-h-[74px] py-[5px] tracking-tight'
@@ -36,7 +36,7 @@ export default function PntHistoryDetail( { filteredData, selectedPointType } ) 
             </p>
           </div>
         </li>
-      ))}
+      ))} */}
     </ul>
   );
 }

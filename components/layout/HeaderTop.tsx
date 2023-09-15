@@ -37,7 +37,7 @@ function HeaderTop() {
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
-        <Barcode showBarcode={showBarcode} token={session.data?.user.token} setShowBarcode={setShowBarcode} />
+        <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={''}/>
         <div className='header_top'>
             { 
                 pathname === '/' 
