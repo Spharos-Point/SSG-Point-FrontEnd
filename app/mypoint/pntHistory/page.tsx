@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import styles from '@/components/page/mypoint/pntHistory/pntHistory.module.css'
 import PntHistoryPointBox from '@/components/page/mypoint/pntHistory/pntHistoryPointBox'
 import PntHistoryPonintList from '@/components/page/mypoint/pntHistory/PntHistoryPonintList'
