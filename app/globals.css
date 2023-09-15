@@ -608,14 +608,12 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
 
 .my-swal {
   font-weight: bold !important;
-  font-family: var(--billita-hangul) !important;
+  color: white !important;
 }
 
 .my-swal .swal2-popup {
-  background-color: var(--billita-blue) !important;
+  background-color: black !important;
   border-radius: 0.3rem !important;
-  mix-blend-mode: hard-light;
-  opacity: 0.9;
 }
 
 .my-swal .swal2-html-container {

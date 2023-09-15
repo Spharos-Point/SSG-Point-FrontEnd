@@ -16,7 +16,7 @@ function HeaderTop() {
     const [showBarcode, setShowBarcode] = useState<boolean>(false)
     const pathname = usePathname();
     const session = useSession();
-
+    console.log(session.status)
     const handleSideMenu = () => {
         setIsOpened(!isOpened)
     }
@@ -37,7 +37,7 @@ function HeaderTop() {
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
-        <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={''}/>
+        { session.status === 'authenticated' && <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={''}/> }
         <div className='header_top'>
             { 
                 pathname === '/' 
