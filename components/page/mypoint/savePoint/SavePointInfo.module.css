@@ -1,0 +1,65 @@
+.select_box {
+    display: block;
+    width: 100%;
+    height: 48px;
+    padding: 0 32px 0 15px;
+    box-sizing: border-box;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    color: #000;
+}
+
+.select_box:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: 14px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 10px;
+    height: 7px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/selectbox_btn.png) no-repeat;
+    background-size: 10px auto;
+}
+
+.info_ico {
+    width: 15px;
+    height: 15px;
+    text-indent: -999em;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/info_btn2.png) no-repeat;
+    background-size: 100% auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.input_box {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 16px;
+    background: #fff;
+    z-index: 2;
+}
+
+.btn_box {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 12px 16px!important;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+}

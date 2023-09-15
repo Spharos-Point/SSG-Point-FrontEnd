@@ -1,0 +1,11 @@
+.menu_list li:nth-child(2n-1) a {
+    padding-right: 5px;
+}
+
+.menu_list li:first-child {
+    width: 65%;
+}
+
+.menu_list li {
+    width: auto;
+}

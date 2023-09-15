@@ -1,0 +1,110 @@
+.radio_box:first-child {
+    margin-right: 10px;
+}
+
+.radio_box {
+    width: calc(50% - 5px);
+}
+
+.radio_box input{
+    appearance: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+.radio_box label {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 12px;
+    width: 100%;
+    height: 48px;
+    background: #f5f5f5;
+    color: #000;
+    font-size: 14px;
+    line-height: 24px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.radio_box input:checked+label, .radio_box input:checked~label {
+    background: #000;
+    color: #fff;
+}
+
+.radio_box input:checked+label:before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 8px;
+    margin-right: 8.5px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAiCAYAAAAge+tMAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEGSURBVHgB1ZfhDYMgEIWvG7hBu0FH6SgdwRHaTRzJERzhFZJr2hgEFQ4eX0KM/jCfYF7eiXTKRToBwM1dnnr7lh7w0m4t+LEIOyo9Y4Uw4/yGkHQP4hPC8P4qTm7ENg9hJCE9CiN+N3uUXsfeP5Mwgo3YU/zzQdhAJPb0+VUYQST2ktJ6VC9d1b4QObGHQBdw6y7GIDf2dJdDx2QmjxKxtyFuJo9SsZd4UVF5lI49L2ctD6vYs5ZHTuy1kkeNtldaHjXbXil5tGh7ufJo2fbOyoOh7R2VB1PbOyIPy9izkgfrkJuQj9F+XjwhzzPkHpDnG3J3yM9gHHI9EXkvzTnkfgnIm8feB4Jf38SOCiBoAAAAAElFTkSuQmCC) no-repeat;
+    background-size: 11px auto;
+}
+
+.select_box::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: 14px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 10px;
+    height: 7px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgBzdZLDsAgCARQblRuyhE4atuFpi60fmDQSdg0hnlpXEj05UoTnWqvvHOnEYqL1nq5+JhHCR+t9HILhEZpo5N7BxCoVpeMHvRETXcgUcu7ESjzTk+U2y6PRe5/27IQdh9XFsMwKwVwzExRGGakMBzTQ23BzKDCMCOocMwfahsmR07C5DAVjytLHkm1yW3+j4vHAAAAAElFTkSuQmCC) no-repeat;
+    background-size: 10px auto;
+}
+
+/* 인증 약관 */
+/* .chk_box label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border: 1px solid #505050;
+    border-radius: 50%;
+    z-index: 2;
+} */
+
+.chk_box input:checked, .chk_box input:checked {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAiCAYAAAAge+tMAAAACXBIWXMAACxLAAAsSwGlPZapAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEGSURBVHgB1ZfhDYMgEIWvG7hBu0FH6SgdwRHaTRzJERzhFZJr2hgEFQ4eX0KM/jCfYF7eiXTKRToBwM1dnnr7lh7w0m4t+LEIOyo9Y4Uw4/yGkHQP4hPC8P4qTm7ENg9hJCE9CiN+N3uUXsfeP5Mwgo3YU/zzQdhAJPb0+VUYQST2ktJ6VC9d1b4QObGHQBdw6y7GIDf2dJdDx2QmjxKxtyFuJo9SsZd4UVF5lI49L2ctD6vYs5ZHTuy1kkeNtldaHjXbXil5tGh7ufJo2fbOyoOh7R2VB1PbOyIPy9izkgfrkJuQj9F+XjwhzzPkHpDnG3J3yM9gHHI9EXkvzTnkfgnIm8feB4Jf38SOCiBoAAAAAElFTkSuQmCC) no-repeat 50% #000;
+    border-color: #000;
+    background-size: 12px auto;
+}
+
+
+/* 회원 인증 버튼 */
+.btn_box [class*=btn] {
+    display: block;
+    border-radius: 8px;
+    width: 90%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    padding: 12px;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.btn_primary {
+    padding: 12px 16px;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+}
+

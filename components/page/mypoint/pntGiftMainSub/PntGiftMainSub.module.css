@@ -1,0 +1,215 @@
+.input_box1{
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 16px;
+    background: #fff;
+    margin-bottom: 10px;
+    z-index: 2;
+    overflow: hidden;}
+
+
+.input_box2{
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 16px;
+    background: #fff;
+    margin-bottom: 20px;
+    z-index: 2;}
+
+.input_box3{
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border: 1px solid #e8e8e8;
+    font-size: 14px;
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 16px;
+    background: #fff;
+    margin-bottom: 5px;
+    z-index: 2;}
+
+.input_box2:after {
+    content: "P";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    color: #000;
+}
+
+.p_accumulate {
+    font-family: Inter,Noto Sans KR,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ea035c;
+    float: left;
+    line-height: 26px;
+    word-break: break-all;
+}
+
+.p_accumulate:after {
+    content: "";
+    width: 10px;
+    height: 19px;
+    margin: 7px 0 0 4px;
+    display: inline-block;
+    vertical-align: top;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntcell/point_cell2.png) no-repeat;
+    background-size: 100% auto;}
+
+.Link_btn {
+  font-size: 12px;
+  line-height: 19px;
+  margin-top: 2px;
+  position: relative;
+  margin-right: 8px;
+  word-break: keep-all;
+  color: #767676;
+}
+
+.Link_btn:after {
+  content: "";
+  display: inline-block;
+  vertical-align: top;
+  width: 6px;
+  height: 10px;
+  margin: 5px 0 0 1px;
+  background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/view_btn.png) no-repeat 0 0;
+  background-size: 100% auto;
+  position: absolute;
+  right: -11px;
+  top: 0;
+  opacity: .6;
+}
+
+/* 아이디저장 및 자동로그인 */
+
+.Message_checkBox {
+    margin: 6px 0 0 10px;
+    color: #000;
+    border: 0;
+    letter-spacing: -.25px;
+    vertical-align: baseline;
+    outline: none;
+    /* margin-top: -6px; */
+
+    display: flex;
+}
+
+
+.Message_checkBox input {
+    left: 0;
+    top: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 12px;
+    border: 1px solid black;
+    appearance: none;
+    cursor: pointer;
+    vertical-align: middle;
+    font: inherit;
+}
+
+.Message_checkBox label {
+    /* display: block; */
+    min-height: 22px;
+    padding: 1px 30px 0px 9px;
+    line-height: 18px;
+    word-break: keep-all;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.Message_checkBox input:checked, .Message_checkBox input:checked {
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/ico_chk.png) no-repeat 50% #000;
+    border-color: #000;
+    background-size: 12px auto;
+}
+
+/* 선물 메시지 종류 4가지 */
+.gift_card_paper_01{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img01.png) no-repeat center 0 #e67162;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_02{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img02.png) no-repeat center 0 #EB9B54;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_03{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img03.png) no-repeat center 0 #71D2D1;
+    background-size: auto 180px;
+    width: 100%;
+}
+.gift_card_paper_04{
+    box-sizing: border-box;
+    padding: 180px 0 25px 0;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_img04.png) no-repeat center 0 #EB7088;
+    background-size: auto 180px;
+    width: 100%;
+}
+
+.card_cotents {
+    margin: 0 20px;
+    border-top: 1px solid hsla(0,0%,0%,.03);
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntGiftcard/gift_card_contents.png) repeat 0 0;
+}
+
+.card_cotents_textarea {
+    padding: 0 10px;
+    max-height: 90px;
+    background: none;
+    margin: 0;
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.card_select_btn_default{
+    background: #fbfbfb;
+    font-size: 14px;
+    color: #767676;
+    line-height: 21px;
+    width: calc(100%/4);
+    display: block;
+    height: 45px;
+    word-break: keep-all;
+}
+
+.card_select_btn_active{
+    background: #ea035c;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    color: white;
+    line-height: 21px;
+    width: calc(100%/4);
+    display: block;
+    height: 45px;
+    word-break: keep-all;
+}

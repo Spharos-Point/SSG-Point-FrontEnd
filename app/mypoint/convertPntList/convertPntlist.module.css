@@ -1,0 +1,118 @@
+.point_switch_step {
+    margin-top: 24px;
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.point_switch_step:before {
+    content: "";
+    position: absolute;
+    top: 39px;
+    width: 18px;
+    height: 14px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/pnt_conv_arrow.png) no-repeat 0 0;
+    background-size: 100% auto;
+
+    left: calc(20px + 25%);
+    margin-left: -9px;
+}
+
+.point_switch_step:after {
+    content: "";
+    position: absolute;
+    top: 39px;
+    width: 18px;
+    height: 14px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/pnt_conv_arrow.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+
+.point_switch_step ol {
+    font-size: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.point_switch_step li {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    width: 80px;
+    height: 103px;
+    margin-right: calc(50% - 120px);
+}
+
+.point_switch_step li:before {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/switch_step_icon.png) no-repeat;
+    background-size: 258px auto;
+}
+
+.point_switch_step.step1 li:first-child:before {
+    background-position: 0 100%;
+    background-size: 254px auto;
+}
+
+.point_switch_step li:nth-child(2):before {
+    background-position: -90px top;
+}
+.point_switch_step li:nth-child(3):before {
+    background-position: 100% 0;
+}
+
+.btn_box {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    background: linear-gradient(110deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    color: #000;
+    font-weight: 500;
+}
+
+.alert_popup_on {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.popup_layer {
+    position: relative;
+    z-index: 500;
+    box-sizing: border-box;
+    padding: 24px 20px;
+    width: calc(100vw - 60px);
+    max-width: 285px;
+    height: auto;
+    min-width: 285px;
+    background: #fff;
+    border-radius: 16px;
+}
+
+.alert_popup_dimmed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 499;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.8);
+}

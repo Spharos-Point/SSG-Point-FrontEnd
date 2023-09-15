@@ -1,0 +1,375 @@
+
+.sort_radio_box {
+    font-size: 0;
+    text-align: center;
+    display: flex;
+}
+
+.sort_radio_box .sort_box {
+    position: relative;
+    display: block;
+    flex: 1;
+}
+
+.sort_radio_box .sort_box input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0 !important;
+}
+
+.sort_radio_box .sort_box label {
+    font-size: 14px;
+    display: block;
+    height: 42px;
+    line-height: 41px;
+    box-sizing: border-box;
+    color: #767676;
+}
+
+.sort_radio_box .sort_box input:checked+label {
+    font-weight: 500;
+    color: #d9044b;
+    position: relative;
+}
+
+.sort_radio_box .sort_box input:checked+label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 2px;
+    background: #d9044b;
+}
+
+.cardbox {
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(93.62deg,#f40000 -5.78%,#ff8a00 17.06%,#f8b404 33.44%,#f9ad05 48.81%,#ff8a00 64.68%,#b258cb 85.01%,#00c4b4 103.04%);
+    box-shadow: 0 8px 8px rgba(0,0,0,.08);
+    height: 100%;
+    padding-bottom: 2px;
+    max-width: 327px;
+    margin: 0 auto
+}
+
+.item_cnt {
+    position: relative;
+    background: #fff;
+    border-radius: 18px;
+    height: 100%;
+    min-height: 160px;
+    margin: 0 2px;
+    padding: 0 20px 20px;
+}
+
+.total_point {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+    padding: 24px 0 14px;
+}
+
+.date {
+    font-size: 11px;
+    line-height: 19px;
+    margin-right: auto;
+    font-style: normal ;
+    font-family: Inter,sans-serif;
+    font-weight: 400;
+    color: #767676;
+    text-align: left;
+}
+
+.in_box:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/ico_pntHistory01.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+
+.btn:after {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    vertical-align: top;
+    position: relative;
+    top: 9px;
+    margin-left: 5px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/view_btn.png) no-repeat;
+    background-size: 100% auto;
+}
+
+
+.tit_img {
+    width: 105px;
+    height: 20px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/logo_ssgpnt_txt_white.png) no-repeat 0 0;
+    background-size: 100% auto;
+    text-indent: -999em;
+    margin-top: 1px;
+}
+
+.btn_info {
+    margin-left: auto;
+    width: 16px;
+    height: 16px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/info_btn.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+
+.top_cnt {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 12px 0 20px;
+}
+
+.total_point_dt {
+    font-size: 13px;
+    font-weight: 500;
+    color: #000;
+    line-height: 21px;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.total_point_dd {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-style: normal;
+    font-family: Inter,Noto Sans KR,sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #000;
+}
+
+.total_point_dd_icon:after{
+    content: "";
+    display: inline-block;
+    margin-left: 7px;
+    width: 33px;
+    height: 30px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/pntcell/point_gradi.png) no-repeat;
+    background-size: 100% auto;
+}
+
+.item_cnt_dt {
+    -ms-flex: 1.3;
+    flex: 1.3;
+    flex-grow: 1.3;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    font-size: 12px;
+    color: #505050;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+}
+
+.item_cnt dd {
+
+    flex: 3.7;
+    flex-grow: 3.7;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    font-size: 13px;
+    color: #000;
+    font-style: normal;
+    font-family: Inter,Noto Sans KR,sans-serif;
+    line-height: 21px;
+    font-weight: 700;
+    text-align: right;
+    word-break: break-all;
+}
+
+.class_sch {
+    padding: 14px 6px 14px 0;
+    position: relative;
+    border-top: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ff_lato{
+    font-family: Inter,Noto Sans KR,sans-serif!important;
+}
+
+.class_sch .point_control {
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+}
+
+.class_sch .point_control:after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/ico_control.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+.p_accumulate {
+    color: #ea035c;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 500;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Inter,Noto Sans KR,sans-serif;
+    margin-right: 16px;
+}
+.p_accumulate>p {
+    width: auto;
+}
+
+.p_accumulate:before {
+    content: "";
+    border-radius: 50%;
+    margin: 2px 8px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_accumulate.png) no-repeat left 5.5px top 5px #ea035c;
+    background-size: 8px 8px;
+}
+
+.p_use {
+    width: 90px;
+    color: #000;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Inter,Noto Sans KR,sans-serif;
+}
+
+.p_use:before {
+    content: "";
+    border-radius: 50%;
+    margin: 2px 8px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_minus.png) no-repeat;
+    background-size: 16px auto;
+}
+
+.point_history li {
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 74px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.p_cancel {
+    width: 90px;
+    color: #767676;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Inter,Noto Sans KR,sans-serif;
+}
+
+.p_cancel:before {
+    content: "";
+    border-radius: 50%;
+    margin: 2px 8px 0 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_cancel.png) no-repeat;
+    background-size: 16px auto;
+}
+
+.p_location {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #000;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 8px;
+}
+
+.p_location .sub_txt0,.p_location .sub_txt1 {
+    display: block;
+    width: 100%;
+    font-size: 10px;
+    color: #767676;
+    line-height: 18px;
+}
+
+.point_history .p_location .name {
+    display: block;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000;
+}
+.view_btn {
+    font-size: 11px;
+    line-height: 19px;
+    margin-top: 2px;
+    position: relative;
+    margin-right: 8px;
+    word-break: keep-all;
+    color: #767676;
+}
+
+.view_btn:after {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 6px;
+    height: 10px;
+    margin: 5px 0 0 1px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/btn/view_btn.png) no-repeat 0 0;
+    background-size: 100% auto;
+    position: absolute;
+    right: -11px;
+    top: 0;
+    opacity: .6;
+}
+
+.p_accumulate_detail {
+    width: 90px;
+    color: #ea035c;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Inter,Noto Sans KR,sans-serif;
+}
