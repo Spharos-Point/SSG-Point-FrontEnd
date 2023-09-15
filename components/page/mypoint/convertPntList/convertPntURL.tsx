@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import styles from './ConvertPntURL.module.css'
+import styles from './convertPntURL.module.css'
 
 export default function ConvertPntURL() {
   const handleButtonClick = () => {
