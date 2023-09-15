@@ -1,6 +1,6 @@
 export interface PointCardType {
     cardNumber : string;
-    brandName : string;
+    brandId : number;
     createAt : string;
-    branchName : string;
+    // branchName : string;
 }

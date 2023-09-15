@@ -498,3 +498,212 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* loader */
+.myLoader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.myLoader p {
+  width: 50vw;
+  opacity: 0.7;
+  color: var(--billita-black);
+  font-size: 0.8rem;
+  margin: 1rem 0;
+  text-align: center;
+  word-break: keep-all;
+}
+
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 1s linear infinite;
+  width: 1rem;
+  height: 1rem;
+}
+
+.loader img {
+  width: 100%;
+  height: auto; 
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* swal custom */
+.mySwalConfirmButton {
+  background-color: var(--ssg-point-primary) !important;
+  border: 2px solid var(--ssg-point-primary) !important;
+  border-radius: 1rem !important;
+  font-size: 0.8rem !important;
+  padding: 0.5rem 2rem !important;
+}
+
+.mySwalConfirmButton {
+  justify-content: center !important;
+}
+
+.mySwalConfirmButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 113, 255, 0.1) !important;
+}
+
+.mySwal-only-confirm .mySwalConfirmButtonOnly {
+  background-color: var(--ssg-point-primary) !important;
+  border-radius: 1rem !important;
+  font-size: 0.8rem !important;
+  padding: 0.5rem 2rem !important;
+  justify-content: center !important;
+}
+
+.mySwal-only-confirm .swal2-popup.swal2-toast .swal2-styled {
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+.mySwal-only-confirm .swal2-title {
+  font-size: 0.6rem !important;
+}
+
+.mySwalCancelButton {
+  background-color: var(--ssg-point-secondary) !important;
+  border-radius: 1rem !important;
+  font-size: 0.8rem !important;
+  border: 2px solid rgba(0, 0, 0, 0.20) !important;
+  padding: 0.5rem 2rem !important;
+  color: rgba(0, 0, 0, 0.20) !important;
+}
+
+.swal2-html-container {
+  font-size: 0.9rem !important;
+  font-weight: normal !important;
+  font-family: var(--billita-hangul) !important;
+}
+
+.swal2-popup {
+  width: 80% !important;
+  border-radius: 1rem !important;
+  padding: 0.5rem 0 1rem 0 !important;
+}
+
+.my-swal {
+  font-weight: bold !important;
+  font-family: var(--billita-hangul) !important;
+}
+
+.my-swal .swal2-popup {
+  background-color: var(--billita-blue) !important;
+  border-radius: 0.3rem !important;
+  mix-blend-mode: hard-light;
+  opacity: 0.9;
+}
+
+.my-swal .swal2-html-container {
+  font-size: 0.8rem !important;
+  font-weight: normal !important;
+  color: white !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.my-swal .swal2-icon.swal2-info {
+  visibility: hidden;
+  position: absolute;
+}
+
+.my-swal-warning {
+  font-weight: bold !important;
+  font-family: var(--billita-hangul) !important;
+}
+.my-swal-warning .swal2-popup.swal2-toast .swal2-html-container {
+  color: var(--billita-secondary) !important;
+  font-size: 0.7rem !important;
+}
+
+.my-swal-warning .swal2-popup {
+  border-radius: 0.3rem !important;
+  background-color: #ffffff !important;
+  font-weight: 0.8rem !important;
+  mix-blend-mode: hard-light !important;
+  padding: 0.3rem !important;
+  justify-content: center !important;
+}
+
+.my-swal-warning .swal2-popup.swal2-toast .swal2-icon {
+  visibility: hidden !important;
+}
+
+.mySwal-only-confirm {
+  justify-content: center !important;
+}
+
+/* login */
+
+.logo {
+  width: 89px;
+  height: 56px;
+  background: url(https://m.shinsegaepoint.com/img/logo_header.840b502c.gif) no-repeat center 0;
+  background-size: 100% auto;
+  margin: 0 auto;
+  margin-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.login_input_area {
+  width: 80%;
+  height: 310px;
+  margin: 0 auto 40px; 
+}
+
+
+.myErrorToolTip {
+  padding: 0.2rem 0.5rem;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  font-size: 0.7rem;
+  border-radius: 10px;
+  width: fit-content;
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  z-index: 10;
+  animation: slideUpToolTip 0.2s ease-in-out forwards;
+}
+.myErrorToolTip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(255, 0, 0, 0.5);
+}
+
+@keyframes slideUpToolTip {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -1.0rem;
+  }
+}

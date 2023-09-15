@@ -1,9 +1,9 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { CscenterNoticeProps } from '@/types/cscenterDataType';
+import { noticeDataType } from '@/types/cscenterDataType';
 
-function DateForm({ createAt }) {
+function DateForm({ createAt } : { createAt: string }) {
   const year = createAt[0];
   const month = createAt[1] + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
   const day = createAt[2];
@@ -16,7 +16,7 @@ function DateForm({ createAt }) {
 }
 
 export default function Noticelist() {
-  const [noticeData, setNoticeData] = useState<CscenterNoticeProps[]>([]);
+  const [noticeData, setNoticeData] = useState<noticeDataType[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 10; // 페이지당 아이템 수
 

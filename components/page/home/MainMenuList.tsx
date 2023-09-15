@@ -7,7 +7,8 @@ import MainMenu from './MainMenu'
 
 function MainMenuList() {
   return (
-    <div>
+    <div className='main_menu_nav '>
+      <div className='main_menu'>
         <ul>
               {
                 mainMenuData.map((item) => (   
@@ -24,6 +25,7 @@ function MainMenuList() {
                 ))         
               }
           </ul>
+      </div>
     </div>
   )
 }

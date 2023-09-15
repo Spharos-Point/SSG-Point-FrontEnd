@@ -7,12 +7,13 @@ import {usePathname} from 'next/navigation'
 import SideMenu from '../widget/SideMenu'
 import Logo from '../ui/header/Logo'
 import HeaderPathName from '../ui/header/HeaderPathName'
-import { signOut, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import { pageTitleData } from '@/data/pageTitleData'
-
+import Barcode from './Barcode'
 
 function HeaderTop() {
     const [isOpened, setIsOpened] = useState<Boolean>(false)
+    const [showBarcode, setShowBarcode] = useState<boolean>(false)
     const pathname = usePathname();
     const session = useSession();
 
@@ -20,7 +21,6 @@ function HeaderTop() {
         setIsOpened(!isOpened)
     }
 
-    // 헤더 경로
     const [title, setTitle] = useState<string>('');
 
     useEffect(() =>  {
@@ -37,6 +37,7 @@ function HeaderTop() {
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
+        <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={''}/>
         <div className='header_top'>
             { 
                 pathname === '/' 
@@ -50,7 +51,7 @@ function HeaderTop() {
                     {
                         session.status === 'authenticated'
                         ?
-                        <button className='flex items-center cursor-pointer align-middle'>
+                        <button className='flex items-center cursor-pointer align-middle' onClick={()=>setShowBarcode(!showBarcode)}>
                             <span className='mr-[6px] relative w-[27px] bg-barcode bg-no-repeat bg-cover inline-block h-[15px] -indent-[999em] align-top'></span>
                             <strong className='font-bold text-[#000] text-sm leading-[24px] -mt-[2px]'>0</strong>
                             <span className='w-6 h-6 -indent-[999em] ml-1 bg-point bg-cover'></span>
