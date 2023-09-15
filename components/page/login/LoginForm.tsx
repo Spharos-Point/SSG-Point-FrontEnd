@@ -101,7 +101,6 @@ function LongForm() {
       loginId: loginData.loginId,
       password: loginData.password,
       redirect: false,
-      
       callbackUrl: callBackUrl ? callBackUrl : '/'
     });
     console.log(result)
@@ -130,7 +129,6 @@ function LongForm() {
           container: "my-swal",
         },
       });
-
       router.push(callBackUrl ? callBackUrl : '/');
     }
   }
