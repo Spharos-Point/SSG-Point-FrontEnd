@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import styles from './convertPntList.module.css'
+import styles from './convertPntlist.module.css'
 import ConvertPntURL from '@/components/page/mypoint/convertPntList/convertPntURL'
 
 export default function convertPntList() {
