@@ -17,7 +17,7 @@ function MyEventList() {
     useEffect(() => {
         if(session.status === 'authenticated') {
             if(pathname === '/benefits/myEvent') {
-                fetch("https://newbiefive.store/api/v1/benefits/myEvent", {
+                fetch(`${process.env.BASE_API_URL}/api/v1/benefits/myEvent`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
