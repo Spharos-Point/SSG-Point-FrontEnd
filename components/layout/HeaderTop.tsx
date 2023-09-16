@@ -24,6 +24,7 @@ function HeaderTop() {
     const [title, setTitle] = useState<string>('');
 
     useEffect(() =>  {
+
         const getTitle = () => {
             const result = pageTitleData.find((item) => item.path === pathname)?.title
             if(result === undefined) {
@@ -32,12 +33,13 @@ function HeaderTop() {
             setTitle(result)
         }
         getTitle()
+
     }, [pathname])
 
   return ( 
     <>
         <SideMenu isOpened={isOpened} setIsOpened={setIsOpened}/>
-        { session.status === 'authenticated' && <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={''}/> }
+        { session.status === 'authenticated' && <Barcode showBarcode={showBarcode} setShowBarcode={setShowBarcode} cardNumber={session.data?.user.barcode}/> }
         <div className='header_top'>
             { 
                 pathname === '/' 
@@ -53,7 +55,7 @@ function HeaderTop() {
                         ?
                         <button className='flex items-center cursor-pointer align-middle' onClick={()=>setShowBarcode(!showBarcode)}>
                             <span className='mr-[6px] relative w-[27px] bg-barcode bg-no-repeat bg-cover inline-block h-[15px] -indent-[999em] align-top'></span>
-                            <strong className='font-bold text-[#000] text-sm leading-[24px] -mt-[2px]'>0</strong>
+                            <strong className='font-bold text-[#000] text-sm leading-[24px] -mt-[2px]'>{session.data?.user.userPoint??0}</strong>
                             <span className='w-6 h-6 -indent-[999em] ml-1 bg-point bg-cover'></span>
                         </button>
                         :

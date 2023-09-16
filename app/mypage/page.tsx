@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './mypage.module.css'
 
 export default function Mypage() {
   return (
