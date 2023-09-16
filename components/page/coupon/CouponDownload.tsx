@@ -13,7 +13,7 @@ function CouponDownload({couponId}: {couponId: number}) {
     const handleDownloadFetch =  async () => {
 
         if(session.status === "authenticated") {
-            const response = await fetch("https://newbiefive.store/api/v1/couponPage", {
+            const response = await fetch(`${process.env.BASE_API_URL}/api/v1/couponPage`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

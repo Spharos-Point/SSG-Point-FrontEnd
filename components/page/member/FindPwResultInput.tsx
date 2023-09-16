@@ -22,7 +22,7 @@ function FindPwResultInput() {
     }
 
     const handlePwChangeFetch = async () => {
-        const response = await fetch('https://newbiefive.store/api/v1/Search/Pwd', {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/Search/Pwd`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function LeavePasswordInfo() {
     const router = useRouter();
 
     const handleleavePasswordFetch = async () => {
-        const response = await fetch("http://localhost:8000/api/v1/leavePwd", {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/leavePwd`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

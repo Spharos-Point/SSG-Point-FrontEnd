@@ -17,7 +17,7 @@ function EventBanner() {
     const handleSortChange = () => {
 
         if(sort === 'new' || sort === null) {
-            fetch("https://newbiefive.store/api/v1/inevents", {
+            fetch(`${process.env.BASE_API_URL}/api/v1/inevents`, {
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -27,7 +27,7 @@ function EventBanner() {
             .then((data) => setEvent(data));
         } else if(sort === 'end') {
             // 마감 임박순
-            fetch("https://newbiefive.store/api/v1/inevents/expired", {
+            fetch(`${process.env.BASE_API_URL}/api/v1/inevents/expired`, {
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function EventBanner() {
 
     useEffect(() => {
         if(pathname === '/ingevents') {
-            fetch("https://newbiefive.store/api/v1/inevents", {
+            fetch(`${process.env.BASE_API_URL}/api/v1/inevents`, {
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function EventBanner() {
             .then((data) => setEvent(data));
 
         } else if(pathname === '/endevents'){
-            fetch("https://newbiefive.store/api/v1/endevents", {
+            fetch(`${process.env.BASE_API_URL}/api/v1/endevents`, {
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function EventBanner() {
             .then((data) => setEvent(data));
 
         } else if(pathname === '/winevents') {
-            fetch("https://newbiefive.store/api/v1/winevents", {
+            fetch(`${process.env.BASE_API_URL}/api/v1/winevents`, {
                 method:'GET',
                 headers: {
                     "Content-Type": "application/json",

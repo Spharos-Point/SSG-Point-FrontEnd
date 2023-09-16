@@ -12,7 +12,7 @@ function EventDetail() {
     const [detailEvent, setDetailEvent] = useState<EventDataType>();
 
     useEffect(() => {
-        fetch(`https://newbiefive.store/api/v1/event/${eventNo}`, {
+        fetch(`${process.env.BASE_API_URL}/api/v1/event/${eventNo}`, {
             method:'GET',
             headers: {
                 "Content-Type": "application/json",
