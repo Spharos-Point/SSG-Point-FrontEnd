@@ -3,8 +3,9 @@ import styles from './pntHistory.module.css'
 import LaterOneMonth from './LaterOneMonth'
 import LaterTwoMonth from './LaterTwoMonth'
 
-export default function PntHistoryPointBox(){
-    return(
+export default function PntHistoryPointBox({userTotalpoint}: {userTotalpoint: number}){
+  console.log(userTotalpoint)
+  return(
         <div className='p-[24px] bg-[#fbfbfb]'>
         <div className={styles.cardbox}>
 
@@ -18,7 +19,7 @@ export default function PntHistoryPointBox(){
                     {/* 보유포인트 */}
                     <div className='text-[13px] font-bold leading-6 grow shrink basis-0'>사용 가능</div>
                     <div className='flex item-center justify-end text-[24px] leading-[29px] font-bold'>
-                      {0}
+                      {userTotalpoint}
                       <div className={styles.total_point_dd_icon}>
                         <span className='hidden'>아이콘</span>
                       </div>

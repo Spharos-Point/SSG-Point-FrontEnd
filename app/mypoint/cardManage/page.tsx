@@ -5,11 +5,10 @@ import PntCardList from '@/components/page/mypoint/cardManage/PntCardList'
 import styles from '@/components/page/mypoint/cardManage/CardManage.module.css'
 import { getServerSession } from 'next-auth'
 import { options } from '@/app/api/auth/[...nextauth]/options'
-import { PointCardType } from '@/data/pointCardType'
 import { BaseResDataType } from '@/types/baseResDataType'
 
+//온라인 포인트 카드 리스트 조회
 const cardList = async () => {
-
   const session = await getServerSession(options)
   console.log(session?.user.token)
   const url = `${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`
@@ -25,30 +24,30 @@ const cardList = async () => {
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
- 
+
   return res.json()
 }
 
-
 async function CardMange() {
-
   const data: BaseResDataType = await cardList();
-  console.log(data)
+  console.log("totalPoint: ")
 
   return (
     <>
-      {/* <CardManagePointBox /> */}
-      <PntCardList 
+      <CardManagePointBox
+        pointCardList={data.result}
+      />
+      <PntCardList
         pointCardList={data.result}
       />
 
       <div className='px-[20px] pb-[40px]'>
-        <Link href="/mypoint/regPntCard">
+        <Link href="">
           <button className='bg-[#fff] box-border border-[1px] block rounded-[8px] 
       w-full h-[48px] text-[14px] leading-[24px] font-medium p-[12px] mb-[15px]'>
             신규 포인트 카드 등록하기</button></Link>
 
-        <Link href="spoint/tempCardCert">
+        <Link href="">
           <button className='bg-[#fff] box-border border-[1px] block rounded-[8px] 
       w-full h-[48px] text-[14px] leading-[24px] font-medium p-[12px] mb-[15px]'>
             임시 발급 카드 인증하기</button></Link>
@@ -68,7 +67,7 @@ async function CardMange() {
         </p>
         {/* 이벤트 페이지 이동 */}
         <Link href="">
-          <img src='/cardManageBanner.jpg' alt="포인트 카드 관리 페이지 하단 배너 이미지"/>
+          <img src='/cardManageBanner.jpg' alt="포인트 카드 관리 페이지 하단 배너 이미지" />
         </Link>
       </div>
     </>

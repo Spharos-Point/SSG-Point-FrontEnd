@@ -25,12 +25,11 @@ export const NoDataView = () => {
   )
 }
 
-export default function PntCardList({pointCardList}:{pointCardList:PointCardType[]}) {
+export default function PntCardList({ pointCardList }: { pointCardList: PointCardType[] }) {
 
   console.log(pointCardList)
 
-  const noData = !pointCardList ? <NoDataView /> : null; 
-
+  const noData = !pointCardList || pointCardList.length === 0 ? <NoDataView /> : null;
   return (
     <div className='px-[20px] py-[40px]'>
       {/* 온라인카드 리스트 */}
@@ -39,33 +38,52 @@ export default function PntCardList({pointCardList}:{pointCardList:PointCardType
       </div>
 
       <div className='relative pb-[40px]'>
-        
-          <table className='w-full table-fixed border-t-[1px] border-t-black'>
-            <colgroup>
-              <col className="w-2/5" />
-              <col className="w-auto" />
-              <col className="w-[81px]" />
-            </colgroup>
-            <thead>
-              <tr className='font-normal text-center text-[13px]
-                border-b-[1px] box-border leading-[21px] '>
-                <th scope='col' className='py-3'>카드번호</th>
-                <th scope='col' className='py-3'>발급처</th>
-                <th scope='col' className='py-3'>발급일자</th>
+        <table className='w-full table-fixed border-t-[1px] border-t-black'>
+          <colgroup>
+            <col className="w-2/5" />
+            <col className="w-auto" />
+            <col className="w-[81px]" />
+          </colgroup>
+          <thead>
+            <tr className='font-normal text-center text-[13px] border-b-[1px] box-border leading-[21px] '>
+              <th scope='col' className='py-3'>
+                카드번호
+              </th>
+              <th scope='col' className='py-3'>
+                발급처
+              </th>
+              <th scope='col' className='py-3'>
+                발급일자
+              </th>
+            </tr>
+          </thead>
+          <tbody className='font-normal text-center align-center border-b-[1px] leading-[21px] break-keep'>
+            {pointCardList.map((card, index) => (
+              <tr key={index}>
+                <td className='text-[12px] text-[#767676] py-3'>
+                  {card.cardNumber.replace(/(\d{4})\d*(\d{4})/, '$1-****-****-$2')}
+                </td>
+                <td className='text-[13px] text-[#767676] py-3'>
+                  {card.brandId === 1
+                    ? '삼성전자 멤버십'
+                    : card.brandId === 2
+                      ? '대한항공'
+                      : card.brandId === 3
+                        ? '아시아나항공'
+                        : card.brandId === null || card.brandId === undefined
+                          ? '신세계포인트닷컴'
+                          : '신세계 포인트 제휴사'}
+                </td>
+                <td className='text-[12px] text-[#767676] py-3'>
+                  {new Date(card.createAt).toLocaleDateString('ko-KR', { timeZone: 'UTC' })}
+                </td>
               </tr>
-            </thead>
-            <tbody className='font-normal text-center align-center border-b-[1px] leading-[21px] break-keep'>
-              {pointCardList.map((card, index) => (
-                <tr key={index}>
-                  <td className='text-[12px] text-[#767676] py-3'>{card.cardNumber}</td>
-                  <td className='text-[13px] text-[#767676] py-3'>{card.brandId}</td>
-                  <td className='text-[12px] text-[#767676] py-3'>{new Date(card.createAt).toLocaleDateString('ko-KR', { timeZone: 'UTC'})}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        {noData}
+            ))}
+          </tbody>
+        </table>
       </div>
+      {noData}
     </div>
   );
 }
+
