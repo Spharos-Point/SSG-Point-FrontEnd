@@ -61,7 +61,7 @@ function JoinAuthPhoneForm() {
           router.push('/member/join/agree');
 
       } else if(pathname === '/member/findIdPw') {
-        const response = await fetch(`https://newbiefive.store/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
           method: 'GET',
           headers: {
             "Content-Type": "application/json",
@@ -71,15 +71,15 @@ function JoinAuthPhoneForm() {
         const json = await response.json();
 
         if(json.code === 200) {
-          console.log(json)
-
           sessionStorage.setItem('loginId', JSON.stringify(json.result));
           router.push('/member/findIdResult');
+
         } else {
           alert(json.message);
+
         }
     } else if(pathname === '/member/findPw'){
-      const response = await fetch(`https://newbiefive.store/api/v1/search/IdAndNameAndPhoneNum?loginId=${authData.loginId}&userName=${authData.name}&phoneNumber=${authData.phone}`, {
+      const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/IdAndNameAndPhoneNum?loginId=${authData.loginId}&userName=${authData.name}&phoneNumber=${authData.phone}`, {
         method: 'GET',
         headers: {
           "Content-Type": "application/json",
@@ -88,8 +88,6 @@ function JoinAuthPhoneForm() {
 
       const json = await response.json();
 
-      console.log(json)
-
       if(json.code === 200) {
         sessionStorage.setItem('loginId', JSON.stringify(authData.loginId));
         router.push('/member/findPwResult');
@@ -97,6 +95,21 @@ function JoinAuthPhoneForm() {
         alert(json.message);
       }
     
+    } else if(pathname === '/myinfo/changePwd') {
+      const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+
+      const json = await response.json();
+
+      if(json.code === 200) {
+        router.push('/member/changePwd');
+      } else {
+        alert(json.message);
+      }
     }
   }
 

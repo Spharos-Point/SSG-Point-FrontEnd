@@ -1,0 +1,91 @@
+.sp_txt1 {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.table_list {
+    font-size: 13px;
+    color: #767676;
+    text-align: left;
+    height: 46px;
+    vertical-align: middle;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.table_list_td1 {
+    font-size: 12px;
+    color: #767676;
+    white-space: nowrap;
+    padding-right: 10px;
+    text-align: left;
+    height: 46px;
+    vertical-align: middle;
+}
+
+.table_list_td2 span::after{
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 10px;
+    margin-left: 4px;
+    background-position: 0 1px;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/move.png) no-repeat 0 1px;
+    background-size: 100% auto;
+}
+
+.no_txt {
+    position: relative;
+    padding: 64px 0 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: #767676;
+}
+
+.no_txt:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/mypage_logo.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+
+.online_secession_wrap {
+    border: 1px solid #ea035c;
+    box-sizing: border-box;
+    box-shadow: 0 3px 8px rgba(0,0,0,.08);
+    border-radius: 8px;
+}
+
+.online_secession {
+    box-sizing: border-box;
+    display: flex;
+    padding: 20px 20px 16px;
+}
+
+.txt::after {
+    content: "";
+    display: inline-block;
+    clear: both;
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/withdrawal_move.png)no-repeat;
+    width: 7px;
+    height: 13px;
+    background-size: 100% auto;
+    margin-left: 4px
+}
+
+.btn_arrow::after {
+    content: "";
+    display: inline-block;
+    margin: 0 0 0 4px;
+    width: 10px;
+    height: 6px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgBzdZLDsAgCARQblRuyhE4atuFpi60fmDQSdg0hnlpXEj05UoTnWqvvHOnEYqL1nq5+JhHCR+t9HILhEZpo5N7BxCoVpeMHvRETXcgUcu7ESjzTk+U2y6PRe5/27IQdh9XFsMwKwVwzExRGGakMBzTQ23BzKDCMCOocMwfahsmR07C5DAVjytLHkm1yW3+j4vHAAAAAElFTkSuQmCC) no-repeat;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    background-size: 100% auto;
+}

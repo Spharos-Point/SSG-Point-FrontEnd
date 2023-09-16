@@ -242,7 +242,7 @@ export const sideMenuMyInfoData: sideMenuType[] = [
     },
     {
         id: 5,
-        url: '/withdrawal/leavePassword',
+        url: '/myinfo/withdrawal/leavePassword',
         title: "회원 탈퇴",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_33.png",
     },

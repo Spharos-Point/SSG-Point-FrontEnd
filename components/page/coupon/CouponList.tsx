@@ -14,7 +14,7 @@ function CouponList() {
 
 
     useEffect(() => {
-        fetch("https://newbiefive.store/api/v1/couponPage", {
+        fetch(`${process.env.BASE_API_URL}/api/v1/couponPage`, {
             method:'GET',
             headers: {
                 "Content-Type": "application/json",

@@ -21,7 +21,7 @@ function MycouponList() {
     useEffect(() => {
         if(session.status === 'authenticated') {
             if(pathname === '/benefits/myCoupon') {
-                fetch("https://newbiefive.store/api/v1/benefits/myCoupon", {
+                fetch(`${process.env.BASE_API_URL}/api/v1/benefits/myCoupon`, {
                     method:'GET',
                     headers: {
                         "Content-Type": "application/json",
