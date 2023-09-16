@@ -30,7 +30,6 @@ export default function PntCardList({ pointCardList }: { pointCardList: PointCar
   console.log(pointCardList)
 
   const noData = !pointCardList || pointCardList.length === 0 ? <NoDataView /> : null;
-
   return (
     <div className='px-[20px] py-[40px]'>
       {/* 온라인카드 리스트 */}
@@ -61,17 +60,19 @@ export default function PntCardList({ pointCardList }: { pointCardList: PointCar
           <tbody className='font-normal text-center align-center border-b-[1px] leading-[21px] break-keep'>
             {pointCardList.map((card, index) => (
               <tr key={index}>
-                <td className='text-[12px] text-[#767676] py-3'>{card.cardNumber}</td>
+                <td className='text-[12px] text-[#767676] py-3'>
+                  {card.cardNumber.replace(/(\d{4})\d*(\d{4})/, '$1-****-****-$2')}
+                </td>
                 <td className='text-[13px] text-[#767676] py-3'>
-                {card.brandId === 1
+                  {card.brandId === 1
                     ? '삼성전자 멤버십'
                     : card.brandId === 2
-                    ? '대한항공'
-                    : card.brandId === 3
-                    ? '아시아나항공'
-                    : card.brandId === null || card.brandId === undefined 
-                    ? '신세계 포인트'
-                    : '신세계 포인트 제휴사'}
+                      ? '대한항공'
+                      : card.brandId === 3
+                        ? '아시아나항공'
+                        : card.brandId === null || card.brandId === undefined
+                          ? '신세계포인트닷컴'
+                          : '신세계 포인트 제휴사'}
                 </td>
                 <td className='text-[12px] text-[#767676] py-3'>
                   {new Date(card.createAt).toLocaleDateString('ko-KR', { timeZone: 'UTC' })}
