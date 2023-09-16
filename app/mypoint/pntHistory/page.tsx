@@ -2,12 +2,40 @@ import React, { Suspense } from 'react'
 import styles from '@/components/page/mypoint/pntHistory/pntHistory.module.css'
 import PntHistoryPointBox from '@/components/page/mypoint/pntHistory/pntHistoryPointBox'
 import PntHistoryPonintList from '@/components/page/mypoint/pntHistory/PntHistoryPonintList'
+import { getServerSession } from 'next-auth'
+import { options } from '@/app/api/auth/[...nextauth]/options'
+import { BaseResDataType } from '@/types/baseResDataType'
 
-export default function pntHistory() {
+//토탈포인트 조회
+const getTotalPoint = async () => {
+  const session = await getServerSession(options)
+  console.log(session?.user.token)
+  const url = `${process.env.BASE_API_URL}/api/v1/pointRead/total`
+  console.log(url)
+  const totalPoint = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${session?.user.token}`,
+    },
+  });
+  console.log(totalPoint)
+  if (!totalPoint.ok) {
+    throw new Error(await totalPoint.text())
+  }
+  return totalPoint.json() as Promise<BaseResDataType>
+}
+
+//포인트 리스트 조회
+
+
+async function PntHistory() {
+  const userTotalpoint: BaseResDataType = await getTotalPoint()
+  console.log(userTotalpoint)
   return (
     <>
       <div>
-        <PntHistoryPointBox />
+        <PntHistoryPointBox userTotalpoint = {userTotalpoint.result}/>
       </div>
     <div className ="bg-pink-100 h-[65px] ">
       <div className =
@@ -24,3 +52,4 @@ export default function pntHistory() {
     </>
   )
 }
+export default PntHistory;
