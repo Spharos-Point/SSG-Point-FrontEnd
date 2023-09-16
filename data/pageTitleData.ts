@@ -132,7 +132,19 @@ export const pageTitleData: pageTitleDataType[] = [
     {
         path: '/myinfo/withdrawal/leavePassword',
         title: '마이 회원정보'
+    },
+    {
+        path: '/myinfo/withdrawal/leaveUsingService',
+        title: '마이 회원정보'
     }, 
+    {
+        path: '/myinfo/withdrawal/leaveOnline',
+        title: '마이 회원정보'
+    },
+    {
+        path: '/member/changePwd',
+        title: '마이 회원정보'
+    },    
     
 
 ]

@@ -36,7 +36,7 @@ export default function mypointLayout({ children }: { children: React.ReactNode 
                 </li>
             </SwiperSlide>
             <SwiperSlide>
-                <li role="presentation" className={pathName === "/myinfo/changePwd" ? styles.gnb_depth2_active : styles.gnb_depth2_default}>
+                <li role="presentation" className={pathName === "/myinfo/changePwd" || pathName === "/member/changePwd" ? styles.gnb_depth2_active : styles.gnb_depth2_default}>
                 <Link href="/myinfo/changePwd">비밀번호 변경
                 </Link>
                 </li>

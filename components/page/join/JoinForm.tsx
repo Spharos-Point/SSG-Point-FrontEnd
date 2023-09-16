@@ -68,7 +68,7 @@ function JoinForm() {
 
     // 아이디 중복체크
     const handleIdCheckFetch = async () => {
-        const response = await fetch(`http://localhost:8000/api/v1/validateLoginId/${signup.loginId}`, {
+        const response = await fetch(`https://newbiefive.store/api/v1/validateLoginId/${signup.loginId}`, {
             method: 'GET',
         })
 
