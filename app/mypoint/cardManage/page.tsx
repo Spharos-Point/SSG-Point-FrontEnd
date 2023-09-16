@@ -3,12 +3,44 @@ import Link from 'next/link'
 import CardManagePointBox from '@/components/page/mypoint/cardManage/CardManagePointBox'
 import PntCardList from '@/components/page/mypoint/cardManage/PntCardList'
 import styles from '@/components/page/mypoint/cardManage/CardManage.module.css'
+import { getServerSession } from 'next-auth'
+import { options } from '@/app/api/auth/[...nextauth]/options'
+import { PointCardType } from '@/data/pointCardType'
+import { BaseResDataType } from '@/types/baseResDataType'
 
-export default function cardMange() {
+const cardList = async () => {
+
+  const session = await getServerSession(options)
+  console.log(session?.user.token)
+  const url = `${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`
+  console.log(url)
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${session?.user.token}`,
+    },
+  });
+  console.log(res)
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
+
+async function CardMange() {
+
+  const data: BaseResDataType = await cardList();
+  console.log(data)
+
   return (
     <>
-      <CardManagePointBox />
-      <PntCardList />
+      {/* <CardManagePointBox /> */}
+      <PntCardList 
+        pointCardList={data.result}
+      />
 
       <div className='px-[20px] pb-[40px]'>
         <Link href="/mypoint/regPntCard">
@@ -42,4 +74,6 @@ export default function cardMange() {
     </>
   )
 }
+
+export default CardMange;
 

@@ -1,9 +1,53 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import styles from './PntAcceptBox.module.css'
+import { useSession } from 'next-auth/react'  
 
 export default function PntAcceptBox() {
+  const { data: session } = useSession();
+  const [giftData, setGiftData] = useState(null); // 서버에서 받은 선물 데이터를 저장할 상태
+  const [hasPendingGift, setHasPendingGift] = useState(false); // 선물 수락 대기중인 선물이 있는지 확인
+  console.log(session);
+  console.log(giftData);
+
+  useEffect(() => {
+    if (session) {
+      // 로그인한 사용자 세션이 존재하는 경우
+      const fetchGiftData = async () => {
+        try {
+          const response = await fetch('https://newbiefive.store/api/v1/gift/Pending', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${session.user.token}`,
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.code === 0){
+              setGiftData(data.result);
+              setHasPendingGift(true); // 선물 대기 중인 경우 상태 업데이트
+            } else if (data.code === 200){
+              setHasPendingGift(false);  // 선물 대기 중이 아닌 경우 상태 업데이트
+            }
+          } else {
+            // 오류 처리
+            console.error('서버 응답 오류:', response.status);
+          }
+        } catch (error) {
+          // 네트워크 오류 등을 처리
+          console.error('서버 요청 오류:', error);
+        }
+      };
+
+      fetchGiftData(); // 서버로 요청 보내는 함수 호출
+    }
+  }, [session]); // 로그인 세션이 변경될 때마다 실행
+
+
   return (
-            <section className={""}>
+            // hasPendingGift 상태에 따라 표시 : 미표시
+            <section className={hasPendingGift ? "" : "hidden"}>
             <div className='box-border py-10 '>
               <p className='text-[14px] text-[#ea035c] font-bold pb-[15px]'>포인트 선물 수락을 기다리고 있어요!</p>
               <div className='box-border border-[2px] border-[#ea035c] shadow-xl rounded-[8px] p-[20px]'>

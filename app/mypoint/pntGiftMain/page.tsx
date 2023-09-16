@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import React from 'react'
-import styles from './PntGiftMain.module.css'
+import styles from './pntGiftMain.module.css'
 import PntGiftList from '@/components/page/mypoint/pntGiftMain/PntGiftList'
 import PntAcceptBox from '@/components/page/mypoint/pntGiftMain/PntAcceptBox'
 

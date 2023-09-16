@@ -1,7 +1,9 @@
+import { error } from 'console';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import KakaoProvider from "next-auth/providers/kakao"
 import NaverProvider from "next-auth/providers/naver"
+import { redirect } from 'next/navigation';
 
 export const options: NextAuthOptions = {
   providers: [
@@ -15,22 +17,44 @@ export const options: NextAuthOptions = {
 
         if(!credentials?.loginId || !credentials?.password) return null
         
-        const res = await fetch("http://localhost:8000/api/v1/auth/login", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            loginId: credentials?.loginId,
-            password: credentials?.password,
+        try {
+          const res = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              loginId: credentials?.loginId,
+              password: credentials?.password,
+            })
           })
-        })
+          const user = await res.json()
+          console.log(user.isSuccess)
+          if(user.isSuccess){
+            const result = await fetch(`${process.env.BASE_API_URL}/api/v1/userPointList/total`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${user.result.token}`
+              }
+            })
 
-        const user = await res.json()
-  
-        if (res.ok && user) {
-          console.log(user)
-          return user
+            const barcode = await fetch(`${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${user.result.token}`
+              }
+            })
+            const userPoint = await result.json()
+            const barcodeResult = await barcode.json()
+            user.result.barcode = barcodeResult.result[0].cardNumber
+            user.result.userPoint = userPoint.result
+            console.log(user.result)
+            return user.result
+          }     
+        } catch (e: any) {
+          throw new Error(e.message);
         }
         return null
       }
@@ -44,7 +68,6 @@ export const options: NextAuthOptions = {
       clientSecret: process.env.NAVER_CLIENT_SECRET
     })
   ],
-  secret: process.env.CRED_SECRET_KEY,
 
   callbacks: {
     async jwt({token, user}) {
@@ -66,6 +89,7 @@ export const options: NextAuthOptions = {
 
   pages: {
     signIn: "/login",
+    error: "/my_error",
   },
 
 }

@@ -25,6 +25,8 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
 
 
   return (
+    <div className='main_event_banner'>
+    <div className='event_banner_wrap'>
     <Swiper
       spaceBetween={0}
       slidesPerView={1}
@@ -63,6 +65,8 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
           ''  
         }
     </Swiper>
+    </div>
+    </div>
   )
 }
 

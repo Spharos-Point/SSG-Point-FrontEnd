@@ -1,6 +1,6 @@
-import { EventDataType } from "@/types/eventDataType";
+import { EventDataType, LocalEventDataType } from "@/types/eventDataType";
 
-export const ingEvnetData :EventDataType[] = [
+export const ingEvnetData :LocalEventDataType[] = [
     {
         "id":1,
         "event_id": 3571,

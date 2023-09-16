@@ -1,0 +1,7 @@
+.user_info {
+    padding: 16px 0 40px;
+}
+
+.user_info:last-child {
+    padding-bottom: 0;
+}

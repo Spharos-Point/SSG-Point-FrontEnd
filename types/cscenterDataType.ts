@@ -1,8 +1,11 @@
 export interface CscenterNoticeProps {
-    id: number
-    url: string
-    title: string
-    date: string
+    id: number,
+    url: string,
+    title : string,
+    date: string,
+    // context : string,
+    // noticeId : number,
+    // createAt : string,
 }
 
 export interface CscenterFaqProps {
@@ -13,6 +16,13 @@ export interface CscenterFaqProps {
     a_txt: string,
 }
 
+export interface noticeDataType {
+    id: number,
+    title : string,
+    context : string,
+    noticeId : number,
+    createAt : string,
+}
 // export interface CscenterConsultProps {
 //     id: number
 //     url: string

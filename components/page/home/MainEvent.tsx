@@ -9,13 +9,14 @@ function MainEvent(props : {id: number, url: string, imgUrl: string, imgAlt: str
     const {id, url, imgUrl, imgAlt} = props;
 
     return (
-        <div className='main_event object-cover w-90'>
+        <div className='main_event object-cover'>
             <Link href={url}>
                 <Image 
                     src={imgUrl}
                     alt={imgAlt}
                     width={1960}
                     height={326}
+                    priority
                 />
             </Link>
         </div>
