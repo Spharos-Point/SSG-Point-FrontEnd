@@ -655,6 +655,34 @@ body, ul, ol, li, h1, h2, h3, h4, h5, h6, p, button, input, textarea, figure, fi
   justify-content: center !important;
 }
 
+/* swal 회원 탈퇴 */
+.mySwalTitle {
+  font-size: 0.3rem!important;
+  font-weight: 700!important;
+  font-size: 14px!important;
+  line-height: 24px!important;
+  word-break: normal!important;
+  letter-spacing: -.3px!important;
+}
+
+.mySwalCancelButton_swal {
+  background-color: var(--ssg-point-primary) !important;
+  border: 2px solid var(--ssg-point-primary) !important;
+  border-radius: 0.3rem !important;
+  font-size: 0.4rem !important;
+  padding: 0.5rem 2rem !important;
+}
+
+.mySwalConfirmButton_swal {
+  background-color: var(--ssg-point-secondary) !important;
+  border-radius: 0.3rem !important;
+  font-size: 0.4rem !important;
+  border: 2px solid rgba(0, 0, 0, 0.20) !important;
+  padding: 0.5rem 2rem !important;
+  color: rgba(0, 0, 0, 0.20) !important;
+}
+
+
 /* login */
 
 .logo {

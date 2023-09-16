@@ -1,0 +1,54 @@
+.tit {
+    margin: 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #000;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+.no_txt {
+    position: relative;
+    padding: 64px 0 0 0;
+    font-size: 13px;
+    text-align: center;
+    color: #767676;
+}
+
+.no_txt:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: url(https://storage.googleapis.com/team3_spharos_bucket/img/logo/mypage_logo.png) no-repeat 0 0;
+    background-size: 100% auto;
+}
+
+.note li:first-child {
+    color: #eb0000;
+    list-style: none;
+    font-weight: 700;
+}
+
+.btn {
+    color: #000;
+    background: #fff;
+    border: 1px solid #bcbcbc;
+}
+
+.btn_box [class*=btn] {
+    display: block;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    height: 48px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    padding: 12px;
+    box-sizing: border-box;
+}

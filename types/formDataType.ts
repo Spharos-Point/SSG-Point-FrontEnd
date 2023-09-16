@@ -23,3 +23,8 @@ export interface LoginFormDataType {
   export interface ChangePwDataType {
     password: string,
   }
+
+  export interface ChangePwdDataType {
+    password: string,
+    newPassword: string,
+  }
