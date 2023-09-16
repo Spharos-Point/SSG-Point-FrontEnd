@@ -18,7 +18,7 @@ export const options: NextAuthOptions = {
         if(!credentials?.loginId || !credentials?.password) return null
         
         try {
-          const res = await fetch("https://newbiefive.store/api/v1/auth/login", {
+          const res = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -31,6 +31,26 @@ export const options: NextAuthOptions = {
           const user = await res.json()
           console.log(user.isSuccess)
           if(user.isSuccess){
+            const result = await fetch(`${process.env.BASE_API_URL}/api/v1/userPointList/total`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${user.result.token}`
+              }
+            })
+
+            const barcode = await fetch(`${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`, {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${user.result.token}`
+              }
+            })
+            const userPoint = await result.json()
+            const barcodeResult = await barcode.json()
+            user.result.barcode = barcodeResult.result[0].cardNumber
+            user.result.userPoint = userPoint.result
+            console.log(user.result)
             return user.result
           }     
         } catch (e: any) {

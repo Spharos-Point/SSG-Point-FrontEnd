@@ -68,7 +68,7 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
                 </p>
               </div>
               <p className={`mt-4 text-xl leading-[24px] flex items-center text-[#000] font-bold after:content[''] after:inline-block after:ml-[7px] after:w-[27px] after:h-6 after:bg-sidePoint after:bg-no-repeat after:bg-cover`}>
-                0
+              {session.data.user.userPoint}
               </p>
               <div className={styles.btn_box}>
                   <p 

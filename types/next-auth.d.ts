@@ -7,6 +7,8 @@ declare module "next-auth" {
             token: string,
             // uuid: string,
             name: string,
+            userPoint: number,
+            barcode: string,
         } & DefaultSession["user"]
     }
 }
