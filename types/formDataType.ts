@@ -28,3 +28,8 @@ export interface LoginFormDataType {
     password: string,
     newPassword: string,
   }
+
+  export interface ChangePointPwdDataType {
+    newPointPassword: string,
+    newPointPasswordCheck: string,
+  }
