@@ -5,15 +5,17 @@ import PntHistorySortDate from '@/components/ui/Date/PntHistorySortDate'
 import { useSearchParams, useRouter } from 'next/navigation';
 import { BaseResDataType } from '@/types/baseResDataType';
 import { useSession } from 'next-auth/react';
+import { UserPointListDataType } from '@/types/userPointListDataType';
+import PntHistoryDetail from './pntHistoryDetail';
 
 export default function PntHistoryPonintList({ }) {
   
   const query = useSearchParams();
   const router = useRouter();
   const {data: session} = useSession();
-  const [selectedDateRange, setSelectedDateRange] = useState('all'); // 초기값을 빈 문자열로 설정
+  const [selectedDateRange, setSelectedDateRange] = useState<string>('all'); // 초기값을 빈 문자열로 설정
   const [selectedPointType, setSelectedPointType] = useState<string>('all'); // 초기값을 빈 문자열로 설정
-  const [data, setData] = useState([]);
+  const [userPointListData, setUserPointListData] = useState<UserPointListDataType[]>([] as UserPointListDataType[]);
 
   const handleOptionDateRange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDateRange(event.target.value);
@@ -47,7 +49,7 @@ export default function PntHistoryPonintList({ }) {
           },
         });
         const jsonData: BaseResDataType = await response.json();
-        console.log(jsonData)
+        setUserPointListData(jsonData.result);
       } catch (error) {
         console.error('데이터를 가져오는 중 오류 발생:', error);
       }
@@ -112,9 +114,10 @@ export default function PntHistoryPonintList({ }) {
           </p>
         </div>
         {/* 포인트 내역 조회 결과 리스트 */}
-        <ul className='pr-[5px] pl-[8px]'>
-          {/* <PntHistoryDetail filteredData={filteredData} selectedPointType={selectedPointType}/> */}
-        </ul>
+        {
+          userPointListData.length > 0 && <PntHistoryDetail data={userPointListData}/>
+        }
+        
       </div>
     </div>
   )

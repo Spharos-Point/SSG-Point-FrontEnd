@@ -251,6 +251,7 @@
     width: 16px;
     height: 16px;
     background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_accumulate.png) no-repeat left 5.5px top 5px #ea035c;
+    background-position: center;
     background-size: 8px 8px;
 }
 
@@ -269,12 +270,13 @@
 .p_use:before {
     content: "";
     border-radius: 50%;
-    margin: 2px 8px 0 0;
     display: inline-block;
+    margin: 2px 8px 0 0;
     vertical-align: top;
     width: 16px;
     height: 16px;
     background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_minus.png) no-repeat;
+    background-position: center;
     background-size: 16px auto;
 }
 
@@ -309,6 +311,7 @@
     width: 16px;
     height: 16px;
     background: url(https://storage.googleapis.com/team3_spharos_bucket/img/icon/p_cancel.png) no-repeat;
+    background-position: center;
     background-size: 16px auto;
 }
 
@@ -318,7 +321,8 @@
     align-items: center;
     flex-wrap: wrap;
     color: #000;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: bold;
     line-height: 24px;
     padding: 0 8px;
 }
