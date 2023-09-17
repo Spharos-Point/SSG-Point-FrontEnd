@@ -2,6 +2,7 @@
 import { ChangePwDataType } from '@/types/formDataType';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2';
 
 function FindPwResultInput() {
 
@@ -36,10 +37,25 @@ function FindPwResultInput() {
         const json = await response.json();
 
         if(json.code === 200) {
-            alert(json.message)
-            router.push('/login');
+            Swal.fire({
+                text: '비밀번호가 변경되었습니다',
+                confirmButtonText: "확인",
+                customClass: {
+                confirmButton: "mySwalConfirmButton",
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    router.push('/login')
+                }
+            })
         } else {
-            alert(json.message)
+            Swal.fire({
+                text: `${json.message}`,
+                confirmButtonText: "확인",
+                customClass: {
+                confirmButton: "mySwalConfirmButton",
+                },
+            })
         }
     }
 

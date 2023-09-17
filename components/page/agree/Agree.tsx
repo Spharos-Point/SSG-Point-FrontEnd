@@ -1,14 +1,14 @@
 import { formAgreements } from '@/data/agreeData'
-import { Agreement } from '@/types/agreeDataType'
+import { Agreement, AgreementSide } from '@/types/agreeDataType'
 import React from 'react'
 
-function Agree(props: {agree :Agreement[]}) {
+function Agree(props: {agree :AgreementSide[]}) {
 
     const {agree} = props;
   return (
     <ul>
         {
-            agree.map((items:Agreement) => (
+            agree.map((items:AgreementSide) => (
                 <li key={items.id} className='relative pr-[22px] mb-4'>
                     <div className='chk_box'>
                         <input

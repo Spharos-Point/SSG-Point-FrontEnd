@@ -145,6 +145,10 @@ export const pageTitleData: pageTitleDataType[] = [
         path: '/member/changePwd',
         title: '마이 회원정보'
     },    
+    {
+        path: '/myinfo/modify',
+        title: '마이 회원정보'
+    },    
     
 
 ]

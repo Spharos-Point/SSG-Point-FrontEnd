@@ -6,7 +6,7 @@ import React from 'react'
 function page() {
   return (
     <section className='mt-10' style={{marginTop: '60px'}}>
-        <FindResultTop/>
+        <FindResultTop />
         <FindIdResultInfo/>
         <FindBox title='비밀번호'/>
     </section>
