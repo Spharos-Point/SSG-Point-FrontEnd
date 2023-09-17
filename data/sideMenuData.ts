@@ -4,7 +4,7 @@ import { bookmarkType, sideMenuListType, sideMenuType } from "@/types/sideMenuTy
 export const bookmarkData: bookmarkType[] = [
     {
         id: 1,
-        url: '/mypoint/pntHistory',
+        url: '/mypoint/pntHistory?pointType=all&range=all',
         title: "포인트 내역",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_big_00.png",
     },
