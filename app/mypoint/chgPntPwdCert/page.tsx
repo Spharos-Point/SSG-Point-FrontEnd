@@ -1,16 +1,12 @@
-import JoinAuth from '@/components/page/auth/Auth'
-import ChgPntPwdTop from '@/components/page/mypoint/chgPntPwdCert/ChgPntPwdTop'
-import Note from '@/components/page/note/note'
-import { signupNotice } from '@/data/noticeData'
+import ChgPntPwdCertTop from '@/components/page/mypoint/chgPntPwdCert/ChgPntPwdCertTop'
 import React from 'react'
-
+import JoinAuth from '@/components/page/auth/Auth'
 
 export default function ChgPntPwdCert() {
   return (
     <section>
-        <ChgPntPwdTop />
+        <ChgPntPwdCertTop />
         <JoinAuth/>
-        <Note note={signupNotice}/>
     </section>
   )
 }
