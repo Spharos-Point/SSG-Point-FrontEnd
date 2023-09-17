@@ -110,6 +110,21 @@ function JoinAuthPhoneForm() {
       } else {
         alert(json.message);
       }
+    }  else if(pathname === '/mypoint/chgPntPwdCert') {
+      const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+
+      const json = await response.json();
+
+      if(json.code === 200) {
+        router.push('/mypoint/chgPntPwd');
+      } else {
+        alert(json.message);
+      }
     }
   }
 

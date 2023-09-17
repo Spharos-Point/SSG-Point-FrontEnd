@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ChgPntPwdTop() {
+export default function ChgPntPwdTopCert() {
   return (
     <div className='py-10 px-5'>
         <p className='text-[24px] leading-[34px] font-normal break-keep'>
