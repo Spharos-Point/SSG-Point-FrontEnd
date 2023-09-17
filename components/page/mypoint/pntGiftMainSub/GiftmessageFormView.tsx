@@ -1,65 +1,89 @@
 'use client'
-import React from 'react'
-import Swal from 'sweetalert2'
+import React from 'react';
+import Swal from 'sweetalert2';
+import { useSession } from 'next-auth/react';
 
 type GiftmessageFormViewProps = {
-    messageText: string;
-    messageStyle: string;
-    isMesageUseChecked : boolean;
+    receiverLoginId: string;
+    giftpoint: number;
+    giftMessage: string;
+    propgiftImage: string;
+    giftImage: string;
+    pointPassword: string;
+    isMesageUseChecked: boolean;
 }
 
-export default function GiftmessageFormView({ messageText, messageStyle, isMesageUseChecked } : GiftmessageFormViewProps) {
+export default function GiftmessageFormView({ receiverLoginId, giftpoint, giftMessage, giftImage, pointPassword, propgiftImage,isMesageUseChecked }: GiftmessageFormViewProps) {
+    const { data: session } = useSession();
+    console.log("토큰 :", session?.user.token)
+    console.log("Id: ", receiverLoginId, "point: ", giftpoint, "message: ", giftMessage, "style: ", propgiftImage, "pw : ", pointPassword ,"checked: ", isMesageUseChecked);
     const handlePreviewClick = () => {
         Swal.fire({
-            text: messageText,
+            text: giftMessage,
             customClass: {
-                popup: messageStyle,
+                popup: giftImage,
             }
-        })
+        });
     };
 
-    // 서버통신 결과에 따라 알림이 다르게 뜨도록 수정 필요
     const handleGiftClick = () => {
-        Swal.fire({
-            // 선물 전송여부 확인
-            icon: 'question',
-            title: '선물 하시겠습니까?',
-            showCancelButton: true,
-            confirmButtonText: '선물하기',
-            cancelButtonText: '취소',
-
-            // 선물 전송 성공
+        
+        fetch(`${process.env.BASE_API_URL}/api/v1/gift/createPoint`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${session?.user.token}`,
+            },
+            body: JSON.stringify({
+                "receiverLoginId" : receiverLoginId,
+                "giftpoint": giftpoint,
+                "pointPassword": pointPassword,
+                "giftMessage": giftMessage,
+                "giftImage": propgiftImage,
+            }),
         })
-        .then ((result) => {
-            if (result.isConfirmed) {
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        text: '선물이 완료되었습니다.',
+                        confirmButtonText: '확인',
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        text: '선물 전송 실패',
+                        confirmButtonText: '확인',
+                    });
+                }
+            })
+            .catch(error => {
+                console.error(error);
                 Swal.fire({
-                    icon: 'success',
-                    text: '선물이 완료되었습니다.',
+                    icon: 'error',
+                    text: '오류가 발생했습니다.',
                     confirmButtonText: '확인',
-                })
-            }
-        })
-        //  선물 전송 실패
-        // .then(() => {})
+                });
+            });
     };
 
     return (
-        
         <div className='flex justify-between items-center pb-[20px]'>
             {isMesageUseChecked ? (
-            <button
-                className='mr-[5px] box-border border-[1px] rounded-[8px] px-[15px] py-[11px] text-[#767676] w-full'
-                onClick={handlePreviewClick}
-            >
-                미리보기
-            </button>
+                <button
+                    className='mr-[5px] box-border border-[1px] rounded-[8px] px-[15px] py-[11px] text-[#767676] w-full'
+                    onClick={handlePreviewClick}
+                >
+                    미리보기
+                </button>
             ) : null}
-            {/* 이제 보내는 사람, 받는사람, 선물할 포인트, */}
             <button
                 className='ml-[5px] box-border btn_primary rounded-[9px] w-full'
-                onClick={handleGiftClick}>
+                onClick={handleGiftClick}
+            >
                 선물하기
             </button>
         </div>
-    )
+    );
 }

@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import styles from './PntGiftMainSub.module.css';
 import Swal from 'sweetalert2';
 import { useSession } from 'next-auth/react';
-import PntGiftMessageForm from './PntGiftMessageForm';
 import PntGiftValueSet from './PntGiftValueSet';
 
 export default function SearchUserFormSet() {
@@ -13,6 +12,7 @@ export default function SearchUserFormSet() {
     const [searchResult, setSearchResult] = useState(null); // 서버에서 받아온 조회 결과 데이터
     const [maskedName, setMaskedName] = useState(''); // 이름 상태 추가
     const [maskedId, setMaskedId] = useState(''); // 아이디 상태 추가
+    const [receiverLoginId, setReceiverLoginId] = useState(''); // 아이디 상태 추가
 
     const { data: session } = useSession();
     const handleSearch = async () => {
@@ -50,6 +50,8 @@ export default function SearchUserFormSet() {
                         const updatedMaskedName = nameArray.join('');
                         setMaskedName(updatedMaskedName); // 이름 상태 업데이트
                         const updatedMaskedId = receiverId.slice(0, 2) + '*'.repeat(receiverId.length - 2);
+                        setReceiverLoginId(receiverId);
+                        console.log(receiverLoginId);
                         setMaskedId(updatedMaskedId); // 아이디 상태 업데이트\
                         Swal.fire({
                             text: `선물하려는 분이 맞는지 확인해 주세요 이름: ${updatedMaskedName} 아이디: ${updatedMaskedId}`,
@@ -116,7 +118,7 @@ export default function SearchUserFormSet() {
                 onChange={(e) => setUserName(e.target.value)} />
 
             <button
-                className='mt-10 mb-[10px] box-border bg-black text-[14px] text-white text-center p-[12px] w-full rounded-[8px]'
+                className='mt-5 mb-[10px] box-border bg-black text-[14px] text-white text-center p-[12px] w-full rounded-[8px]'
                 onClick={handleSearch}>
                 조회하기
             </button>
@@ -133,8 +135,7 @@ export default function SearchUserFormSet() {
                             </p>
                         </div>
                     </div>
-                    <PntGiftValueSet />
-                    <PntGiftMessageForm />
+                    <PntGiftValueSet receiverLoginId={receiverLoginId} giftPoint={0} pointPassword={''} giftMessage={''} giftImage={''} />
                 </div>
             )}
         </div>
