@@ -13,6 +13,8 @@ function MyEventList() {
     const pathname = usePathname();
     const session = useSession();
     const [event, setEvent] = useState<EventDataType[]>();
+    const [myEventCount, setMyEventCount] = useState();
+    const [winEventCount, setWinEventCount] = useState();
     
     useEffect(() => {
         if(session.status === 'authenticated') {
@@ -25,16 +27,30 @@ function MyEventList() {
                     },
                 })
                 .then((res) => res.json())
-                .then((data) => setEvent(data));
+                .then((data) => {
+                    setEvent(data)
+                    setMyEventCount(data.length)
+                });
             } else if(pathname === '/benefits/winEvent') {
-                // api 구현 안되어있음
+                fetch(`${process.env.BASE_API_URL}/api/v1/benefits/winEvent`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization" : `Bearer ${session.data?.user.token}`
+                    },
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    setEvent(data)
+                    setWinEventCount(data.length)
+                });
             }
         }   
         }, [])
     
     return (
         <>
-        <MyEventTop attendCount={event?.length}/>
+        <MyEventTop myCount={myEventCount} winCount={winEventCount}/>
         <div className='pb-[60px]'>
             <ul>
                 {

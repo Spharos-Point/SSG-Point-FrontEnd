@@ -12,8 +12,6 @@ function EventImage(props : {id: number, url: string, img: string, imgAlt: strin
     const {id, url, img, imgAlt, title, regDate, endDate} = props;
     const pathname = usePathname();
 
-    console.log(id, url, img, imgAlt, title, regDate, endDate);
-
     // 현재시간과 이벤트 시작시간 및 이벤트 종료시간
     const date = new Date();
     const exdate = new Date(endDate);
@@ -53,11 +51,11 @@ function EventImage(props : {id: number, url: string, img: string, imgAlt: strin
                         
                     </>
                     :
-                    pathname === '/endevents' 
+                    pathname === '/endevents' || pathname === '/benefits/myEvent' && difDate < 0
                     ?
                     <EventEnd/>
                     :
-                    pathname === '/winevents' 
+                    pathname === '/winevents' || difDate < 0
                     ?
                     <EventWin/>
                     :

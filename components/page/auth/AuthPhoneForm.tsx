@@ -1,20 +1,30 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from './AuthPhoneForm.module.css'
 import { certAgreements } from '@/data/agreeData';
 import { Agreement } from '@/types/agreeDataType';
 import { usePathname, useRouter } from 'next/navigation';
-
 import { AuthFormDataType } from '@/types/formDataType';
+import Swal from 'sweetalert2';
+import Checkbox from '../agree/Checkbox';
 
 
 
 function JoinAuthPhoneForm() {
 
+    // 값 입력 안했을 시 포커싱 하기 위한 부분
+    const loginIdRef = useRef<HTMLInputElement | null>(null);
+    const nameRef = useRef<HTMLInputElement | null>(null);
+    const birthRef = useRef<HTMLInputElement | null>(null);
+    const phoneRef = useRef<HTMLInputElement | null>(null);
+
+    // 정규 표현식
+    // const phoneRedex = /^\d{3}\d{3,4}\d{4}$/
+
     // 성별
     const [selectedGender, setSelectedGender] = useState('M');
-  
+
     const handleGenderChange = (value:string) => {
       setSelectedGender(value);
     };
@@ -27,38 +37,160 @@ function JoinAuthPhoneForm() {
     }
 
     // 모두 동의
-    const [agreeAll, setAgreeAll] = useState(false);
-    const handleClick = () => {
-      setAgreeAll(!agreeAll);
-    };
+    const [agreeDataList, setAgreeDataList] = useState<Agreement[]>(certAgreements as Agreement[]);
+    const [isAllChecked, setIsAllChecked] = useState<boolean>(false);
 
+    const handleChecked = (id:number, isCheck:boolean) => {
+
+    const newAgreeList = [...agreeDataList];
+      newAgreeList.map((item) => {
+          if(item.id === id){
+              item.isCheck = isCheck;
+          }
+      })
+      setAgreeDataList(newAgreeList);
+
+    const allChecked = newAgreeList.every((item) => item.isCheck);
+      setIsAllChecked(allChecked);
+    }
+
+    const handleAllChecked = () => {
+      const newAgreeList = [...agreeDataList];
+      newAgreeList.map((item) => {
+          item.isCheck = !isAllChecked;
+      })
+      setAgreeDataList(newAgreeList);
+      setIsAllChecked(!isAllChecked);
+  }
 
     // 데이터 전달
     const [authData, setAuthData] = useState<AuthFormDataType>({
       loginId: '',
       name: '',
-      phone: ''
+      birth: '',
+      phone: '',
     });
+
+    // 값 입력 안할시 에러
+    const [joinError, setJoinError] = useState<any>({
+      loginId: '',
+      name: '',
+      birth: '',
+      phone: '',
+    });
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const {name, value} = e.target;
-      // console.log(name, value);
+      if(name === 'loginId') {
+        setJoinError({
+          ...joinError,
+          loginId: ''
+        })
+      } else if(name === 'name') {
+        setJoinError({
+          ...joinError,
+          name: ''
+        })
+      } else if(name === 'birth') {
+        setJoinError({
+          ...joinError,
+          birth: ''
+        })
+      } else if(name === 'phone') {
+        setJoinError({
+          ...joinError,
+          phone: ''
+        })
+      } 
 
       setAuthData({
         ...authData,
         [name]: value,
         
-      })
+      });
+
     }
 
     const pathname = usePathname();
     const router = useRouter();
     const handleButtonFetch = async () => {
+
+      if(pathname === '/member/findPw' && authData.loginId === '') {
+        setJoinError({
+          ...joinError,
+          loginId: '아이디를 입력해주세요.'
+        })
+        if (loginIdRef.current) {
+          loginIdRef.current.focus();
+        }
+        return;
+      }
+  
+      if(authData.name === '') {
+        setJoinError({
+          ...joinError,
+          name: '이름을 입력해주세요.'
+        })
+        if (nameRef.current) {
+          nameRef.current.focus();
+        }
+        return;
+      }
+
+      if(authData.birth === '') {
+        setJoinError({
+          ...joinError,
+          birth: '생년월일을 입력해주세요.'
+        })
+        if (birthRef.current) {
+          birthRef.current.focus();
+        }
+        return;
+      }
+
+      if(authData.phone === '') {
+        setJoinError({
+          ...joinError,
+          phone: '휴대폰 번호를 입력해주세요.'
+        })
+        if (phoneRef.current) {
+          phoneRef.current.focus();
+        }
+        return;
+      }
+
+      if (!isAllChecked) {
+        Swal.fire({
+        text: '[필수] 휴대전화 인증 서비스 이용약관 약관에 동의해주세요',
+        confirmButtonText: "확인",
+        customClass: {
+        confirmButton: "mySwalConfirmButton",
+        },
+    })
+      return;
+    }
+
       if(pathname === '/member/join/cert') {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+          }
+        });
 
+        const json = await response.json();
+        console.log(json.result)
+        if(json.result === undefined) {
+          // 회원가입 된 아이디가 없을 경우
           localStorage.setItem('authData', JSON.stringify(authData));
-
           router.push('/member/join/agree');
+
+        } else {
+          // 이미 아이디가 존재 할 경우
+          sessionStorage.setItem('loginId', JSON.stringify(json.result));  
+          router.push('/member/findIdResult');
+        }
 
       } else if(pathname === '/member/findIdPw') {
         const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
@@ -75,7 +207,13 @@ function JoinAuthPhoneForm() {
           router.push('/member/findIdResult');
 
         } else {
-          alert(json.message);
+          Swal.fire({
+            text: `${json.message}`,
+            confirmButtonText: "확인",
+            customClass: {
+            confirmButton: "mySwalConfirmButton",
+            },
+        })
 
         }
     } else if(pathname === '/member/findPw'){
@@ -92,7 +230,13 @@ function JoinAuthPhoneForm() {
         sessionStorage.setItem('loginId', JSON.stringify(authData.loginId));
         router.push('/member/findPwResult');
       } else {
-        alert(json.message);
+        Swal.fire({
+          text: `${json.message}`,
+          confirmButtonText: "확인",
+          customClass: {
+          confirmButton: "mySwalConfirmButton",
+          },
+      })
       }
     
     } else if(pathname === '/myinfo/changePwd') {
@@ -108,7 +252,13 @@ function JoinAuthPhoneForm() {
       if(json.code === 200) {
         router.push('/member/changePwd');
       } else {
-        alert(json.message);
+        Swal.fire({
+          text: `${json.message}`,
+          confirmButtonText: "확인",
+          customClass: {
+          confirmButton: "mySwalConfirmButton",
+          },
+        })
       }
     }  else if(pathname === '/mypoint/chgPntPwdCert') {
       const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
@@ -123,11 +273,39 @@ function JoinAuthPhoneForm() {
       if(json.code === 200) {
         router.push('/mypoint/chgPntPwd');
       } else {
-        alert(json.message);
+        Swal.fire({
+          text: `${json.message}`,
+          confirmButtonText: "확인",
+          customClass: {
+            confirmButton: "mySwalConfirmButton",
+          },
+        })
       }
+    } else if(pathname === '/myinfo/cert') {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/search/NameAndPhoneNum?userName=${authData.name}&phoneNumber=${authData.phone}`, {
+          method: 'GET',
+          headers: {
+            "Content-Type": "application/json",
+          }
+        });
+
+        const json = await response.json();
+
+        if(json.code === 200) {
+          router.push('/myinfo/modify');
+        } else {
+          Swal.fire({
+            text: `${json.message}`,
+            confirmButtonText: "확인",
+            customClass: {
+              confirmButton: "mySwalConfirmButton",
+            },
+          })
+        }
     }
   }
 
+  
     
   return (
     <>
@@ -149,9 +327,10 @@ function JoinAuthPhoneForm() {
                       name='loginId'
                       value={authData.loginId}
                       onChange={handleChange}
+                      ref={loginIdRef}
                   />
+                  { joinError.loginId !== '' ? <p className='myErrorToolTip'>{joinError.loginId}</p> : null}
                 </div>
-                <p className='error_txt'></p>
               </div>
               :
               <div></div>
@@ -160,16 +339,17 @@ function JoinAuthPhoneForm() {
               <p className='pb-2 text-xs leading-5'>이름을 입력해 주세요.</p>
               <div className='input_box box-border relative inline-block w-full align-top'>
                 <input 
-                    className='h-12 py-0 px-4 bg-white box-border block w-full border-2 border-solid border-gray-200 text-sm rounded-lg'
+                    className={`h-12 py-0 px-4 bg-white box-border block w-full border-2 border-solid border-gray-200 text-sm rounded-lg `}
                     type="text" 
                     placeholder='이름 입력'
                     id="name"
                     name='name'
                     value={authData.name}
                     onChange={handleChange}
+                    ref={nameRef}
                 />
+                { joinError.name !== '' ? <p className='myErrorToolTip'>{joinError.name}</p> : null}
               </div>
-              <p className='error_txt'></p>
             </div>
             <div className='box-border pb-4'>
               <p className='pb-2 text-xs leading-5'>성별을 선택해주세요.</p>
@@ -205,12 +385,16 @@ function JoinAuthPhoneForm() {
               <div className='input_box box-border relative inline-block w-full align-top'>
                 <input 
                     className='h-12 py-0 px-4 bg-white box-border block w-full border-2 border-solid border-gray-200 text-sm rounded-lg'
-                    type="text" 
+                    type="number" 
                     placeholder='법정생년월일 8자리'
                     id="birth"
+                    name='birth'
+                    value={authData.birth}
+                    onChange={handleChange}
+                    ref={birthRef}
                 />
+                { joinError.birth !== '' ? <p className='myErrorToolTip'>{joinError.birth}</p> : null}
               </div>
-              <p className='error_txt'></p>
             </div>
             <div className='box-border pb-4'>
             <p className='pb-2 text-xs leading-5'>
@@ -229,49 +413,49 @@ function JoinAuthPhoneForm() {
                 </div>
                 <input 
                     className='h-12 mt-2 py-0 px-4 bg-white box-border block w-full border-2 border-solid border-gray-200 text-sm rounded-lg'
-                    type="text" 
+                    type="number" 
                     placeholder='-없이 휴대폰 번호 입력'
                     id="phone"
                     name='phone'
                     value={authData.phone}
                     onChange={handleChange}
-                />
+                    ref={phoneRef}
+                    />
+                    { joinError.phone !== '' ? <p className='myErrorToolTip'>{joinError.phone}</p> : null}
               </div>
-              <p className='error_txt'></p>
             </div>
           </div>
         </div>
         <div className='terms_agree_box bg-none py-0 px-5'>
           <div>
             <h3 className='pb-4 text-lg leading-7 font-bold'>휴대전화 인증 약관</h3>
-            <div className='agree-all_chk pb-4 mb-4 relative border-b-2 border-solid border-gray-200'>
+            <div className='agree-all_chk mb-4 relative border-b-2 border-solid border-gray-200'>
               <div className={`${styles.chk_box} relative inline-block align-top`}>
-                <input
-                  className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                  id='agreeAllChk'
-                  type='checkbox'
-                  onClick={handleClick}
+                <Checkbox
+                    checkId={0}
+                    label={'모든 약관에 동의합니다'}
+                    name={'모든 약관에 동의합니다'}
+                    checked={certAgreements.every((item) => item.isCheck)}
+                    handler={handleAllChecked}
+                    size={1.25}
                 />
-                <label htmlFor='agreeAllChk' className='block min-h-5 pt-px pl-7 text-sm leading-4 break-keep font-bold'>모든 약관에 동의합니다.</label>
               </div>
             </div>
             <ul className='agree_list'>
               {
-                certAgreements.map((items:Agreement) => (
-                <li key={items.id} className='relative pr-5 mb-4'>
-                  <div className={styles.chk_box}>
-                    <input
-                      className='absolute left-0 top-0 w-5 h-5 rounded-full border border-black appearance-none cursor-pointer align-middle'
-                      id={items.id}
-                      type='checkbox'
-                      defaultChecked={agreeAll}
-                    />
-                    <label htmlFor={items.id} className='block min-h-5 pt-px pl-7 text-xs leading-4 break-keep font-bold'>
-                      {items.label}
-                    </label>
-                  </div>
-                </li>
-                ))
+                  certAgreements.map((item:Agreement) => {
+                      return (
+                          <Checkbox 
+                              key={item.id}
+                              checkId={item.id}
+                              label={item.title}
+                              name={item.title}
+                              checked={item.isCheck}
+                              handler={handleChecked}
+                              size={1.25}
+                          />
+                      )
+                  })
               }
             </ul>
           </div>

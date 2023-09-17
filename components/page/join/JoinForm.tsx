@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './JoinForm.module.css'
 import { DaumAddressType } from '@/types/DaumAddressType';
 import Postcode from '@/components/widget/Postcode';
@@ -9,20 +9,55 @@ import AdConsent from '../agree/AdConsent';
 import { useRouter } from 'next/navigation';
 
 function JoinForm() {
+
+    const loginIdRef = useRef<HTMLInputElement | null>(null);
+    const passwordRef = useRef<HTMLInputElement | null>(null);
+    const pwChkIdRef = useRef<HTMLInputElement | null>(null);
+    const addressRef = useRef<HTMLInputElement | null>(null);
+    
     const router = useRouter();
     // 회원가입 
     const [signup, setSignup] = useState<JoinFormDataType>({
         loginId: '',
         password: '',
+        pwChkId:'',
         name: '',
         phone: '',
         email: '',
         address: ''
     });
 
+
+    const [signupError, setSignupError] = useState<any>({
+        loginId: '',
+        password: '',
+        pwChkId: '',
+        address: '',
+    });
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
-        console.log(name, value);
+        if(name === 'loginId') {
+            setSignupError({
+                ...signupError,
+                loginId: ''
+            })
+        } else if(name === 'password') {
+            setSignupError({
+                ...signupError,
+                password: ''
+            })
+        } else if(name === 'pwChkId') {
+            setSignupError({
+                ...signupError,
+                pwChkId: ''
+            })
+        } else if(name === 'address') {
+            setSignupError({
+                ...signupError,
+                address: ''
+            })
+        } 
         
         setSignup({
             ...signup,
@@ -33,28 +68,74 @@ function JoinForm() {
 
 
     const handSignupFetch = async () => {
-        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/signup`, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                loginId: signup.loginId,
-                password: signup.password,
-                name: signup.name,
-                phone: signup.phone,
-                email: signup.email,
-                address: signup.address
+
+        if(signup.loginId === '') {
+            setSignupError({
+                ...signupError,
+                loginId: '아이디를 입력해주세요.'
             })
-        })
-        .then((res) => {
-            if(res.status === 200) {
-                sessionStorage.setItem('signup', JSON.stringify(signup));
-                router.push('/member/join/success');
-            } else {
-                alert("회원가입 실패했습니다.");
+
+            if (loginIdRef.current) {
+                loginIdRef.current.focus();
             }
-        }) 
+                return;
+            }
+    
+        if(signup.password === '') {
+            setSignupError({
+                ...signupError,
+                password: '비밀번호를 입력해주세요.'
+            })
+            if (passwordRef.current) {
+                passwordRef.current.focus();
+            }
+            return;
+        }
+
+        if(signup.pwChkId === '') {
+            setSignupError({
+                ...signupError,
+                pwChkId: '비밀번호 확인을 입력해주세요.'
+            })
+            if (pwChkIdRef.current) {
+                pwChkIdRef.current.focus();
+            }
+            return;
+        }
+
+        if(signup.address === '') {
+            setSignupError({
+                ...signupError,
+                address: '주소를 입력해주세요.'
+            })
+            if (addressRef.current) {
+                addressRef.current.focus();
+            }
+            return;
+        }
+
+        // const response = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/signup`, {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         loginId: signup.loginId,
+        //         password: signup.password,
+        //         name: signup.name,
+        //         phone: signup.phone,
+        //         email: signup.email,
+        //         address: signup.address
+        //     })
+        // })
+        // .then((res) => {
+        //     if(res.status === 200) {
+        //         sessionStorage.setItem('signup', JSON.stringify(signup));
+        //         router.push('/member/join/success');
+        //     } else {
+        //         alert("회원가입 실패했습니다.");
+        //     }
+        // }) 
 
         // const json = await response.json();
 
@@ -85,7 +166,8 @@ function JoinForm() {
     const [authData, setAuthData] = useState<AuthFormDataType>({
         loginId:'',
         name: '',
-        phone: ''
+        phone: '',
+        birth:''
     });
     
     // 우편 주소
@@ -138,7 +220,9 @@ function JoinForm() {
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             placeholder='영문, 숫자 6~20자리 입력해주세요'
                             onChange={handleChange}
+                            ref={loginIdRef}
                         />
+                        { signupError.loginId !== '' ? <p className='myErrorToolTip'>{signupError.loginId}</p> : null}
                     </div>    
                     <div className={`${styles.btn_box} ml-[5px]`}>
                         <button 
@@ -149,7 +233,6 @@ function JoinForm() {
                         </button>
                     </div>    
                 </div>
-                <p className='error_txt'></p>  
             </div>
             <div className={`${styles.form_box} box-border pb-4`}>
                 <p className={`${styles.tit} pb-2 text-[13px] leading-[21px]`}>
@@ -160,16 +243,17 @@ function JoinForm() {
                     <div className='w-auto flex-1 box-border relative inline-block align-top'>
                         <input 
                             type="password"
-                            id="pwId"
+                            id="password"
                             name='password'
                             title='회원 가입을 위한 비밀번호 입력'
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             placeholder='영문 대/소문자, 숫자, 특수문자 중 3가지 이상을 조합하여 8-20자리로 입력해 주세요.'
                             onChange={handleChange}
+                            ref={passwordRef}
                         />
+                        { signupError.password !== '' ? <p className='myErrorToolTip'>{signupError.password}</p> : null}
                     </div>    
                 </div>
-                <p className='error_txt'></p>  
             </div>
             <div className={`${styles.form_box} box-border pb-4`}>
                 <p className={`${styles.tit} pb-2 text-[13px] leading-[21px]`}>
@@ -181,10 +265,14 @@ function JoinForm() {
                         <input 
                             type="password"
                             id="pwChkId"
+                            name='pwChkId'
                             title='회원 가입을 위한 비밀번호 확인 입력'
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             placeholder='입력하신 비밀번호를 다시 한번 입력해주세요.'
+                            onChange={handleChange}
+                            ref={pwChkIdRef}
                         />
+                        { signupError.pwChkId !== '' ? <p className='myErrorToolTip'>{signupError.pwChkId}</p> : null}
                     </div>    
                 </div>
                 <p className='error_txt'></p>
@@ -251,6 +339,7 @@ function JoinForm() {
                                     ''
                                 }
                             />
+                            { signupError.address !== '' ? <p className='myErrorToolTip'>{signupError.address}</p> : null}
                         </div>    
                         <div className={`${styles.btn_box} ml-[5px]`}>
                             <div className='p-3 text-[#000] border border-solid border-[#bcbcbc] font-normal rounded-lg h-12 block w-full text-center text-sm leading-6 box-border'>
@@ -262,8 +351,8 @@ function JoinForm() {
                     <div className='input_box mt-2'>
                         <input 
                             type="text"
-                            id="addressId01"
-                            name="addressId01"
+                            id="address"
+                            name="address"
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
                             value={
                                 address?
@@ -272,6 +361,8 @@ function JoinForm() {
                                 ''
                             }
                             readOnly
+                            ref={addressRef}
+                            onChange={handleChange}
                         />
                     </div>
                     <div className='input_box mt-2'>
@@ -279,7 +370,6 @@ function JoinForm() {
                             type="text"
                             id="addressId02"
                             className='box-border block w-full border border-solid border-[#e8e8e8] text-sm rounded-lg h-12 px-4'
-                            readOnly
                             placeholder='상세주소'
                         />
                     </div>
