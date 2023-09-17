@@ -1,126 +1,80 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import styles from './pntHistory.module.css'
-import PntHistoryDetail from './pntHistoryDetail'
 import PntHistorySortDate from '@/components/ui/Date/PntHistorySortDate'
+import { useSearchParams, useRouter } from 'next/navigation';
+import { BaseResDataType } from '@/types/baseResDataType';
+import { useSession } from 'next-auth/react';
 
 export default function PntHistoryPonintList({ }) {
-  const [selectedDateRange, setSelectedDateRange] = useState(''); // 초기값을 빈 문자열로 설정
-  const [selectedPointType, setSelectedPointType] = useState(''); // 초기값을 빈 문자열로 설정
+  
+  const query = useSearchParams();
+  const router = useRouter();
+  const {data: session} = useSession();
+  const [selectedDateRange, setSelectedDateRange] = useState('all'); // 초기값을 빈 문자열로 설정
+  const [selectedPointType, setSelectedPointType] = useState<string>('all'); // 초기값을 빈 문자열로 설정
   const [data, setData] = useState([]);
 
   const handleOptionDateRange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedDateRange(event.target.value);
+    router.push(`/mypoint/pntHistory?pointType=${selectedPointType}&range=${event.target.value}`) // `/mypoint/pntHistory?pointType=${event.target.value}
   };
-  const handleOptionPointType = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedPointType(event.target.value);
+    router.push(`/mypoint/pntHistory?pointType=${event.target.value}&range=${selectedDateRange}`) // `/mypoint/pntHistory?pointType=${event.target.value}2
   };
+
+  const tabMenu = [
+    { id: '1', name: '전체', value: 'all' },
+    { id: '2', name: '적립/사용', value: 'RE,RE_USED' },
+    { id: '3', name: '선물', value: 'GI' },
+    { id: '4', name: '전환', value: 'TR' },
+  ];
 
   useEffect(() => {
-    // async function fetchData() {
-    //   try {
-    //     const response = await fetch('https://newbiefive.store/PntList');
-    //     const jsonData = await response.json();
+    setSelectedPointType(query.get('pointType') || 'all');
+    console.log(query.get('pointType'))
+    console.log(query.get('range'))
+    console.log(session?.user.token)
 
-    //     jsonData.sort((a, b) => new Date(b.pnt_create_at) - new Date(a.pnt_create_at));
-    //     setData(jsonData);
-
-    //   } catch (error) {
-    //     console.error('데이터를 가져오는 중 오류 발생:', error);
-    //   }
-    // }
-    // fetchData();
-  }, []);
-
-  // const filteredData = data.filter(item => {
-  //   const currentDate = new Date();
-  //   const itemDate = new Date(item.pnt_create_at);
-
-  //   // 선택된 옵션 값에 따라 필터링 조건을 설정
-  //   if (selectedDateRange === '') {
-  //     // 빈 문자열인 경우 모든 데이터 반환
-  //     return true;
-  //   } else if (selectedDateRange === '7') {
-  //     // 1주일 내의 데이터
-  //     const oneWeekAgo = new Date(currentDate);
-  //     oneWeekAgo.setDate(currentDate.getDate() - 7);
-  //     return itemDate >= oneWeekAgo;
-  //   } else if (selectedDateRange === '1') {
-  //     // 1개월 내의 데이터
-  //     const oneMonthAgo = new Date(currentDate);
-  //     oneMonthAgo.setMonth(currentDate.getMonth() - 1);
-  //     return itemDate >= oneMonthAgo;
-  //   } else if (selectedDateRange === '3') {
-  //     // 3개월 내의 데이터
-  //     const threeMonthsAgo = new Date(currentDate);
-  //     threeMonthsAgo.setMonth(currentDate.getMonth() - 3);
-  //     return itemDate >= threeMonthsAgo;
-  //   } else if (selectedDateRange === '6') {
-  //     // 6개월 내의 데이터
-  //     const sixMonthsAgo = new Date(currentDate);
-  //     sixMonthsAgo.setMonth(currentDate.getMonth() - 6);
-  //     return itemDate >= sixMonthsAgo;
-  //   }
-
-  //   if (selectedPointType && item.pointtype !== selectedPointType) {
-  //     return false;
-  //   }
-
-  //   return true;
-  // });
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/userPointList/history?pointType=${query.get('pointType')}&range=${query.get('range')}`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${session?.user.token}`,
+          },
+        });
+        const jsonData: BaseResDataType = await response.json();
+        console.log(jsonData)
+      } catch (error) {
+        console.error('데이터를 가져오는 중 오류 발생:', error);
+      }
+    }
+    fetchData();
+  }, [query]);
 
   return (
     <div className='pt-[25px] pb-[60px] pr-[20px] pl-[20px] tracking-tight'>
       {/* 포인트 내역 sort 박스 */}
       <div className={styles.sort_radio_box}>
-        <div className={styles.sort_box}>
-          <input
-            type="radio"
-            value=""
-            name="sortPointList"
-            checked={selectedPointType === ''}
-            onChange={() => setSelectedPointType('')}
-          />
-          <label>
-            전체
-          </label>
-        </div>
-        <div className={styles.sort_box}>
-          <input
-            type="radio"
-            value="1"
-            name="sortPointList"
-            checked={selectedPointType === '1'}
-            onChange={() => setSelectedPointType('1')}
-          />
-          <label>
-            적립/사용
-          </label>
-        </div>
-        <div className={styles.sort_box}>
-          <input
-            type="radio"
-            value="2"
-            name="sortPointList"
-            checked={selectedPointType === '2'}
-            onChange={() => setSelectedPointType('2')}
-          />
-          <label>
-            선물
-          </label>
-        </div>
-        <div className={styles.sort_box}>
-          <input
-            type="radio"
-            value="3"
-            name="sortPointList"
-            checked={selectedPointType === '3'}
-            onChange={() => setSelectedPointType('3')}
-          />
-          <label>
-            전환
-          </label>
-        </div>
+        {
+          tabMenu.map((item) => (
+            <div className={styles.sort_box} key={item.id}>
+              <input
+                type="radio"
+                value={item.value}
+                name="sortPointList"
+                checked={selectedPointType === item.value}
+                onChange={handleTypeChange}
+              />
+              <label>
+                {item.name}
+              </label>
+            </div>
+          ))
+        }
       </div>
 
       {/* 포인트 조회 기간 적용 */}
@@ -131,7 +85,7 @@ export default function PntHistoryPonintList({ }) {
             className='box-border pr-[32px] pl-[6px] relateive block z-[2] w-full h-[30px] text-[13px] '
             value={selectedDateRange}
             onChange={handleOptionDateRange}>
-            <option value="">전체</option>
+            <option value="all">전체</option>
             <option value="7">1주일</option>
             <option value="1">1개월</option>
             <option value="3">3개월</option>
