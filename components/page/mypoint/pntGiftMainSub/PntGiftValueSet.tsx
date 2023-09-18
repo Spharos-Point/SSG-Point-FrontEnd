@@ -28,7 +28,7 @@ export default function PntGiftValueSet() {
             }
         }
         fetchData(); // fetchData 함수 호출
-    }, [session]); // session이 변경될 때마다 API 요청을 다시 보냄
+    }, [session]);
     return (
         <div>
             <div className='box-border pt-5'>
@@ -43,13 +43,13 @@ export default function PntGiftValueSet() {
             text-sm font-bold text-slate-700 pb-2">
                 선물할 포인트
             </label>
-            <input type="text" id="" className={styles.input_box2} />
+            <input type="number" id="" className={styles.input_box2} />
 
             <label htmlFor="" className="after:content-['*'] after:ml-0.5 after:text-red-500 block 
             text-sm font-bold text-slate-700 pb-2">
                 포인트 비밀번호
             </label>
-            <input type="text" id="" className={styles.input_box2} />
+            <input type="number" id="" className={styles.input_box2} />
             <button className={styles.Link_btn}>
                 <Link href={'/mypoint/chgPntPwdCert'}>
                     포인트 비밀번호가 기억나지 않으세요?

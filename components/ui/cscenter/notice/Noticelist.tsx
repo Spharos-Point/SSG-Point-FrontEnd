@@ -3,17 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { noticeDataType } from '@/types/cscenterDataType';
 
-function DateForm({ createAt } : { createAt: string }) {
-  const year = createAt[0];
-  const month = createAt[1] + 1; // 월은 0부터 시작하므로 1을 더해줍니다.
-  const day = createAt[2];
-
-  return (
-    <div>
-      {year}-{month}-{day}
-    </div>
-  );
-}
 
 export default function Noticelist() {
   const [noticeData, setNoticeData] = useState<noticeDataType[]>([]);
@@ -51,10 +40,9 @@ export default function Noticelist() {
       {currentItems.map((props, index) => (
         <div className='box-border p-4 border' key={index}>
           <div className='hidden'>{props.noticeId}</div>
-          <Link href={`/cscenter/notice/${props.noticeId}`}>
+          <div >
             <p className='text-[14px] leading-[24px] break-all'>{props.title}</p>
-            <p className='text-[#767676] text-[11px] pt-[4px]'><DateForm createAt={props.createAt} /></p>
-          </Link>
+          </div>
         </div>
       ))}
       
@@ -62,13 +50,13 @@ export default function Noticelist() {
       {/* 페이지네이션 컴포넌트 또는 버튼을 여기에 추가 */}
       <div className='flex justify-center space-x-2'>
         {Array.from({ length: Math.ceil(noticeData.length / itemsPerPage) }).map((_, index) => (
-          <button
+          <p
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`box-border ${currentPage === index + 1 ? 'active' : ''}`}
           >
             {index + 1}
-          </button>
+          </p>
         ))}
       </div>
     </div>

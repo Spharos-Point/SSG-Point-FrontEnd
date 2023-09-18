@@ -12,7 +12,7 @@ export default function PntAcceptBox() {
       // 로그인한 사용자 세션이 존재하는 경우
       const fetchGiftData = async () => {
         try {
-          const response = await fetch('https://newbiefive.store/api/v1/gift/Pending', {
+          const response = await fetch('https://newbiefive.store/api/v1/gift/waiting', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

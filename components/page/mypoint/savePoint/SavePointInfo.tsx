@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import styles from './SavePointInfo.module.css'
+import Swal from 'sweetalert2'
 
 export default function SavePointInfo() {
   return (
@@ -11,7 +13,7 @@ export default function SavePointInfo() {
       <div className='box-border pt-[16px]'>
         <p className='pb-[8px] text-[13px] font-bold leading-[21px]'>제휴사</p>
         <div className='relative inside-block align-top bg-white rounded-[8px] w-full '>
-          <select name="제휴사 선택" id="" className={styles.select_box}>
+          <select name="제휴사 선택" id="" className={styles.select_box} disabled>
             <option value="001">이마트</option>
             <option value="002">신세계백화점</option>
             <option value="003">이마트 에브리데이</option>
@@ -22,7 +24,7 @@ export default function SavePointInfo() {
       <div className='box-border pt-[16px]'>
         <p className='pb-[8px] text-[13px] font-bold leading-[21px]'>브랜드</p>
         <div className='relative inside-block align-top bg-white rounded-[8px] w-full '>
-          <select name="" id="" className={styles.select_box}>
+          <select name="" id="" className={styles.select_box} disabled>
             <option value="0001">이마트</option>
             <option value="0002">PK마켓</option>
             <option value="0003">트레이더스</option>
@@ -49,14 +51,13 @@ export default function SavePointInfo() {
       <div className='box-border pt-[16px]'>
         <p className='pb-[8px] text-[13px] font-bold leading-[21px]'>매장명</p>
         <div className='relative inside-block align-top bg-white rounded-[8px] w-full '>
-          <select name="" id="" className={styles.select_box}>
+          <select name="" id="" className={styles.select_box} disabled>
             <option value=""></option>
             <option value=""></option>
             <option value=""></option>
           </select>
         </div>
       </div>
-      {/* 도움..! */}
       <div className='box-border'>
         <div className='my-[13px] '>
           <label className='inline-block pb-0 text-[13px] font-bold leading-[21px]'>영수증 일련번호</label>
@@ -64,10 +65,20 @@ export default function SavePointInfo() {
             <button className={styles.info_ico}>정보보기</button>
           </span>
         </div>
-        <input type="tel" id="receiptNumber0" className={styles.input_box} />
+        <input type="number" id="receiptNumber0" className={styles.input_box} disabled/>
       </div>
       <div className='pt-[24px]'>
-        <button className={styles.btn_box}>
+        <button className={styles.btn_box}
+        onClick={
+          () => {
+            Swal.fire({
+              title: '개발 중 상태입니다.',
+              icon: 'info',
+              confirmButtonText: '확인',
+              confirmButtonColor: '#615EFF',
+            });
+          }
+        }>
           <a href="" className=''>등록하기</a>
         </button>
       </div>

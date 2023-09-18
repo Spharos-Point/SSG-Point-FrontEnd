@@ -1,25 +1,25 @@
-import React from 'react'
-import Faqlist from '@/components/ui/cscenter/faq/Faqlist';
-import FaqCategory from '@/components/ui/cscenter/faq/FaqCategory';
-
+'use client'
+import React, { useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 function faq() {
-  return (
-    <div>
-      <main>
-        <section className=''>
-          <div className=''><p className=''>자주 묻는 <strong className=''>질문과 답변</strong>을<br />모아 두었어요.</p></div>
-          <div className=''>
-            <p className=''>질문 분류를 선택해 주세요.</p>
-            <FaqCategory />
-          </div>
-          <div className=''>
-            <Faqlist />
-          </div>
-        </section>
-      </main>
-    </div>
-  )
-}
+  useEffect(() => {
+    // 이 컴포넌트가 클라이언트 사이드에서 실행되는지 확인
+    if (typeof window !== 'undefined') {
+      // 개발 중 알림을 띄우기 위한 Swal.fire 호출
+      Swal.fire({
+        title: '개발 중 상태입니다.',
+        icon: 'info',
+        confirmButtonText: '확인',
+        confirmButtonColor: '#615EFF',
+      });
+    }
+  }, []);
 
+  return (
+
+    <div>
+    </div>
+  );
+}
 export default faq

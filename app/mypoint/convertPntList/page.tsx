@@ -2,6 +2,7 @@
 import React from 'react'
 import styles from './convertPntlist.module.css'
 import ConvertPntURL from '@/components/page/mypoint/convertPntList/convertPntURL'
+import Swal from 'sweetalert2'
 
 export default function convertPntList() {
     return(
@@ -34,7 +35,17 @@ export default function convertPntList() {
       </div>
       <ConvertPntURL />
       <div className='pr-[20px] pb-[80px] pl-[20px]'>
-        <button className={styles.btn_box}>
+        <button className={styles.btn_box}
+        onClick={
+          () => {
+            Swal.fire({
+              title: '개발 중 상태입니다.',
+              icon: 'info',
+              confirmButtonText: '확인',
+              confirmButtonColor: '#615EFF',
+            });
+          }
+        }>
           전환하기
         </button>
 

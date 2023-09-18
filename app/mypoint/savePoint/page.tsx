@@ -19,7 +19,6 @@ export default function SavePoint() {
         </p>
       </div>
       <SavePointInfo />
-      <p><strong>유의사항 내용 추가</strong></p>
     </section>
   )
 }

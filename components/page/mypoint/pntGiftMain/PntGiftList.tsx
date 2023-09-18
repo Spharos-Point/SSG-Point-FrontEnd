@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import styles from './PntGiftList.module.css'
 
@@ -21,7 +22,7 @@ export default function PntGiftList() {
                         <p className={styles.PntGiftList_plus}>
                             적립
                             <strong className='text-[13px] leading-[13px] font-normal ml-[8px]'>
-                                {1}P
+                                {0}P
                             </strong>
                         </p>
                         <p className={styles.PntGiftList_minus}>
@@ -34,7 +35,7 @@ export default function PntGiftList() {
                 </div>
             </div>
             <ul className='px-[5px]'>
-                <li className='flex flex-wrap items-center min-h-[74px] py-[5px] border-b-[1px] '>
+                {/* <li className='flex flex-wrap items-center min-h-[74px] py-[5px] border-b-[1px] '>
                     <p className={styles.p_accumulate}>{1}P
                         <span>{"선물적립"}</span>
                     </p>
@@ -58,7 +59,10 @@ export default function PntGiftList() {
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> */}
+                <p className='text-[13px] text-center text-[#767676] py-[28px] border-b-[1px]'>
+                    선물 내역이 없습니다.
+                </p>
             </ul>
         </div>
     )
