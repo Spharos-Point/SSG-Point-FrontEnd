@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation'
 
 export default function mypointLayout({ children }: { children: React.ReactNode }) {
     const pathName = usePathname();
-    console.log(pathName);
 
     return (
         <section className='mt-10' style={{ marginTop: '60px' }}>

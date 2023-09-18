@@ -7,7 +7,6 @@ function Postcode({isView, setIsView, setAddress}: {isView:boolean, setIsView: a
 
     const handleComplete = (data:any) => {
        setAddress(data)
-       console.log(data)
     };
 
    

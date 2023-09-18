@@ -12,7 +12,6 @@ function EventBanner() {
 
     const params = useSearchParams();
     const sort = params.get("sort");
-    console.log(sort)
 
     const handleSortChange = () => {
 
@@ -73,9 +72,6 @@ function EventBanner() {
         }
 
     }, [])
-
-    // const json = JSON.stringify(ingevent);
-    // console.log(json)
 
     return (
         <>

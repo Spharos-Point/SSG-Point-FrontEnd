@@ -7,8 +7,6 @@ import { BaseResDataType } from '@/types/baseResDataType';
 
 export default function PntHistoryDetail( {data} : {data: UserPointListDataType[]} ) {
  
-  console.log(data && data)
-
   return (
     <ul className='pr-[5px] pl-[8px]'>
       {data && data.map((item:UserPointListDataType) => (
@@ -26,7 +24,6 @@ export const PointListView = ({item}:{item:UserPointListDataType}) => {
   const [giftDetail, setGiftDetail] = useState<purchaseDataType>({} as purchaseDataType);
   const [transDetail, setTransDetail] = useState<transDataType>({} as transDataType);
   const [pointDetail, setPointDetail] = useState<PointDataType>({} as PointDataType);
-  console.log(new Date(item.createAt).toLocaleDateString('ko-KR', { timeZone: 'UTC' }))
 
 
   useEffect(() => {
@@ -40,10 +37,8 @@ export const PointListView = ({item}:{item:UserPointListDataType}) => {
           },
         });
         const jsonData: BaseResDataType = await response.json();
-        console.log(jsonData)
         setPointDetail(jsonData.result);
       } catch (error) {
-        console.error('데이터를 가져오는 중 오류 발생:', error);
       }
     }
 
@@ -59,7 +54,6 @@ export const PointListView = ({item}:{item:UserPointListDataType}) => {
           },
         });
         const jsonData: BaseResDataType = await response.json();
-        console.log(jsonData)
         setReceiptDetail(jsonData.result);
       } catch (error) {
         console.error('데이터를 가져오는 중 오류 발생:', error);
@@ -76,7 +70,6 @@ export const PointListView = ({item}:{item:UserPointListDataType}) => {
           },
         });
         const jsonData: BaseResDataType = await response.json();
-        console.log(jsonData)
         setTransDetail(jsonData.result);
       } catch (error) {
         console.error('데이터를 가져오는 중 오류 발생:', error);

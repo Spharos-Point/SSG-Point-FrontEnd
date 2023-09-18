@@ -103,7 +103,6 @@ function LongForm() {
       redirect: false,
       callbackUrl: callBackUrl ? callBackUrl : '/'
     });
-    console.log(result)
     if(result?.error !== null) {
       Swal.fire({
         text: `아이디 비빌번호를 확인 후 다시 시도해주세요.`,
@@ -117,7 +116,6 @@ function LongForm() {
         },
       });
     } else {
-      console.log(result)
       Swal.fire({
         text: `신세계포인트에 오신 것을 환영합니다.`,
         toast: true,

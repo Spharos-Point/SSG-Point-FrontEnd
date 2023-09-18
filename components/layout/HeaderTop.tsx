@@ -16,7 +16,6 @@ function HeaderTop() {
     const [showBarcode, setShowBarcode] = useState<boolean>(false)
     const pathname = usePathname();
     const session = useSession();
-    console.log(session.status)
     const handleSideMenu = () => {
         setIsOpened(!isOpened)
     }

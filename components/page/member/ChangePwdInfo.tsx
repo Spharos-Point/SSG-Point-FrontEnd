@@ -41,7 +41,6 @@ function ChangePwdInfo() {
         });
 
         const json = await response.json();
-        console.log(json)
         if(json.code === 200) {
             Swal.fire({
                 text: '비밀번호가 변경되었습니다',

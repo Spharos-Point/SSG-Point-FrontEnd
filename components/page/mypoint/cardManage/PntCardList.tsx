@@ -27,8 +27,6 @@ export const NoDataView = () => {
 
 export default function PntCardList({ pointCardList }: { pointCardList: PointCardType[] }) {
 
-  console.log(pointCardList)
-
   const noData = !pointCardList || pointCardList.length === 0 ? <NoDataView /> : null;
   return (
     <div className='px-[20px] py-[40px]'>

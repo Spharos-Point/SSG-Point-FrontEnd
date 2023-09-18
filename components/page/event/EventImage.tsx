@@ -20,7 +20,6 @@ function EventImage(props : {id: number, url: string, img: string, imgAlt: strin
     exdate.setHours(0);
 
     const difDate = Math.ceil((exdate.getTime() - date.getTime()) / (1000 * 60 *60 * 24));
-    // console.log(((exdate.getTime() - date.getTime())/ (1000 * 60 *60 * 24)), difDate)
 
     return (
         <li className='text-center box-border relative min-w-[400px]'>
