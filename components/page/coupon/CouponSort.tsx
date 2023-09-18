@@ -9,7 +9,6 @@ function CouponSort() {
 
     const router = useRouter();
     const pathname = usePathname();
-    console.log(pathname)
     const handleselect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     router.push(`/coupon?sort=${e.target.value}`)
     }

@@ -7,7 +7,6 @@ import { options } from '../api/auth/[...nextauth]/options'
 async function Login() {
 
   const data = await getServerSession(options)
-  console.log("loginpage", data)
   return (
     <section className='min-h-screen '>
       <div className='login_cnt flex flex-col justify-between'>

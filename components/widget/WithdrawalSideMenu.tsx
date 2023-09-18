@@ -23,7 +23,6 @@ function WithdrawalSideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispa
             });
 
             const json = await response.json();
-            console.log(json);
             if(json.code === 200) {
                 signOut({callbackUrl: '/'})
             }

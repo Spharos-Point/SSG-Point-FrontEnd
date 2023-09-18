@@ -8,9 +8,6 @@ import Swal from 'sweetalert2';
 
 export default function CardManagePointBox({ pointCardList }: { pointCardList: PointCardType[] }) {
   const session = useSession();
-  console.log(session.status);
-
-  console.log("pointCardList[0]:", pointCardList[0]);
   const firstCardNum = pointCardList[0].cardNumber;
 
   //카드넘버 형식 변환

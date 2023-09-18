@@ -18,7 +18,6 @@ function MainSwiperEvent(props : {data:MainBannerCardProps[]}) {
 
 
   const handleTransitionStart = (swiper: any) => {
-    // console.log(swiper.realIndex);
 
     setIsCurrentIndex(swiper.realIndex + 1);
   }

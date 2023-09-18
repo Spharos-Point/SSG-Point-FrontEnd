@@ -6,8 +6,6 @@ export default function PntAcceptBox() {
   const { data: session } = useSession();
   const [giftData, setGiftData] = useState(null); // 서버에서 받은 선물 데이터를 저장할 상태
   const [hasPendingGift, setHasPendingGift] = useState(false); // 선물 수락 대기중인 선물이 있는지 확인
-  console.log(session);
-  console.log(giftData);
 
   useEffect(() => {
     if (session) {

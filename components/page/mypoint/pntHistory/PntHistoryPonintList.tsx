@@ -35,10 +35,7 @@ export default function PntHistoryPonintList({ }) {
 
   useEffect(() => {
     setSelectedPointType(query.get('pointType') || 'all');
-    console.log(query.get('pointType'))
-    console.log(query.get('range'))
-    console.log(session?.user.token)
-
+    
     const fetchData = async () => {
       try {
         const response = await fetch(`${process.env.BASE_API_URL}/api/v1/userPointList/history?pointType=${query.get('pointType')}&range=${query.get('range')}`,{

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './join.module.css'
+import styles from './Join.module.css'
 import Link from 'next/link'
 
 function Join() {
