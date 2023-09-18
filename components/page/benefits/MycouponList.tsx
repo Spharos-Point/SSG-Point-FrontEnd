@@ -17,11 +17,21 @@ function MycouponList() {
     const session = useSession();
     const [coupon, setCoupon] = useState<CouponDataType[]>();
 
-
+    // 오류 발생 
     useEffect(() => {
         if(session.status === 'authenticated') {
             if(pathname === '/benefits/myCoupon') {
                 fetch(`${process.env.BASE_API_URL}/api/v1/benefits/myCoupon`, {
+                    method:'GET',
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization" : `Bearer ${session.data?.user.token}`
+                    },
+                })
+                .then((res) => res.json())
+                .then((data) => setCoupon(data));
+            } else if(pathname === '/benefits/endCoupon') {
+                fetch(`${process.env.BASE_API_URL}/api/v1/benefits/endCoupon`, {
                     method:'GET',
                     headers: {
                         "Content-Type": "application/json",

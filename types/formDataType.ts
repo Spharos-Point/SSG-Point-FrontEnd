@@ -9,6 +9,7 @@ export interface LoginFormDataType {
     loginId: string,
     name: string,
     password: string,
+    pwChkId: string,
     email: string,
     phone: string
     address: string
@@ -18,6 +19,7 @@ export interface LoginFormDataType {
     loginId: string,
     name: string,
     phone: string
+    birth: string
   }
 
   export interface ChangePwDataType {
@@ -32,4 +34,9 @@ export interface LoginFormDataType {
   export interface ChangePointPwdDataType {
     newPointPassword: string,
     newPointPasswordCheck: string,
+  }
+
+  export interface ModifyDataType {
+    address: string,
+    email: string,
   }
