@@ -4,7 +4,6 @@ import LaterOneMonth from './LaterOneMonth'
 import LaterTwoMonth from './LaterTwoMonth'
 
 export default function PntHistoryPointBox({userTotalpoint}: {userTotalpoint: number}){
-  console.log(userTotalpoint)
   return(
         <div className='p-[24px] bg-[#fbfbfb]'>
         <div className={styles.cardbox}>

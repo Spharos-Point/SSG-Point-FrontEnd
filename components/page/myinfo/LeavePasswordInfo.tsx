@@ -22,7 +22,6 @@ function LeavePasswordInfo() {
             })
         })
         const json = await response.json();
-        console.log(json, password);
         if(json.code === 200) {
             router.push('/myinfo/withdrawal/leaveUsingService')
         } else {
@@ -42,7 +41,6 @@ function LeavePasswordInfo() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
-        console.log(name, value)
         setPassword({
             ...password,
             [name]: value

@@ -11,8 +11,6 @@ import styles from './layout.module.css'
 
 export default function mypointLayout({ children }: { children: React.ReactNode }) {
     const pathName = usePathname();
-    console.log(pathName);
-
     return (
         <>
         <div className="flex pt-[70px] box-border text-center ">

@@ -14,7 +14,6 @@ function FindPwResultInput() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
-        // console.log(name, value);
     setChangePw({
         ...changePw,
         [name]: value,

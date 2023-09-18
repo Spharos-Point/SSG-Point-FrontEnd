@@ -10,9 +10,7 @@ import { BaseResDataType } from '@/types/baseResDataType'
 //온라인 포인트 카드 리스트 조회
 const cardList = async () => {
   const session = await getServerSession(options)
-  console.log(session?.user.token)
   const url = `${process.env.BASE_API_URL}/api/v1/myinfo/cardManage`
-  console.log(url)
   const res = await fetch(url, {
     method: 'GET',
     headers: {
@@ -20,7 +18,6 @@ const cardList = async () => {
       'Authorization': `Bearer ${session?.user.token}`,
     },
   });
-  console.log(res)
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -30,7 +27,6 @@ const cardList = async () => {
 
 async function CardMange() {
   const data: BaseResDataType = await cardList();
-  console.log("totalPoint: ")
 
   return (
     <>

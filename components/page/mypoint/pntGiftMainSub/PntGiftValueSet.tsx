@@ -29,7 +29,6 @@ export default function PntGiftValueSet() {
         }
         fetchData(); // fetchData 함수 호출
     }, [session]); // session이 변경될 때마다 API 요청을 다시 보냄
-    console.log(availablegiftPoints); // 데이터를 콘솔에 출력
     return (
         <div>
             <div className='box-border pt-5'>

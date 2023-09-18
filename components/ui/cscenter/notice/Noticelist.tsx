@@ -41,7 +41,6 @@ export default function Noticelist() {
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-  console.log(noticeData);
   // 현재 페이지의 아이템 추출
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;

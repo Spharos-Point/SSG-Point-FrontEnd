@@ -180,7 +180,6 @@ function JoinAuthPhoneForm() {
         });
 
         const json = await response.json();
-        console.log(json.result)
         if(json.result === undefined) {
           // 회원가입 된 아이디가 없을 경우
           localStorage.setItem('authData', JSON.stringify(authData));

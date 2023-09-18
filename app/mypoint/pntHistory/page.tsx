@@ -9,9 +9,7 @@ import { BaseResDataType } from '@/types/baseResDataType'
 //토탈포인트 조회
 const getTotalPoint = async () => {
   const session = await getServerSession(options)
-  console.log(session?.user.token)
   const url = `${process.env.BASE_API_URL}/api/v1/pointRead/total`
-  console.log(url)
   const totalPoint = await fetch(url, {
     method: 'GET',
     headers: {
@@ -19,7 +17,6 @@ const getTotalPoint = async () => {
       'Authorization': `Bearer ${session?.user.token}`,
     },
   });
-  console.log(totalPoint)
   if (!totalPoint.ok) {
     throw new Error(await totalPoint.text())
   }
@@ -31,7 +28,6 @@ const getTotalPoint = async () => {
 
 async function PntHistory() {
   const userTotalpoint: BaseResDataType = await getTotalPoint()
-  console.log(userTotalpoint)
 
   return (
     <>

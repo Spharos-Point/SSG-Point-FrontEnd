@@ -29,7 +29,6 @@ export const options: NextAuthOptions = {
             })
           })
           const user = await res.json()
-          console.log(user.isSuccess)
           if(user.isSuccess){
             const result = await fetch(`${process.env.BASE_API_URL}/api/v1/userPointList/total`, {
               method: 'GET',
@@ -50,7 +49,6 @@ export const options: NextAuthOptions = {
             const barcodeResult = await barcode.json()
             user.result.barcode = barcodeResult.result[0].cardNumber
             user.result.userPoint = userPoint.result
-            console.log(user.result)
             return user.result
           }     
         } catch (e: any) {
