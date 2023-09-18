@@ -38,16 +38,6 @@ async function CardMange() {
       />
 
       <div className='px-[20px] pb-[40px]'>
-        <Link href="">
-          <button className='bg-[#fff] box-border border-[1px] block rounded-[8px] 
-      w-full h-[48px] text-[14px] leading-[24px] font-medium p-[12px] mb-[15px]'>
-            신규 포인트 카드 등록하기</button></Link>
-
-        <Link href="">
-          <button className='bg-[#fff] box-border border-[1px] block rounded-[8px] 
-      w-full h-[48px] text-[14px] leading-[24px] font-medium p-[12px] mb-[15px]'>
-            임시 발급 카드 인증하기</button></Link>
-
         <Link href="/mypoint/chgPntPwdCert">
           <button className={styles.button01}>
             포인트 비밀번호 변경하기</button>

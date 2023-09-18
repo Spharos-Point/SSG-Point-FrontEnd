@@ -1,5 +1,31 @@
+'use client'
 import React from 'react'
 import styles from './PntGiftList.module.css'
+
+export const NoDataView = () => {
+    return (
+        <>
+            <table className='w-full table-fixed border-t-[1px] border-t-black'>
+                <colgroup>
+                    <col className="w-2/5" />
+                    <col className="w-auto" />
+                    <col className="w-[81px]" />
+                </colgroup>
+                <thead>
+                    <tr className='font-normal text-center text-[13px]
+            border-b-[1px] box-border leading-[21px] '>
+                        <th scope='col' className='py-3'>카드번호</th>
+                        <th scope='col' className='py-3'>발급처</th>
+                        <th scope='col' className='py-3'>발급일자</th>
+                    </tr>
+                </thead>
+            </table>
+            <p className='text-[13px] text-center text-[#767676] py-[28px]'>
+                보유하신 카드가 없습니다.
+            </p>
+        </>
+    )
+}
 
 export default function PntGiftList() {
     return (
@@ -21,7 +47,7 @@ export default function PntGiftList() {
                         <p className={styles.PntGiftList_plus}>
                             적립
                             <strong className='text-[13px] leading-[13px] font-normal ml-[8px]'>
-                                {1}P
+                                {0}P
                             </strong>
                         </p>
                         <p className={styles.PntGiftList_minus}>
@@ -34,7 +60,7 @@ export default function PntGiftList() {
                 </div>
             </div>
             <ul className='px-[5px]'>
-                <li className='flex flex-wrap items-center min-h-[74px] py-[5px] border-b-[1px] '>
+                {/* <li className='flex flex-wrap items-center min-h-[74px] py-[5px] border-b-[1px] '>
                     <p className={styles.p_accumulate}>{1}P
                         <span>{"선물적립"}</span>
                     </p>
@@ -58,7 +84,10 @@ export default function PntGiftList() {
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> */}
+                <p className='text-[13px] text-center text-[#767676] py-[28px] border-b-[1px]'>
+                    선물 내역이 없습니다.
+                </p>
             </ul>
         </div>
     )

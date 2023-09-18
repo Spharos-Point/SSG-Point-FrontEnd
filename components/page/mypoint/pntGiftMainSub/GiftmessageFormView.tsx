@@ -33,9 +33,13 @@ export default function GiftmessageFormView({ messageText, messageStyle, isMesag
         .then ((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    icon: 'success',
-                    text: '선물이 완료되었습니다.',
+                    // icon: 'success',
+                    // text: '선물이 완료되었습니다.',
+                    // confirmButtonText: '확인',
+                    title: '개발 중 상태입니다.',
+                    icon: 'info',
                     confirmButtonText: '확인',
+                    confirmButtonColor: '#615EFF',
                 })
             }
         })
