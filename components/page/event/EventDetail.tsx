@@ -1,15 +1,59 @@
 'use client'
 
 import { EventDataType } from '@/types/eventDataType';
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
+import { useSession } from 'next-auth/react';
+import Swal from 'sweetalert2';
 
 function EventDetail() {
 
     const params = useSearchParams();
     const eventNo = params.get('eventNo');
     const [detailEvent, setDetailEvent] = useState<EventDataType>();
+    const session = useSession();
+    const router = useRouter();
+
+    const handlePartiFetch = async () => {
+        if(session.status === "authenticated") {
+            const response = await fetch(`${process.env.BASE_API_URL}/api/v1/ingevents`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization" : `Bearer ${session.data.user.token}`
+                },
+                body:JSON.stringify({
+                    eventId: params.get('eventNo')
+                })
+            });
+            console.log
+            if(response.status === 200) {
+                Swal.fire({
+                    text: "이벤트 참여가 완료 되었습니다. 참여한 이벤트는 마이 이벤트에서 확인할 수 있어요.",
+                    confirmButtonText: "확인",
+                    customClass: {
+                    confirmButton: "mySwalConfirmButton",
+                    },
+                })
+            }
+        } else {
+            Swal.fire({
+                text: "이벤트 참여를 위해 먼저 로그인해 주세요.",
+                showCancelButton: true,
+                confirmButtonText: "로그인",
+                cancelButtonText: "닫기",
+                customClass: {
+                    confirmButton: "mySwalConfirmButton",
+                    cancelButton: "mySwalCancelButton",
+                },
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    router.push('/login');
+                }
+            })
+        }
+    }
 
     useEffect(() => {
         fetch(`${process.env.BASE_API_URL}/api/v1/event/${eventNo}`, {
@@ -55,6 +99,15 @@ function EventDetail() {
                 />
                 </p>
             </div>
+            {
+                detailEvent.eventType === '참여'
+                ?
+                <div className='btn_box mt-3'>
+                        <button className='btn_primary' onClick={handlePartiFetch}>참여하기</button>
+                </div>
+                :
+                ""
+            }
         </div>
         :
         null
