@@ -16,7 +16,7 @@ export const bookmarkData: bookmarkType[] = [
     },
     {
         id: 3,
-        url: '/mylounge/receipt',
+        url: '/error',
         title: "스마트 영수증",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_big_22.png",
     },
@@ -27,31 +27,31 @@ export const bookmarkData: bookmarkType[] = [
 export const sideMenuPointData: sideMenuType[] = [
     {
         id: 1,
-        url: '/spoint/memberstore',
+        url: '/error',
         title: "가맹점 소개",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_40.png",
     },
     {
         id: 2,
-        url: '/spoint/pointcard',
+        url: '/error',
         title: "포인트 카드",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_41.png",
     },
     {
         id: 3,
-        url: '/spoint/pointservice',
+        url: '/error',
         title: "포인트 서비스",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_42.png",
     },
     {
         id: 4,
-        url: '/spoint/tempCardCert',
+        url: '/error',
         title: "임시 발급 카드 인증",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_44.png",
     },
     {
         id: 5,
-        url: '/spoint/newsLetter',
+        url: '/error',
         title: "신세계그룹 뉴스레터",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_43.png",
     },
@@ -62,19 +62,19 @@ export const sideMenuPointData: sideMenuType[] = [
 export const sideMenuMembershipData: sideMenuType[] = [
     {
         id: 1,
-        url: '/membership/pointId',
+        url: '/error',
         title: "신세계포인트 통합 ID 관리",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_50.png",
     },
     {
         id: 2,
-        url: '/membership/club',
+        url: '/error',
         title: "클럽",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_51.png",
     },
     {
         id: 3,
-        url: '/membership/combine',
+        url: '/error',
         title: "신세계 유니버스 클럽",
         img: "https://storage.googleapis.com/team3_spharos_bucket/img/side_menu_image/menu_universe.png",
     }

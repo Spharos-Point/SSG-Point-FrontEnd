@@ -18,7 +18,7 @@ export default function mypointLayout({ children }: { children: React.ReactNode 
         <div className="flex pt-[70px] box-border text-center ">
             <Swiper slidesPerView={3} freeMode={true}>
             <SwiperSlide>
-                <li role="presentation" className={pathName === "/benefits/pntPlus/attend" ? styles.gnb_depth2_active : styles.gnb_depth2_default}>
+                <li role="presentation" className={pathName === "/benefits/pntPlus/attend" || pathName === "/benefits/pntPlus/roulette" ? styles.gnb_depth2_active : styles.gnb_depth2_default}>
                 <Link href="/benefits/pntPlus/attend">포인트 플러스
                 </Link>
                 </li>

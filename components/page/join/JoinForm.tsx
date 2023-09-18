@@ -114,28 +114,28 @@ function JoinForm() {
             return;
         }
 
-        // const response = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/signup`, {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         loginId: signup.loginId,
-        //         password: signup.password,
-        //         name: signup.name,
-        //         phone: signup.phone,
-        //         email: signup.email,
-        //         address: signup.address
-        //     })
-        // })
-        // .then((res) => {
-        //     if(res.status === 200) {
-        //         sessionStorage.setItem('signup', JSON.stringify(signup));
-        //         router.push('/member/join/success');
-        //     } else {
-        //         alert("회원가입 실패했습니다.");
-        //     }
-        // }) 
+        const response = await fetch(`${process.env.BASE_API_URL}/api/v1/auth/signup`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                loginId: signup.loginId,
+                password: signup.password,
+                name: signup.name,
+                phone: signup.phone,
+                email: signup.email,
+                address: signup.address
+            })
+        })
+        .then((res) => {
+            if(res.status === 200) {
+                sessionStorage.setItem('signup', JSON.stringify(signup));
+                router.push('/member/join/success');
+            } else {
+                alert("회원가입 실패했습니다.");
+            }
+        }) 
 
         // const json = await response.json();
 

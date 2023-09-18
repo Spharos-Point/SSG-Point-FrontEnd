@@ -148,7 +148,11 @@ export const pageTitleData: pageTitleDataType[] = [
     {
         path: '/myinfo/modify',
         title: '마이 회원정보'
-    },    
+    },  
+    {
+        path: '/error',
+        title: '개발 중'
+    },   
     
 
 ]

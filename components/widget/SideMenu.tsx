@@ -98,7 +98,7 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
         <ul className="sidemenu_terms mt-[50px] mb-[80px] ml-[20px]">
           <li className="inline-block">
             <Link
-              href="/stplat/terms"
+              href="/error"
               className="block text-[12px] text-[#767676] leading-[13px] py-[5px] font-semibold"
             >
               서비스 이용약관
@@ -106,7 +106,7 @@ function SideMenu(props : {isOpened: Boolean, setIsOpened: React.Dispatch<React.
           </li>
           <li className="inline-block relative ml-[24px]">
             <Link
-              href="/stplat/policy"
+              href="/error"
               className="block text-[#eb0000] text-[12px] leading-3 py-[5px] font-semibold"
             >
               개인정보 처리방침

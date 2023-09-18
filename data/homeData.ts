@@ -15,7 +15,7 @@ export const mainBannerData :MainBannerCardProps[] = [
     },
     {
         id: 3,
-        url: '/membership/combine',
+        url: '/error',
         imgUrl: 'https://storage.googleapis.com/team3_spharos_bucket/img/banner/main_event_banner03.jpg',
         imgAlt: '신세계 유니버스 클럽'
     },
@@ -33,7 +33,7 @@ export const mainBannerData :MainBannerCardProps[] = [
     },
     {
         id: 6,
-        url: '/cscenter/notice/detail?boardNo=241&pageNo=1',
+        url: '',
         imgUrl: 'https://storage.googleapis.com/team3_spharos_bucket/img/banner/main_event_banner06.jpg',
         imgAlt: '지구의 내일을 우리가 함께 모바일 영수증을 ON 하세요 배너 클릭 시 공지사항 상세페이지로 현재창 이동합니다.'
     }
@@ -139,7 +139,7 @@ export const mainMenuData:MainMenuCardProps[] = [
     },
     {
         id: 5,
-        url: '/ingevents',
+        url: '/error',
         imgUrl: '/menu05.png',
         imgAlt: '영수증',
         name: '영수증'
