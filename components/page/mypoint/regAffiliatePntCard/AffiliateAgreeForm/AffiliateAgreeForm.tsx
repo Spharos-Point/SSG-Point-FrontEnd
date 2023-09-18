@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+'use client'
 import React from 'react'
 import styles from './AffiliateAgreeForm.module.css'
+import Swal from 'sweetalert2'
 
 export default function AffiliateAgreeForm() {
     return (
@@ -46,7 +47,15 @@ export default function AffiliateAgreeForm() {
                         </div>
                     </div>
                 </div>
-                <button className='pt-[30px] w-full h-[48px] box-border' >
+                <button className='pt-[30px] w-full h-[48px] box-border'
+                    onClick={() => {
+                        Swal.fire({
+                            title: '개발 중 상태입니다.',
+                            icon: 'info',
+                            confirmButtonText: '확인',
+                            confirmButtonColor: '#615EFF',
+                        });
+                    }}>
                     <a className={styles.btn_box}>등록하기</a>
                 </button>
             </div>
